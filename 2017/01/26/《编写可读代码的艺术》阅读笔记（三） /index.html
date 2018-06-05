@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="唯一特长是打退堂鼓">
+    <meta name="keyword" content="null">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
+    <link rel="alternate" type="application/atom+xml" title="咸鱼Jackie" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        《编写可读代码的艺术》阅读笔记（三）｜叫Jackie的咸鱼
+        
+    </title>
+
+    <link rel="canonical" href="http://jackieanxis.github.io/blog/2017/01/26/《编写可读代码的艺术》阅读笔记（三） /">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/blog/css/syntax.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/blog/">
+                <span class="brand-logo">
+                    咸鱼Jackie
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/blog/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/blog/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/blog/blog/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="http://o6vut8vrh.bkt.clouddn.com/background.png">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>《编写可读代码的艺术》阅读笔记（三）</h1>
+                    
+                    <span class="meta">
+                         作者 Jackie Anxis
+                        <span>
+                          日期 2017-01-26
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/blog/tags/#笔记"
+                           title="笔记">笔记</a>
+                        
+                        <a class="tag" href="/blog/tags/#读书"
+                           title="读书">读书</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            《编写可读代码的艺术》阅读笔记（三）
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="重新组织代码"><a href="#重新组织代码" class="headerlink" title="重新组织代码"></a>重新组织代码</h1><h2 id="一、抽取不相关的子问题"><a href="#一、抽取不相关的子问题" class="headerlink" title="一、抽取不相关的子问题"></a>一、抽取不相关的子问题</h2><blockquote>
+<p>建议：<strong>积极发现并抽取出不相关的子逻辑</strong></p>
+<ul>
+<li>看看某个函数或代码块，问问自己，这段代码高层次目标是什么？</li>
+<li>对每一行代码，问问自己，它是直接为了目标而工作吗？这段代码的高层次目标是什么？</li>
+<li>如果有足够的行数在解决不相关的子问题，抽取代码到独立的函数中</li>
+</ul>
+</blockquote>
+<ul>
+<li>例子，计算地球上两个点的最近距离<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Return which element of 'array' is closest to the given latitude/longitude.</span></div><div class="line"><span class="comment">// Models the Earth as a perfect sphere.</span></div><div class="line"><span class="keyword">var</span> findClosestLocation = <span class="function"><span class="keyword">function</span>(<span class="params">lat, lng, array</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> closest;</div><div class="line">	<span class="keyword">var</span> closest_dist = <span class="built_in">Number</span>.MAX_VALUE;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; array.length; i += <span class="number">1</span>) &#123;</div><div class="line">		<span class="comment">// Convert both points to radians.</span></div><div class="line">		<span class="keyword">var</span> lat_rad = radians(lat);</div><div class="line">		<span class="keyword">var</span> lng_rad = radians(lng);</div><div class="line">		<span class="keyword">var</span> lat2_rad = radians(array[i].latitude);</div><div class="line">		<span class="keyword">var</span> lng2_rad = radians(array[i].longitude);</div><div class="line">		<span class="comment">// Use the "Spherical Law of Cosines" formula.</span></div><div class="line">		<span class="keyword">var</span> dist = <span class="built_in">Math</span>.acos(<span class="built_in">Math</span>.sin(lat_rad) * <span class="built_in">Math</span>.sin(lat2_rad) +</div><div class="line">			<span class="built_in">Math</span>.cos(lat_rad) * <span class="built_in">Math</span>.cos(lat2_rad) *</div><div class="line">			<span class="built_in">Math</span>.cos(lng2_rad - lng_rad));</div><div class="line">		<span class="keyword">if</span> (dist &lt; closest_dist) &#123;</div><div class="line">			closest = array[i];</div><div class="line">			closest_dist = dist;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> closest;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>循环中大部分代码都在解决一个和高层问题无关的子问题：“计算两个坐标之间的球面距离”，所以我们将它抽离出来：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> spherical_distance = <span class="function"><span class="keyword">function</span>(<span class="params">lat1, lng1, lat2, lng2</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> lat1_rad = radians(lat1);</div><div class="line">    <span class="keyword">var</span> lng1_rad = radians(lng1);</div><div class="line">    <span class="keyword">var</span> lat2_rad = radians(lat2);</div><div class="line">    <span class="keyword">var</span> lng2_rad = radians(lng2);</div><div class="line">    <span class="comment">// Use the "Spherical Law of Cosines" formula.</span></div><div class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.acos(<span class="built_in">Math</span>.sin(lat1_rad) * <span class="built_in">Math</span>.sin(lat2_rad) +</div><div class="line">        <span class="built_in">Math</span>.cos(lat1_rad) * <span class="built_in">Math</span>.cos(lat2_rad) *</div><div class="line">        <span class="built_in">Math</span>.cos(lng2_rad - lng1_rad));</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>然后函数就变成了，可读性更高，还能做单独测试：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> findClosestLocation = <span class="function"><span class="keyword">function</span>(<span class="params">lat, lng, array</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> closest;</div><div class="line">    <span class="keyword">var</span> closest_dist = <span class="built_in">Number</span>.MAX_VALUE;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; array.length; i += <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">var</span> dist = spherical_distance(lat, lng, array[i].latitude, array[i].longitude);</div><div class="line">        <span class="keyword">if</span> (dist &lt; closest_dist) &#123;</div><div class="line">            closest = array[i];</div><div class="line">            closest_dist = dist;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> closest;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>值得明白的一点是，例子中并不是在讲怎么架构，不是从<strong>如何解耦</strong>出发的，而是从如何抽取<strong>不相关的问题</strong>出发的。虽然殊途同归，但是思路是不一样的。</p>
+<ul>
+<li><p>意料之外的好处：当抽取不相关子问题成为独立的代码之后，改进这些独立的代码变得更加容易。</p>
+</li>
+<li><p><strong>过犹不及</strong>：过多的抽离子问题，会让整个代码引入过多的小函数，阅读者就需要在不同的函数之间反复跳跃，降低可读性。</p>
+</li>
+</ul>
+<h2 id="二、一次只做一件事"><a href="#二、一次只做一件事" class="headerlink" title="二、一次只做一件事"></a>二、一次只做一件事</h2><blockquote>
+<p><strong>建议</strong>：</p>
+<ol>
+<li>列出代码所做的所有任务</li>
+<li>尽量把任务拆分到不同的函数中，或者至少是代码中不同的段落中</li>
+</ol>
+</blockquote>
+<h2 id="三、把想法变代码"><a href="#三、把想法变代码" class="headerlink" title="三、把想法变代码"></a>三、把想法变代码</h2><blockquote>
+<p><strong>建议</strong>：</p>
+<ol>
+<li>像对着一个同事一样用自然语言描述代码要做什么</li>
+<li>注意描述中所用的关键词和短语</li>
+<li>写出与描述所匹配的代码</li>
+</ol>
+</blockquote>
+<h3 id="清楚描述逻辑"><a href="#清楚描述逻辑" class="headerlink" title="清楚描述逻辑"></a>清楚描述逻辑</h3><p>在写代码之前，先清晰的描述（写）出你的逻辑，再进行coding，这样有助于你写出更好的代码。<br>这不就是传说中的“小黄鸭debug术”吗！<br><img src="http://o6vut8vrh.bkt.clouddn.com/17-1-27/76690189-file_1485499018366_468c.png" alt=""><br>下面这个例子就说明了如何用清晰的逻辑重构代码：<br><figure class="highlight php"><table><tr><td class="code"><pre><div class="line">$is_admin = is_admin_request();</div><div class="line"><span class="keyword">if</span> ($document) &#123;</div><div class="line">	<span class="keyword">if</span> (!$is_admin &amp;&amp; ($document[<span class="string">'username'</span>] != $_SESSION[<span class="string">'username'</span>])) &#123;</div><div class="line">		<span class="keyword">return</span> not_authorized();</div><div class="line">	&#125;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">	<span class="keyword">if</span> (!$is_admin) &#123;</div><div class="line">		<span class="keyword">return</span> not_authorized();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// continue rendering the page ..</span></div></pre></td></tr></table></figure></p>
+<p>可以将上述逻辑表述为：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 以下两种情况之一，你就能获得授权：</span></div><div class="line"><span class="comment">// 1. 你是管理员</span></div><div class="line"><span class="comment">// 2. 你拥有当前文档（如果有当前文档的话）</span></div><div class="line"><span class="comment">// 否则，无法授权与你</span></div></pre></td></tr></table></figure></p>
+<p>于是，代码可以重构为：<br><figure class="highlight php"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span> (is_admin_request()) &#123;</div><div class="line">	<span class="comment">// authorized</span></div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> ($document &amp;&amp; ($document[<span class="string">'username'</span>] == $_SESSION[<span class="string">'username'</span>])) &#123;</div><div class="line">	<span class="comment">// authorized</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">	<span class="keyword">return</span> not_authorized();</div><div class="line">&#125;</div><div class="line"><span class="comment">// continue rendering the page ...</span></div></pre></td></tr></table></figure></p>
+<h2 id="三、少写代码"><a href="#三、少写代码" class="headerlink" title="三、少写代码"></a>三、少写代码</h2><blockquote>
+<p>最好读的代码就是：没有代码</p>
+</blockquote>
+<h3 id="质疑和拆分需求"><a href="#质疑和拆分需求" class="headerlink" title="质疑和拆分需求"></a>质疑和拆分需求</h3><p>并不是所有程序都要运行得快，100%准确，并且能处理所有的输入。可以根据实际需要，拆分并且削减一部分需求。</p>
+<h3 id="保持小的代码库"><a href="#保持小的代码库" class="headerlink" title="保持小的代码库"></a>保持小的代码库</h3><p><strong>建议</strong>：</p>
+<ul>
+<li>代码复用，创建更多可复用的“工具”代码</li>
+<li>减少无用的代码或没有用的功能</li>
+<li>让代码保持分开的子项目状态</li>
+</ul>
+<h3 id="熟悉你周边的库"><a href="#熟悉你周边的库" class="headerlink" title="熟悉你周边的库"></a>熟悉你周边的库</h3><p>建议：<strong>每个一段时间，花15分钟来阅读标准库中的所有函数/模块/类型的名字</strong>，用以了解有什么可以用，下次写新的代码时就会想到。</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/2017/01/29/CSS@11弹性布局flex/" data-toggle="tooltip" data-placement="top"
+                           title="CSS@11弹性布局flex">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/2017/01/26/《编写可读代码的艺术》阅读笔记（二）/" data-toggle="tooltip" data-placement="top"
+                           title="《编写可读代码的艺术》阅读笔记（二）">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTk2MC82NTI1">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#重新组织代码"><span class="toc-text">重新组织代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、抽取不相关的子问题"><span class="toc-text">一、抽取不相关的子问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、一次只做一件事"><span class="toc-text">二、一次只做一件事</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、把想法变代码"><span class="toc-text">三、把想法变代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#清楚描述逻辑"><span class="toc-text">清楚描述逻辑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、少写代码"><span class="toc-text">三、少写代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#质疑和拆分需求"><span class="toc-text">质疑和拆分需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#保持小的代码库"><span class="toc-text">保持小的代码库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#熟悉你周边的库"><span class="toc-text">熟悉你周边的库</span></a></li></ol></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/blog/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/blog/tags/#笔记"
+                           title="笔记">笔记</a>
+                        
+                        <a class="tag" href="/blog/tags/#读书"
+                           title="读书">读书</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/deepfeel-anxis">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/JackieAnxis">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 咸鱼Jackie 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/blog/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://jackieanxis.github.io/blog/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    var _baId = '46a3d5833f277ac4dc2a9cf1285413de';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="http://o6vut8vrh.bkt.clouddn.com/17-1-24/89289633-file_1485227996130_e75a.jpg">
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+
+</html>

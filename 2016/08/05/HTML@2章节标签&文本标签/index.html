@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="唯一特长是打退堂鼓">
+    <meta name="keyword" content="null">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
+    <link rel="alternate" type="application/atom+xml" title="咸鱼Jackie" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        HTML@2章节标签&amp;文本标签｜叫Jackie的咸鱼
+        
+    </title>
+
+    <link rel="canonical" href="http://jackieanxis.github.io/blog/2016/08/05/HTML@2章节标签&amp;文本标签/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/blog/css/syntax.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/blog/">
+                <span class="brand-logo">
+                    咸鱼Jackie
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/blog/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/blog/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/blog/blog/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="http://o6vut8vrh.bkt.clouddn.com/background.png">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>HTML@2章节标签&amp;文本标签</h1>
+                    
+                    <span class="meta">
+                         作者 Jackie Anxis
+                        <span>
+                          日期 2016-08-05
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/blog/tags/#前端"
+                           title="前端">前端</a>
+                        
+                        <a class="tag" href="/blog/tags/#笔记"
+                           title="笔记">笔记</a>
+                        
+                        <a class="tag" href="/blog/tags/#HTML"
+                           title="HTML">HTML</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            HTML@2章节标签&文本标签
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h2 id="常用标签"><a href="#常用标签" class="headerlink" title="常用标签"></a>常用标签</h2><h3 id="章节标签"><a href="#章节标签" class="headerlink" title="章节标签"></a>章节标签</h3><ul>
+<li><code>&lt;body&gt;</code>标签：是整个文档的容器，文档章节内容相关的标签都会包含在body中</li>
+<li><code>&lt;header&gt;</code>标签：页面头部标签，可以参见下图</li>
+<li><code>&lt;footer&gt;</code>标签：页面底部标签，可以参见下图<br><img src="http://o6vut8vrh.bkt.clouddn.com/16-8-9/6142987.jpg" alt=""></li>
+<li><code>&lt;nav&gt;</code>标签：导航，可以参考下图<br><img src="http://o6vut8vrh.bkt.clouddn.com/16-8-9/1596405.jpg" alt=""></li>
+<li><code>&lt;aside&gt;</code>标签：和主要内容不相关的区域插入的广告，一些工具性的内容<br><img src="http://o6vut8vrh.bkt.clouddn.com/16-8-9/32408003.jpg" alt=""></li>
+<li><code>&lt;article&gt;</code>标签：独立的可重复的结构，论坛的帖子文章等等<br><img src="http://o6vut8vrh.bkt.clouddn.com/16-8-9/59101603.jpg" alt=""></li>
+<li><code>&lt;section&gt;</code>标签：表示文档中的一节，一般来说section会带一个标题<br><img src="http://o6vut8vrh.bkt.clouddn.com/16-8-9/1803994.jpg" alt=""></li>
+<li>h1-h6标签：标题标签，从1-6依次变小<br><img src="http://o6vut8vrh.bkt.clouddn.com/16-8-9/34667391.jpg" alt=""></li>
+</ul>
+<h3 id="文本标签"><a href="#文本标签" class="headerlink" title="文本标签"></a>文本标签</h3><h4 id="超链接标签-a"><a href="#超链接标签-a" class="headerlink" title="超链接标签 a"></a>超链接标签 <code>a</code></h4><p>超链接标签有很多用途，最常用的有三种，详情可以点击<a href="http://www.w3school.com.cn/tags/tag_a.asp" target="_blank" rel="external">【HTML a标签】</a>：</p>
+<p><strong>用途一</strong>：创建指向另一个文档的连接<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://jackie-anxis.com/"</span> <span class="attr">target</span>=<span class="string">"_self"</span>&gt;</span>叫Jackie的咸鱼<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>href是目标地址，target是跳转方式，默认是_self(在本页面显示), _blank(在新的窗口显示), 或者是一个名称(会在对应名称的iframe标签下显示)，比如这样：<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://jackie-anxis.com/"</span> <span class="attr">target</span>=<span class="string">"123"</span>&gt;</span>Jackie<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">name</span>=<span class="string">"123"</span> <span class="attr">style</span>=<span class="string">"display:block; width:500px"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><img src="http://o6vut8vrh.bkt.clouddn.com/16-8-9/27379656.jpg" alt=""></p>
+<p><strong>用途二</strong>：创建一个文档内部的锚点(跳转到页面中的其他地方)<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#bottom"</span> <span class="attr">style</span>=<span class="string">"display: block;"</span>&gt;</span>Jackie<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">id</span>=<span class="string">"bottom"</span> <span class="attr">src</span>=<span class="string">"www.jackie-anxis.com"</span> <span class="attr">style</span>=<span class="string">"margin: 400px 0"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><img src="http://o6vut8vrh.bkt.clouddn.com/16-8-9/33613196.jpg" alt=""><br>(这样点击之后，会跳转到id=”bottom”这个地方) 地址栏会多一个#bottom</p>
+<p><strong>用途三</strong>：链接到Email地址/电话号码，会直接打开邮箱的客户端<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">发送邮件：<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"mailto:yixinplus@188.com"</span>&gt;</span>联系我们<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">拨打电话：<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"tel:1321321321"</span>&gt;</span>31243234<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">还可以直接写上主题和抄送：</div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"mailto:xx@xx.com?cc=yy@yy.com&amp;subject=建议&amp;body=body..."</span>&gt;</span>联系我们(抄送)<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h4 id="强调标签-em-strong"><a href="#强调标签-em-strong" class="headerlink" title="强调标签 em strong"></a>强调标签 <code>em</code> <code>strong</code></h4><p><code>&lt;em&gt;</code>标签和<code>&lt;strong&gt;</code>标签都可以表示强调，但不同的是：<br><code>&lt;em&gt;</code>标签表示<strong>斜体</strong><br><code>&lt;strong&gt;</code>标签表示<strong>粗体</strong><br><img src="http://o6vut8vrh.bkt.clouddn.com/16-8-9/77322384.jpg" alt=""></p>
+<h4 id="行内容器-span"><a href="#行内容器-span" class="headerlink" title="行内容器 span"></a>行内容器 <code>span</code></h4><p>事实上，它就是一个非常普普通通的标签，默认是不换行的，可以用来组合行内元素，比如：<br><code>提示：请使用 &lt;span&gt; 来组合行内元素，以便通过样式来格式化它们。</code><br>假如你需要把提示两个字变成红色，那么可以写成这样：<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"color:red"</span>&gt;</span>提示：<span class="tag">&lt;/<span class="name">span</span>&gt;</span>请使用 span 来组合行内元素，以便通过样式来格式化它们<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>最终效果就会是：</p>
+<p><span style="color:red">提示：</span>请使用 span 来组合行内元素，以便通过样式来格式化它们</p>
+
+<h4 id="换行-br"><a href="#换行-br" class="headerlink" title="换行 br"></a>换行 <code>br</code></h4><p>就是换行</p>
+<h4 id="引用-cite-q"><a href="#引用-cite-q" class="headerlink" title="引用 cite q"></a>引用 <code>cite</code> <code>q</code></h4><p><strong>用途一</strong>：cite用来表示一个引用的出处，比如作品名称或人物<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>决心不过是记忆的奴隶它会根据你的记忆随意更改——<span class="tag">&lt;<span class="name">cite</span>&gt;</span>《哈姆雷特》<span class="tag">&lt;/<span class="name">cite</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>效果：</p>
+<p>决心不过是记忆的奴隶它会根据你的记忆随意更改——<cite>《哈姆雷特》</cite></p>
+
+<p><strong>用途二</strong>：q作品中的一段文字，某人说的话<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>莎士比亚说：<span class="tag">&lt;<span class="name">q</span>&gt;</span>我抽烟,喝酒,有纹身,但我知道我是好女孩。<span class="tag">&lt;/<span class="name">q</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>效果：</p>
+<p></p><p>莎士比亚说：<q>我抽烟,喝酒, 有纹身,但我知道我是好女孩。</q></p><br>显然，你可以和明确的看到，cite其实也就是斜体罢了，而q则只是为这句话加上了引号。<p></p>
+<h4 id="代码-code"><a href="#代码-code" class="headerlink" title="代码 code"></a>代码 <code>code</code></h4><p>只是说明，如果有代码的话，套在这个标签里面会更优雅。而且，这个标签会自动把你的代码字体改成等宽字体，以暗示：对，你不用怀疑，这是一段代码。后面我们会讲到，这样写符合语义化标准。</p>
+<h4 id="强调-b-i"><a href="#强调-b-i" class="headerlink" title="强调 b i"></a>强调 <code>b</code> <code>i</code></h4><p>这个和<code>&lt;em&gt; &lt;strong&gt;</code>非常像，<code>&lt;b&gt;</code>标签表示加粗，<code>&lt;i&gt;</code>标签表示斜体，只不过在HTML5的标准中，推荐使用<code>&lt;em&gt; &lt;strong&gt;</code>。</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/2016/08/06/HTML@3组合内容标签/" data-toggle="tooltip" data-placement="top"
+                           title="HTML@3组合内容标签">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/2016/07/19/HTML@1文档结构&标签属性/" data-toggle="tooltip" data-placement="top"
+                           title="HTML@1文档结构&标签属性">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTk2MC82NTI1">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#常用标签"><span class="toc-text">常用标签</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#章节标签"><span class="toc-text">章节标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文本标签"><span class="toc-text">文本标签</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#超链接标签-a"><span class="toc-text">超链接标签 a</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#强调标签-em-strong"><span class="toc-text">强调标签 em strong</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#行内容器-span"><span class="toc-text">行内容器 span</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#换行-br"><span class="toc-text">换行 br</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#引用-cite-q"><span class="toc-text">引用 cite q</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码-code"><span class="toc-text">代码 code</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#强调-b-i"><span class="toc-text">强调 b i</span></a></li></ol></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/blog/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/blog/tags/#前端"
+                           title="前端">前端</a>
+                        
+                        <a class="tag" href="/blog/tags/#笔记"
+                           title="笔记">笔记</a>
+                        
+                        <a class="tag" href="/blog/tags/#HTML"
+                           title="HTML">HTML</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/deepfeel-anxis">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/JackieAnxis">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 咸鱼Jackie 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/blog/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://jackieanxis.github.io/blog/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    var _baId = '46a3d5833f277ac4dc2a9cf1285413de';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="http://o6vut8vrh.bkt.clouddn.com/17-1-24/89289633-file_1485227996130_e75a.jpg">
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+
+</html>

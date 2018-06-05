@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="唯一特长是打退堂鼓">
+    <meta name="keyword" content="null">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
+    <link rel="alternate" type="application/atom+xml" title="咸鱼Jackie" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        叫Jackie的咸鱼
+        
+    </title>
+
+    <link rel="canonical" href="http://jackieanxis.github.io/blog/tags/leetcode/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/blog/css/syntax.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="true
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/blog/">
+                <span class="brand-logo">
+                    咸鱼Jackie
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/blog/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/blog/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/blog/blog/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+<style>
+    .intro-header .site-heading {
+        margin: 50px;
+    }
+    
+    header.intro-header {
+        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
+    }
+    
+</style>
+
+<!-- Page Header -->
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading text-center">
+                    <h1>archives</h1>
+                    <span class="subheading">可以根据归档日期检索所有文件</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <!-- archive list -->
+            
+				
+				
+				
+					
+					
+					<div class="archive archive-year" data-date="2018">
+						<h2 class="archive-title">
+						<span class="fa fa-archive">
+							<a href="/blog/archives/2018">2018</a>
+						</span>
+						</h2>
+				
+				
+					
+					
+					<div class="archive archive-month" data-date="201805">
+						<h3 class="archive-title">
+							<a href="/blog/archives/2018/05">05</a>
+						</h3>
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2018/05/06/第一人称视角手势估计/">
+                        <h4 class="post-title">
+                            第一人称视角手势估计
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2018/05/03/Report：Affective Color in Visualization/">
+                        <h4 class="post-title">
+                            报告：可视化中的色彩情感
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+					
+					</div><!--month-->
+					
+					
+					<div class="archive archive-month" data-date="201804">
+						<h3 class="archive-title">
+							<a href="/blog/archives/2018/04">04</a>
+						</h3>
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2018/04/26/iSphere: Focus+Context Sphere Visualization for Interactive Large Graph Exploration/">
+                        <h4 class="post-title">
+                            iSphere-交互式探索大规模图的焦点+上下文球体可视化技术
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+					
+					</div><!--month-->
+					
+					
+					<div class="archive archive-month" data-date="201801">
+						<h3 class="archive-title">
+							<a href="/blog/archives/2018/01">01</a>
+						</h3>
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2018/01/18/如何选择JavaScript构建工具之Babel、Browserify、Webpack、Grunt以及Gulp/">
+                        <h4 class="post-title">
+                            如何选择JavaScript构建工具之Babel、Browserify、Webpack、Grunt以及Gulp
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2018/01/17/STRUC2VEC/">
+                        <h4 class="post-title">
+                            STRUC2VEC（图结构→向量）论文方法解读
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2018/01/07/VIGOR: Interactive Visual Exploration of Graph Query Results/">
+                        <h4 class="post-title">
+                            VIGOR-Interactive Visual Exploration of Graph Query Results
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+					
+					</div><!--month-->
+					</div><!--year-->
+					
+					
+					
+					<div class="archive archive-year" data-date="2017">
+						<h2 class="archive-title">
+						<span class="fa fa-archive">
+							<a href="/blog/archives/2017">2017</a>
+						</span>
+						</h2>
+				
+				
+					
+					
+					<div class="archive archive-month" data-date="201712">
+						<h3 class="archive-title">
+							<a href="/blog/archives/2017/12">12</a>
+						</h3>
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2017/12/16/六级翻译重要词汇/">
+                        <h4 class="post-title">
+                            六级翻译重要词汇短语
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+					
+					</div><!--month-->
+					
+					
+					<div class="archive archive-month" data-date="201711">
+						<h3 class="archive-title">
+							<a href="/blog/archives/2017/11">11</a>
+						</h3>
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2017/11/23/机器学习的三个主要组成/">
+                        <h4 class="post-title">
+                            机器学习三要素
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2017/11/10/数据挖掘复习/">
+                        <h4 class="post-title">
+                            浙江大学-数据挖掘课程-复习笔记
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+					
+					</div><!--month-->
+					
+					
+					<div class="archive archive-month" data-date="201710">
+						<h3 class="archive-title">
+							<a href="/blog/archives/2017/10">10</a>
+						</h3>
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2017/10/03/WeiweiCui的图可视化综述阅读笔记/">
+                        <h4 class="post-title">
+                            WeiweiCui的图可视化综述阅读笔记
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+					
+					</div><!--month-->
+					
+					
+					<div class="archive archive-month" data-date="201709">
+						<h3 class="archive-title">
+							<a href="/blog/archives/2017/09">09</a>
+						</h3>
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2017/09/03/机器学习的方法来帮助进行大图可视化/">
+                        <h4 class="post-title">
+                            机器学习的方法来帮助进行大图可视化
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+					
+					</div><!--month-->
+					
+					
+					<div class="archive archive-month" data-date="201708">
+						<h3 class="archive-title">
+							<a href="/blog/archives/2017/08">08</a>
+						</h3>
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2017/08/21/Python入门学习笔记/">
+                        <h4 class="post-title">
+                            Python入门学习笔记基础
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2017/08/07/《软技能》学习篇阅读笔记/">
+                        <h4 class="post-title">
+                            《软技能》学习篇阅读笔记
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2017/08/07/《软技能》生产力篇阅读笔记/">
+                        <h4 class="post-title">
+                            《软技能》生产力篇阅读笔记
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+					
+					</div><!--month-->
+					
+					
+					<div class="archive archive-month" data-date="201707">
+						<h3 class="archive-title">
+							<a href="/blog/archives/2017/07">07</a>
+						</h3>
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2017/07/27/JavaScript闭包/">
+                        <h4 class="post-title">
+                            JavaScript闭包
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2017/07/25/JavaScript中的this关键字/">
+                        <h4 class="post-title">
+                            JavaScript中的this关键字
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2017/07/24/JavaScript执行环境和作用域/">
+                        <h4 class="post-title">
+                            JavaScript执行环境和作用域
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+					
+					</div><!--month-->
+					
+					
+					<div class="archive archive-month" data-date="201705">
+						<h3 class="archive-title">
+							<a href="/blog/archives/2017/05">05</a>
+						</h3>
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2017/05/19/JavaScript函数表达式和函数声明/">
+                        <h4 class="post-title">
+                            JavaScript函数表达式和函数声明
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2017/05/16/JavaScript中四种不同的属性检测方式比较/">
+                        <h4 class="post-title">
+                            JavaScript中四种不同的属性检测方式比较
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+					
+					</div><!--month-->
+					
+					
+					<div class="archive archive-month" data-date="201704">
+						<h3 class="archive-title">
+							<a href="/blog/archives/2017/04">04</a>
+						</h3>
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2017/04/15/JavaScript类型与相等性/">
+                        <h4 class="post-title">
+                            JavaScript类型转换和相等性
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2017/04/03/CSS@12布局篇/">
+                        <h4 class="post-title">
+                            CSS@12布局篇
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+					
+					</div><!--month-->
+					
+					
+					<div class="archive archive-month" data-date="201701">
+						<h3 class="archive-title">
+							<a href="/blog/archives/2017/01">01</a>
+						</h3>
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2017/01/29/CSS@11弹性布局flex/">
+                        <h4 class="post-title">
+                            CSS@11弹性布局flex
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2017/01/26/《编写可读代码的艺术》阅读笔记（三） /">
+                        <h4 class="post-title">
+                            《编写可读代码的艺术》阅读笔记（三）
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2017/01/26/《编写可读代码的艺术》阅读笔记（二）/">
+                        <h4 class="post-title">
+                            《编写可读代码的艺术》阅读笔记（二）
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2017/01/24/《编写可读代码的艺术》阅读笔记（一）/">
+                        <h4 class="post-title">
+                            《编写可读代码的艺术》阅读笔记（一）
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2017/01/23/前端笔记目录总览/">
+                        <h4 class="post-title">
+                            前端笔记目录总览
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2017/01/14/CSS@10布局（下）：float/">
+                        <h4 class="post-title">
+                            CSS@10布局（下）：float
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+					
+					</div><!--month-->
+					</div><!--year-->
+					
+					
+					
+					<div class="archive archive-year" data-date="2016">
+						<h2 class="archive-title">
+						<span class="fa fa-archive">
+							<a href="/blog/archives/2016">2016</a>
+						</span>
+						</h2>
+				
+				
+					
+					
+					<div class="archive archive-month" data-date="201612">
+						<h3 class="archive-title">
+							<a href="/blog/archives/2016/12">12</a>
+						</h3>
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2016/12/31/CSS@9布局（中）：position/">
+                        <h4 class="post-title">
+                            CSS@布局（中）：position
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2016/12/09/CSS@8布局（上）：display&z-index/">
+                        <h4 class="post-title">
+                            CSS@8布局（上）：display&amp;z-index
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+					
+					</div><!--month-->
+					
+					
+					<div class="archive archive-month" data-date="201611">
+						<h3 class="archive-title">
+							<a href="/blog/archives/2016/11">11</a>
+						</h3>
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2016/11/30/读《一道JS面试题引发的思考》笔记和思考/">
+                        <h4 class="post-title">
+                            读《一道JS面试题引发的思考》
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2016/11/29/CSS@7背景/">
+                        <h4 class="post-title">
+                            CSS@7背景
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2016/11/26/CSS@6盒模型/">
+                        <h4 class="post-title">
+                            CSS@6盒模型
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2016/11/12/leetcode刷题日记/">
+                        <h4 class="post-title">
+                            leetcode刷题日记
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+					
+					</div><!--month-->
+					
+					
+					<div class="archive archive-month" data-date="201610">
+						<h3 class="archive-title">
+							<a href="/blog/archives/2016/10">10</a>
+						</h3>
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2016/10/23/CSS@5文本/">
+                        <h4 class="post-title">
+                            CSS@5文本
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2016/10/17/浅析JS模块化规范：CommonJS，AMD，CMD/">
+                        <h4 class="post-title">
+                            浅析JS模块化规范：CommonJS，AMD，CMD
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+					
+					</div><!--month-->
+					
+					
+					<div class="archive archive-month" data-date="201609">
+						<h3 class="archive-title">
+							<a href="/blog/archives/2016/09">09</a>
+						</h3>
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2016/09/26/CSS@4单位/">
+                        <h4 class="post-title">
+                            CSS@4单位
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2016/09/14/CSS@3继承优先级/">
+                        <h4 class="post-title">
+                            CSS@3继承优先级
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2016/09/13/CSS@2选择器/">
+                        <h4 class="post-title">
+                            CSS@2选择器
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+					
+					</div><!--month-->
+					
+					
+					<div class="archive archive-month" data-date="201608">
+						<h3 class="archive-title">
+							<a href="/blog/archives/2016/08">08</a>
+						</h3>
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2016/08/18/CSS@1介绍和准备/">
+                        <h4 class="post-title">
+                            CSS@1介绍和准备
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2016/08/13/HTML@7结尾篇/">
+                        <h4 class="post-title">
+                            HTML@7补充篇
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2016/08/09/HTML@6表单标签/">
+                        <h4 class="post-title">
+                            HTML@6表单标签
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2016/08/08/HTML@5表格标签/">
+                        <h4 class="post-title">
+                            HTML@5表格标签
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2016/08/07/HTML@4嵌入资源标签/">
+                        <h4 class="post-title">
+                            HTML@4嵌入资源标签
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2016/08/06/HTML@3组合内容标签/">
+                        <h4 class="post-title">
+                            HTML@3组合内容标签
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2016/08/05/HTML@2章节标签&文本标签/">
+                        <h4 class="post-title">
+                            HTML@2章节标签&文本标签
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+					
+					</div><!--month-->
+					
+					
+					<div class="archive archive-month" data-date="201607">
+						<h3 class="archive-title">
+							<a href="/blog/archives/2016/07">07</a>
+						</h3>
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2016/07/19/HTML@1文档结构&标签属性/">
+                        <h4 class="post-title">
+                            HTML@1文档结构&标签属性
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2016/07/09/大鱼海棠影评/">
+                        <h4 class="post-title">
+                            大鱼海棠观影有感
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+					
+					</div><!--month-->
+					
+					
+					<div class="archive archive-month" data-date="201606">
+						<h3 class="archive-title">
+							<a href="/blog/archives/2016/06">06</a>
+						</h3>
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2016/06/04/react-native的枪林弹雨/">
+                        <h4 class="post-title">
+                            react-native的枪林弹雨
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+					
+					</div><!--month-->
+					
+					
+					<div class="archive archive-month" data-date="201605">
+						<h3 class="archive-title">
+							<a href="/blog/archives/2016/05">05</a>
+						</h3>
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/blog/2016/05/09/React-Native在win10平台上的部署/">
+                        <h4 class="post-title">
+                            React-Native在win10平台上的部署
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+        </div>
+    </div>
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/deepfeel-anxis">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/JackieAnxis">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 咸鱼Jackie 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/blog/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://jackieanxis.github.io/blog/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    var _baId = '46a3d5833f277ac4dc2a9cf1285413de';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="http://o6vut8vrh.bkt.clouddn.com/17-1-24/89289633-file_1485227996130_e75a.jpg">
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+
+</html>

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="唯一特长是打退堂鼓">
+    <meta name="keyword" content="null">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
+    <link rel="alternate" type="application/atom+xml" title="咸鱼Jackie" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        STRUC2VEC（图结构→向量）论文方法解读｜叫Jackie的咸鱼
+        
+    </title>
+
+    <link rel="canonical" href="http://jackieanxis.github.io/blog/2018/01/17/STRUC2VEC/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/blog/css/syntax.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/blog/">
+                <span class="brand-logo">
+                    咸鱼Jackie
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/blog/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/blog/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/blog/blog/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="http://o6vut8vrh.bkt.clouddn.com/background.png">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>STRUC2VEC（图结构→向量）论文方法解读</h1>
+                    
+                    <span class="meta">
+                         作者 Jackie Anxis
+                        <span>
+                          日期 2018-01-17
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/blog/tags/#论文阅读"
+                           title="论文阅读">论文阅读</a>
+                        
+                        <a class="tag" href="/blog/tags/#graph"
+                           title="graph">graph</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            STRUC2VEC（图结构→向量）论文方法解读
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h2 id="STRUC2VEC"><a href="#STRUC2VEC" class="headerlink" title="STRUC2VEC"></a>STRUC2VEC</h2><p>原文：struc2vec: Learning Node Representations from Structural Identity</p>
+<p>捕捉节点在网络中的结构信息，将它表达成一个高维向量，需要考虑以下两个相关的性质：</p>
+<ol>
+<li>不同节点的表达之间的距离（也就是高维向量之间的距离）应该跟他们的结构之间的相似度高度相关。</li>
+<li>节点的这种结构表达，不应该依赖于节点或者边的属性以及它们的标签。节点的结构信息应该跟他们在网络中的位置不相关。</li>
+</ol>
+<p><strong>STRUC2VEC</strong>的基本步骤：</p>
+<ol>
+<li><p>在不同的邻域大小下，比较图中的每个节点之间的结构相似度。</p>
+<p>产生一个结构相似度度量的多层模型（hierarchy）。</p>
+</li>
+<li><p>构造一个带权的多层图，网络中所有的节点都会出现在每一层，每一层都会和度量结构相似度的多层模型（hierarchy）的每一级相对应。然后带权多层图的边的权重和该边相关的节点对之间的距离成反比。</p>
+</li>
+<li><p>使用上述的多层图生成每个节点的上下文。用带偏的random walk来生成多层图的节点序列。</p>
+</li>
+<li><p>使用某种技术，通过节点序列给出的上下文来学习潜在表达</p>
+</li>
+</ol>
+<h4 id="第一步：度量结构相似度"><a href="#第一步：度量结构相似度" class="headerlink" title="第一步：度量结构相似度"></a>第一步：度量结构相似度</h4><ul>
+<li><p>$R_k(u)$表示了节点$u$的$k$级邻域。</p>
+</li>
+<li><p>$s(S)$则表示节点的集合$S \subset V$的度数序列。</p>
+</li>
+<li><p>$g(D_1,D_2)$度量了两个度数序列$D1,D2$之间的距离</p>
+</li>
+<li><p>$f_k(u,v)$表示了$u,v$两节点之间，$k$级邻域（距离小于等于$k$的节点和所有它们之间的边）的结构距离。</p>
+<p>$f_k(u,v) = f_{k-1}(u,v) + g(s(R_k(u)), s(R_k(v)))$</p>
+<p>$f_{-1} = 0$</p>
+<p>上述定义表达的是一个递归的过程，把问题转换成了如何定义两个节点集合之间的距离，也就是$g(\cdot)$该如何计算。</p>
+</li>
+<li><p>文章使用了Dynamic Time Warping(DTW)来度量两个度数序列之间的距离。</p>
+<p>序列A和B，其中，$a \in A$，$b \in B$，那么$a, b$之间的距离定义为：$d(a, b) = \frac{max(a, b)}{min(a, b)} - 1$，当$a=b$时，他们的距离也就是0。然后两个序列之间的距离，也就是所有$a,b$组合之间的距离和。</p>
+<p>其他方案也可以用在该框架下，感觉这里的时间复杂度相对较高，可以有替换的方案。VIGOR论文中提到的方法？</p>
+</li>
+</ul>
+<h4 id="第二步：构造上下文图（context-graph）"><a href="#第二步：构造上下文图（context-graph）" class="headerlink" title="第二步：构造上下文图（context graph）"></a>第二步：构造上下文图（context graph）</h4><ul>
+<li><p>构造一个带权的多层图$M$。层数由$0到k^<em>$，其中$k^</em>$表示的是图的直径，也就是原始图$G=(V,E)$中节点之间的最远距离。</p>
+</li>
+<li><p>第$k$层图表达的是节点之间$k$级邻域的相似度度量。</p>
+</li>
+<li><p>故而$M$的每一层都是一个完全图，都会有$n=|V|$个节点，边的数量是$n(n-1)$，边的权重的定义：</p>
+<p>$$w_k(u,v) = e^{-f_k(u,v)},k=0,…,k^*$$</p>
+<p>当然，只有$f_k$定义了，边才能被定义。</p>
+</li>
+<li><p>因为$f_k(u,v)$最小是0，那么边的权重$w_k(u,v)$的取值范围是$(0,1]$，当等于1时，代表两个节点结构相同。</p>
+</li>
+<li><p>不同层级之间，通过有向边连接，在$k$层的每个节点都会跟$k-1$层和$k+1$层的相同节点用有向边连接，边的权重定义：</p>
+<p>$$w(u_k,u_{k+1})=log(\Gamma_k(u)+e), k=0,…,k^∗−1$$</p>
+<p>$$w(u_k,u_{k-1})=1,k=1,…,k^∗$$</p>
+<ul>
+<li>其中$\Gamma_k(u)$代表了指向节点$u$的权重大于$k$层图平均权重的边的数量：$\Gamma_k(u)=\sum_{v \in V} \mathbb{1}(w_k(u,v) &gt; \overline{w_k})$，也就是度量了该节点$u$和第$k$层其他节点之间的相似度。</li>
+<li>而$\overline{w_k} = \sum_{(u,v)\in  \begin{pmatrix} V \ 2 \ \end{pmatrix} }w_k(u,v)/\begin{pmatrix} n \ 2 \end{pmatrix}$</li>
+</ul>
+</li>
+</ul>
+<h4 id="第三步：生成节点的上下文"><a href="#第三步：生成节点的上下文" class="headerlink" title="第三步：生成节点的上下文"></a>第三步：生成节点的上下文</h4><p>利用$M$生成节点的上下文的过程：带偏的随机游走（biased random walk）。</p>
+<ul>
+<li><p>首先需要决定，随机游走的这一步，是留在当前层还是换层</p>
+</li>
+<li><p>有一定概率$q$，留在当前层，假设留在当前层，那么从节点$u$走到$v$的概率（权重越大，概率越高，也就是更容易走到相似节点上）：</p>
+<p>$$p_k(u,v) = \frac{e^{-f_k(u,v)}}{Z_k(u)}$$，$$Z_k(u)=\sum_{v \in V, v ≠ u} e^{-f_k*(u,v)}$$</p>
+</li>
+<li><p>假设在另一半概率上$1-q$，换层，换到$k+1$的概率定义：</p>
+<p>$$p_k(u_k, u_{k+1}) = \frac{w(u_k, u_{k+1})}{(u_k, u_{k+1})+(u_k, u_{k-1})}$$</p>
+<p>而换到$k-1$层的概率：</p>
+<p>$$p_k(u_k, u_{k-1}) = 1 - p_k(u_k, u_{k+1})$$</p>
+</li>
+<li><p>当节点走到$k+1$层时，产生的context可能只是前$k$层产生的context的一个子集，所以这种情况下，并不没有贡献</p>
+</li>
+<li><p>每次随机游走从第0层开始，游走步数都是一个固定的，较小的值，然后随机游走会在同一个节点上重复多次，产生多个独立的游走</p>
+</li>
+</ul>
+<h4 id="第四步：学习语言模型"><a href="#第四步：学习语言模型" class="headerlink" title="第四步：学习语言模型"></a>第四步：学习语言模型</h4><p>通过word embedding的方法，对第三步生成的随机游走结果，生成高维向量。</p>
+<p>文章使用了<strong>Skip-Gram</strong>[^1]。</p>
+<p>[^1]: Mikolov, Tomas, et al. “Efficient estimation of word representations in vector space.” <em>arXiv preprint arXiv:1301.3781</em> (2013).</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/2018/01/18/如何选择JavaScript构建工具之Babel、Browserify、Webpack、Grunt以及Gulp/" data-toggle="tooltip" data-placement="top"
+                           title="如何选择JavaScript构建工具之Babel、Browserify、Webpack、Grunt以及Gulp">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/2018/01/07/VIGOR: Interactive Visual Exploration of Graph Query Results/" data-toggle="tooltip" data-placement="top"
+                           title="VIGOR-Interactive Visual Exploration of Graph Query Results">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTk2MC82NTI1">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#STRUC2VEC"><span class="toc-text">STRUC2VEC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一步：度量结构相似度"><span class="toc-text">第一步：度量结构相似度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二步：构造上下文图（context-graph）"><span class="toc-text">第二步：构造上下文图（context graph）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第三步：生成节点的上下文"><span class="toc-text">第三步：生成节点的上下文</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第四步：学习语言模型"><span class="toc-text">第四步：学习语言模型</span></a></li></ol></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/blog/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/blog/tags/#论文阅读"
+                           title="论文阅读">论文阅读</a>
+                        
+                        <a class="tag" href="/blog/tags/#graph"
+                           title="graph">graph</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/deepfeel-anxis">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/JackieAnxis">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 咸鱼Jackie 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/blog/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://jackieanxis.github.io/blog/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    var _baId = '46a3d5833f277ac4dc2a9cf1285413de';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="http://o6vut8vrh.bkt.clouddn.com/17-1-24/89289633-file_1485227996130_e75a.jpg">
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+
+</html>

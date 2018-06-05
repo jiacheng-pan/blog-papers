@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="唯一特长是打退堂鼓">
+    <meta name="keyword" content="null">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
+    <link rel="alternate" type="application/atom+xml" title="咸鱼Jackie" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        CSS@4单位｜叫Jackie的咸鱼
+        
+    </title>
+
+    <link rel="canonical" href="http://jackieanxis.github.io/blog/2016/09/26/CSS@4单位/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/blog/css/syntax.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/blog/">
+                <span class="brand-logo">
+                    咸鱼Jackie
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/blog/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/blog/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/blog/blog/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="http://o6vut8vrh.bkt.clouddn.com/background.png">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>CSS@4单位</h1>
+                    
+                    <span class="meta">
+                         作者 Jackie Anxis
+                        <span>
+                          日期 2016-09-26
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/blog/tags/#前端"
+                           title="前端">前端</a>
+                        
+                        <a class="tag" href="/blog/tags/#笔记"
+                           title="笔记">笔记</a>
+                        
+                        <a class="tag" href="/blog/tags/#CSS"
+                           title="CSS">CSS</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            CSS@4单位
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h2 id="CSS长度单位"><a href="#CSS长度单位" class="headerlink" title="CSS长度单位"></a>CSS长度单位</h2><h3 id="绝对单位"><a href="#绝对单位" class="headerlink" title="绝对单位"></a>绝对单位</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">单位</th>
+<th style="text-align:center">全称</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">in</td>
+<td style="text-align:center">inch</td>
+<td style="text-align:left">英寸</td>
+</tr>
+<tr>
+<td style="text-align:center">cm</td>
+<td style="text-align:center">centimeter</td>
+<td style="text-align:left">厘米</td>
+</tr>
+<tr>
+<td style="text-align:center">mm</td>
+<td style="text-align:center">millimeter</td>
+<td style="text-align:left">毫米</td>
+</tr>
+<tr>
+<td style="text-align:center">pt</td>
+<td style="text-align:center">point</td>
+<td style="text-align:left">磅（印刷单位，大小为1/72英寸）</td>
+</tr>
+<tr>
+<td style="text-align:center">pc</td>
+<td style="text-align:center">Pica</td>
+<td style="text-align:left">派卡（印刷单位，大小为1/6英寸）</td>
+</tr>
+<tr>
+<td style="text-align:center">px</td>
+<td style="text-align:center">pixel</td>
+<td style="text-align:left">像素</td>
+</tr>
+</tbody>
+</table>
+<p>绝对单位没啥好解释的，顶多会在<code>px</code>和<code>pt</code>之间的区别有点疑问：</p>
+<ul>
+<li><code>pt</code>是一个印刷单位，不管在任何的地方，任何的显示器上，都是一样长的，都是1/72英寸。</li>
+<li><code>px</code>就不一样了，在不同PPI(Pixels Per Inch)的设备上，一个像素的长度是不一样的。PPI高的地方，说明像素点密集，一个<code>px</code>的长度也就短。</li>
+<li>这两者之间的具体区别可以见这篇文章：<a href="http://www.cnblogs.com/chinhr/archive/2008/01/23/1049576.html" target="_blank" rel="external">《CSS长度单位：px和pt的区别》</a></li>
+</ul>
+<h3 id="相对单位"><a href="#相对单位" class="headerlink" title="相对单位"></a>相对单位</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">单位</th>
+<th style="text-align:center">全称</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">%</td>
+<td style="text-align:center">percentage</td>
+<td style="text-align:left">百分比</td>
+</tr>
+<tr>
+<td style="text-align:center">ch</td>
+<td style="text-align:center">？</td>
+<td style="text-align:left">当前字体的字符”0”的宽度</td>
+</tr>
+<tr>
+<td style="text-align:center">em</td>
+<td style="text-align:center">equal-M-width</td>
+<td style="text-align:left">当前字体的大写”M”的宽度</td>
+</tr>
+<tr>
+<td style="text-align:center">ex</td>
+<td style="text-align:center">equal-x-height</td>
+<td style="text-align:left">当前字体的小写”x”的高度</td>
+</tr>
+<tr>
+<td style="text-align:center">rem</td>
+<td style="text-align:center">root equal-M-width</td>
+<td style="text-align:left">根节点字体的大写”M”的宽度</td>
+</tr>
+<tr>
+<td style="text-align:center">vh</td>
+<td style="text-align:center">1/100th of the height of the viewport</td>
+<td style="text-align:left">视窗高度的百分之一</td>
+</tr>
+<tr>
+<td style="text-align:center">vw</td>
+<td style="text-align:center">1/100th of the width of the viewport</td>
+<td style="text-align:left">视窗宽度的百分之一</td>
+</tr>
+<tr>
+<td style="text-align:center">vmin</td>
+<td style="text-align:center">1/100th of the minimum value of the viewport</td>
+<td style="text-align:left">视窗较短边的百分之一</td>
+</tr>
+<tr>
+<td style="text-align:center">vmax</td>
+<td style="text-align:center">1/100th of the maximum value of the viewport</td>
+<td style="text-align:left">视窗较长边的百分之一</td>
+</tr>
+</tbody>
+</table>
+<p>当然其他还有很多距离单位，我可能没法完全收集齐，但是我会后续补充。<br>然后就简单谈一下这些单位的一些具体的注意事项吧：</p>
+<ul>
+<li>关于<code>%</code>，就很简单，相对于父元素而言，<code>width:300%</code>就是父元素高度的三倍；</li>
+<li>关于<code>ch</code>：<a href="http://meyerweb.com/eric/thoughts/2012/05/15/defining-ch/" target="_blank" rel="external">Eric Meyer’s的博客</a>有谈到：对于一种等宽字体，如果你给出一个<code>width: 40ch;</code>的盒子，那么就可以刚好容纳40个这种字体的字符。一般和盲文相关。</li>
+<li>关于<code>rem</code>：一般用于网格布局，使得界面能随着内容按照比例缩放。</li>
+<li>关于还算比较具体的一个CSS单位的支持度的图片，具体可以用<a href="caniuse.com">Can I Use</a>来测试：<br><img src="http://o6vut8vrh.bkt.clouddn.com/16-9-27/83271961.jpg" alt=""></li>
+</ul>
+<h2 id="角度单位"><a href="#角度单位" class="headerlink" title="角度单位"></a>角度单位</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">单位</th>
+<th style="text-align:left">全称</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">deg</td>
+<td style="text-align:left">degree</td>
+<td style="text-align:left">角度</td>
+</tr>
+<tr>
+<td style="text-align:center">grad</td>
+<td style="text-align:left">grad</td>
+<td style="text-align:left">百分度</td>
+</tr>
+<tr>
+<td style="text-align:center">rad</td>
+<td style="text-align:left">radian</td>
+<td style="text-align:left">弧度</td>
+</tr>
+<tr>
+<td style="text-align:center">turn</td>
+<td style="text-align:left">turn</td>
+<td style="text-align:left">圈数</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>这些单位一般而言，正的就是顺时针转，负数代表逆时针转。</li>
+<li><code>deg</code>: 就是角度，就是一个整圆360°，<code>1deg</code>就是<code>1°</code></li>
+<li><code>grad</code>: 百分度，一个整圆切成400份，<code>1grad = 360°/400</code></li>
+<li><code>rad</code>: 弧度，初中知识，<code>1rad = 180°/π</code></li>
+<li><code>turn</code>: 这个就更简单了，<code>1turn = 360°</code></li>
+</ul>
+<h2 id="时间单位"><a href="#时间单位" class="headerlink" title="时间单位"></a>时间单位</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">单位</th>
+<th style="text-align:left">全称</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">s</td>
+<td style="text-align:left">second</td>
+<td style="text-align:left">秒</td>
+</tr>
+<tr>
+<td style="text-align:center">ms</td>
+<td style="text-align:left">millisecond</td>
+<td style="text-align:left">毫秒</td>
+</tr>
+</tbody>
+</table>
+<h2 id="频率单位"><a href="#频率单位" class="headerlink" title="频率单位"></a>频率单位</h2><p>一般用于听（或说）级联样式表中，用来表示声音频率。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">单位</th>
+<th style="text-align:left">全称</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">hz</td>
+<td style="text-align:left">hertz</td>
+<td style="text-align:left">赫兹</td>
+</tr>
+<tr>
+<td style="text-align:center">ms</td>
+<td style="text-align:left">kilohertz</td>
+<td style="text-align:left">千赫</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">p</span><span class="selector-class">.low</span> &#123; <span class="attribute">pitch</span>: <span class="number">105Hz</span>; &#125;</div><div class="line"><span class="selector-tag">q</span><span class="selector-class">.squeal</span> &#123;<span class="attribute">pitch</span>: <span class="number">135Hz</span>;&#125;</div></pre></td></tr></table></figure>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/2016/10/17/浅析JS模块化规范：CommonJS，AMD，CMD/" data-toggle="tooltip" data-placement="top"
+                           title="浅析JS模块化规范：CommonJS，AMD，CMD">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/2016/09/14/CSS@3继承优先级/" data-toggle="tooltip" data-placement="top"
+                           title="CSS@3继承优先级">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTk2MC82NTI1">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS长度单位"><span class="toc-text">CSS长度单位</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#绝对单位"><span class="toc-text">绝对单位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相对单位"><span class="toc-text">相对单位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#角度单位"><span class="toc-text">角度单位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#时间单位"><span class="toc-text">时间单位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#频率单位"><span class="toc-text">频率单位</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/blog/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/blog/tags/#前端"
+                           title="前端">前端</a>
+                        
+                        <a class="tag" href="/blog/tags/#笔记"
+                           title="笔记">笔记</a>
+                        
+                        <a class="tag" href="/blog/tags/#CSS"
+                           title="CSS">CSS</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/deepfeel-anxis">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/JackieAnxis">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 咸鱼Jackie 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/blog/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://jackieanxis.github.io/blog/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    var _baId = '46a3d5833f277ac4dc2a9cf1285413de';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="http://o6vut8vrh.bkt.clouddn.com/17-1-24/89289633-file_1485227996130_e75a.jpg">
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+
+</html>

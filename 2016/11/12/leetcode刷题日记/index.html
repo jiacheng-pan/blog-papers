@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="唯一特长是打退堂鼓">
+    <meta name="keyword" content="null">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
+    <link rel="alternate" type="application/atom+xml" title="咸鱼Jackie" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        leetcode刷题日记｜叫Jackie的咸鱼
+        
+    </title>
+
+    <link rel="canonical" href="http://jackieanxis.github.io/blog/2016/11/12/leetcode刷题日记/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/blog/css/syntax.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/blog/">
+                <span class="brand-logo">
+                    咸鱼Jackie
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/blog/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/blog/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/blog/blog/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="http://o6vut8vrh.bkt.clouddn.com/background.png">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>leetcode刷题日记</h1>
+                    
+                    <span class="meta">
+                         作者 Jackie Anxis
+                        <span>
+                          日期 2016-11-12
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/blog/tags/#leetcode"
+                           title="leetcode">leetcode</a>
+                        
+                        <a class="tag" href="/blog/tags/#日记"
+                           title="日记">日记</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            leetcode刷题日记
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h2 id="32-Longest-Valid-Parentheses"><a href="#32-Longest-Valid-Parentheses" class="headerlink" title="32.Longest Valid Parentheses"></a>32.Longest Valid Parentheses</h2><ul>
+<li>难度：hard</li>
+<li>代码语言：JavaScript</li>
+<li>时间：17-10-17</li>
+</ul>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>Given a string containing just the characters <code>&#39;(&#39;</code> and <code>&#39;)&#39;</code>, find the length of the longest valid (well-formed) parentheses substring.</p>
+<p>For <code>&quot;(()&quot;</code>, the longest valid parentheses substring is <code>&quot;()&quot;</code>, which has length = 2.</p>
+<p>Another example is <code>&quot;)()())&quot;</code>, where the longest valid parentheses substring is <code>&quot;()()&quot;</code>, which has length = 4.</p>
+<p>相当于说，要从一个由括号组成的字符串中，找到一个最长的正确匹配的子字符串的长度。</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><ol>
+<li><p>遍历整个字符串，通过堆栈的方式，每次遍历到<code>&#39;(&#39;</code>，把下标压入栈中，每次遍历到<code>&#39;)&#39;</code>，从栈中弹出栈顶，并在链表中，把弹出的栈顶指向当前节点。</p>
+</li>
+<li><p>这样可以得到一个链表，相当于记录了一个字符串中，左右括号的匹配情况，比如下面这个字符串，<code>’))(()())(()‘</code></p>
+<p><img src="http://o6vut8vrh.bkt.clouddn.com/17-10-18/24875373.jpg" alt=""></p>
+</li>
+<li><p>通过遍历这个链表，就能找到最长的子字符串</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * @param &#123;string&#125; s</span></div><div class="line"><span class="comment"> * @return &#123;number&#125;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">var</span> longestValidParentheses = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> longest = <span class="number">0</span></div><div class="line">    <span class="keyword">var</span> stack = [], match = []</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; s.length; j++) &#123;</div><div class="line">        <span class="keyword">if</span> (s[j] == <span class="string">'('</span>) &#123;</div><div class="line">            stack.push(j)</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">var</span> begin = stack.pop()</div><div class="line">            <span class="keyword">var</span> end = j</div><div class="line">            <span class="keyword">if</span>(begin != <span class="literal">undefined</span>)&#123;</div><div class="line">                match[begin] = end</div><div class="line">                match[end] = <span class="number">-1</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> i = <span class="number">0</span>, length = <span class="number">0</span>, begin = <span class="number">0</span>, end = <span class="number">0</span></div><div class="line">    <span class="keyword">while</span>(i &lt; match.length)&#123;</div><div class="line">        <span class="keyword">while</span>(match[i] == <span class="literal">undefined</span> &amp;&amp; i &lt; match.length)&#123;</div><div class="line">            i++</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(match[i] == <span class="number">-1</span>)&#123;</div><div class="line">            <span class="keyword">if</span>(match[i+<span class="number">1</span>] == <span class="literal">undefined</span>)&#123;</div><div class="line">                end = i</div><div class="line">                length = end - begin + <span class="number">1</span></div><div class="line">                <span class="keyword">if</span>( length &gt; longest)&#123;</div><div class="line">                    longest = length</div><div class="line">                &#125;</div><div class="line">                i++</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                i = match[i+<span class="number">1</span>]</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            begin = i</div><div class="line">            i = match[i]</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> longest</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ol>
+<h2 id="Substring-with-Concatenation-of-All-Words"><a href="#Substring-with-Concatenation-of-All-Words" class="headerlink" title="Substring with Concatenation of All Words"></a>Substring with Concatenation of All Words</h2><ul>
+<li>难度：hard</li>
+<li>代码语言：JavaScript</li>
+<li>时间：17-10-15</li>
+</ul>
+<h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><p>You are given a string, <strong>s</strong>, and a list of words, <strong>words</strong>, that are all of the same length. Find all starting indices of substring(s) in <strong>s</strong> that is a concatenation of each word in <strong>words</strong> exactly once and without any intervening characters.</p>
+<p>For example, given:<br><strong>s</strong>: <code>&quot;barfoothefoobarman&quot;</code><br><strong>words</strong>: <code>[&quot;foo&quot;, &quot;bar&quot;]</code></p>
+<p>You should return the indices: <code>[0,9]</code>.<br>(order does not matter).</p>
+<h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h3><p>我的解题思路很简单，因为<code>words</code>中的每个单词的长度（length）是固定的，所以只要每length长度，对<code>s</code>进行扫描就行了，扫描到的单词刚好在words里面就把它记录下来即可。这样做的时间复杂度是O(N*M)，N是s的长度，M是words的个数。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * @param &#123;string&#125; s</span></div><div class="line"><span class="comment"> * @param &#123;string[]&#125; words</span></div><div class="line"><span class="comment"> * @return &#123;number[]&#125;</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="keyword">var</span> findSubstring = <span class="function"><span class="keyword">function</span> (<span class="params">s, words</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> wordLength = words[<span class="number">0</span>].length</div><div class="line">  <span class="keyword">var</span> wordsDict = &#123;&#125;</div><div class="line">  words.forEach(<span class="function">(<span class="params">d, i, a</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">if</span> (wordsDict[d] == <span class="literal">undefined</span>) &#123;</div><div class="line">      wordsDict[d] = &#123;</div><div class="line">        seq: [],</div><div class="line">        index: <span class="number">0</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    wordsDict[d].seq.push(i)</div><div class="line">  &#125;)</div><div class="line">  <span class="keyword">var</span> result = []</div><div class="line">  <span class="keyword">var</span> record = &#123;&#125;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; s.length; i++) &#123;</div><div class="line">    <span class="keyword">var</span> maxJ = i + words.length * wordLength - wordLength</div><div class="line">    <span class="keyword">if</span> (maxJ &gt; s.length) &#123;</div><div class="line">      <span class="keyword">break</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> wordsSequence = []</div><div class="line">    <span class="keyword">var</span> tobeCleared = []</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = i; j &lt;= maxJ; j += wordLength) &#123;</div><div class="line">      <span class="keyword">var</span> thisWord = s.slice(j, j + wordLength)</div><div class="line">      <span class="keyword">if</span> (wordsDict[thisWord] != <span class="literal">undefined</span>) &#123;</div><div class="line">        <span class="keyword">var</span> index = wordsDict[thisWord].index</div><div class="line">        tobeCleared.push(thisWord)</div><div class="line">        <span class="keyword">if</span> (index &lt; wordsDict[thisWord].seq.length) &#123;</div><div class="line">          wordsSequence.push(wordsDict[thisWord].seq[index])</div><div class="line">          wordsDict[thisWord].index++</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">          <span class="keyword">break</span></div><div class="line">        &#125;</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">break</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    tobeCleared.forEach(<span class="function">(<span class="params">d</span>) =&gt;</span> &#123;</div><div class="line">      wordsDict[d].index = <span class="number">0</span></div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">if</span> (wordsSequence.length == words.length) &#123;</div><div class="line">      result.push(i)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> result</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="Container-With-Most-Water"><a href="#Container-With-Most-Water" class="headerlink" title="Container With Most Water"></a>Container With Most Water</h2><ul>
+<li>难度：Medium</li>
+<li>代码语言：JavaScript</li>
+<li>时间：16-11-12<h3 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h3></li>
+</ul>
+<p>Given <em>n</em> non-negative integers <em>a1</em>, <em>a2</em>, …, <em>an</em>, where each represents a point at coordinate (<em>i</em>, <em>ai</em>). <em>n</em> vertical lines are drawn such that the two endpoints of line <em>i</em> is at (<em>i</em>, <em>ai</em>) and (<em>i</em>, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.</p>
+<p><strong>Note</strong>: You may not slant the container.</p>
+<h3 id="解题思路-2"><a href="#解题思路-2" class="headerlink" title="解题思路"></a>解题思路</h3><ol>
+<li><p>最简单的，当然就是穷举算法，当然算法复杂度是$O(n^2)$，具体而言，应该是n+(n-1)+(n-2)+…+1这个虽然可取，但是肯定不是我们这么优秀的人的追求啊，在此也不再赘述</p>
+</li>
+<li><p>在穷举算法的基础上，进行减支，当然，减支最好的结果就是降低时间复杂度了，当然如果能稍微提点速也是不错的，以下的这个思路就帮我通过了leetcode的测试：</p>
+<ul>
+<li><p>首先需要明白的是，我们的穷举算法中的循环是这个样子的，每次确定水桶左边的一条边，再往后找出右边的那条边</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; height.length; i++)</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> j = i; j &lt; height.length; j++)</div></pre></td></tr></table></figure>
+</li>
+<li><p>第二条原则，两个水桶，公用其中一条边，那么如果其中一个水桶，底又宽，另外一条边又比较长，那肯定这个桶容得下的水比较多，至少不少。举个例子，如下图，a和c组成的水桶肯定比b和c组成的水桶容的水更多。</p>
+<p><img src="http://o6vut8vrh.bkt.clouddn.com/public/16-11-12/79146556.jpg" alt=""></p>
+</li>
+<li><p>基于上面两条，既然我们是从左往右遍历的，那么发现b比a短的那一瞬间，我们就应该抛弃b的这种情况。所以边往下遍历的时候，找出已经遍历过的那些边中最长的，那些比最长边要小的，并且在最长边右边的就不考虑了……</p>
+</li>
+<li><p>代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> maxArea = <span class="function"><span class="keyword">function</span>(<span class="params">height</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> maxArea = <span class="number">0</span>, maxHeight = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; height.length; i++)&#123;</div><div class="line">    	<span class="keyword">if</span>(height[i] &gt; maxHeight)&#123; <span class="comment">// 比较是否比已经遍历过的最长边还要长</span></div><div class="line">    		maxHeight = height[i]</div><div class="line">    		<span class="keyword">for</span>(<span class="keyword">var</span> j = i; j &lt; height.length; j++)&#123;</div><div class="line">    		<span class="keyword">var</span> h = (j - i) * <span class="built_in">Math</span>.min(height[i], height[j])</div><div class="line">	    		<span class="keyword">if</span>(h &gt; maxArea)</div><div class="line">	    			maxArea = h</div><div class="line">	    	&#125;</div><div class="line">    	&#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> maxArea</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>最终的理想——$O(n)$，在原来的基础上，我们需要再明确一个原则<strong>：当某条线作为矩形（水桶）的边时能构造出的最大的矩形，比另外一个矩形面积还要小的时候，那它肯定不是最大的。</strong>当然这条原则显而易见，但是在某种场景下有很大用途。</p>
+<ul>
+<li><p>如下图，四条线的高度按从大到小排序为：c&gt;d&gt;b&gt;a。</p>
+<p>明显的是，当a作为水桶的一边时，和d组合才能达到最大容量；</p>
+<p>那么如果b&amp;d组成的面积（蓝色部分）大于a&amp;d组成的面积（黄色部分），那么a这条边就可以排除了，因为a作为矩形的一条边时能产生的最大面积都已经小于b的某种情况了。</p>
+<p><img src="http://o6vut8vrh.bkt.clouddn.com/public/16-11-12/75121208.jpg" alt=""></p>
+</li>
+<li><p>根据上面这条原理，我们可以设计出一种，从前往后，从后往前同时进行的算法。</p>
+</li>
+<li><p>b比a短时完全无需考虑了，当b&gt;a时，检查一下b和d构成的面积是否大于当前的最大面积，如果是的话就将b&amp;d的面积设置为最大面积，之后继续往后遍历，直到找到第一条比d还高的边，这就不符合上面提到的那种情况了</p>
+</li>
+<li><p>于是我们从后往前开始，从d开始往前遍历寻找，这其实除了方向不一样以外，和上面的算法是一样的。</p>
+</li>
+<li><p>事实证明，这种算法是正确的，附上代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> maxArea = <span class="function"><span class="keyword">function</span>(<span class="params">height</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> maxArea = <span class="number">-1</span>, maxHeight = [<span class="number">-1</span>, <span class="number">-1</span>], i = <span class="number">0</span>, j = height.length - <span class="number">1</span></div><div class="line">    <span class="keyword">while</span>(i &lt; j)&#123;</div><div class="line">	    <span class="keyword">for</span>(; i &lt; j ;)&#123;</div><div class="line">	    	<span class="keyword">if</span>(height[i] &gt; maxHeight[<span class="number">0</span>])&#123;</div><div class="line">	    		<span class="keyword">if</span>(height[i] &gt; height[j])</div><div class="line">	    			<span class="keyword">break</span></div><div class="line">	    		maxHeight[<span class="number">0</span>] = height[i]</div><div class="line">	    		<span class="keyword">var</span> area = <span class="built_in">Math</span>.min(maxHeight[<span class="number">0</span>], height[j]) * (j - i)</div><div class="line">	    		<span class="keyword">if</span>(area &gt; maxArea)</div><div class="line">	    			maxArea = area</div><div class="line">	    	&#125;</div><div class="line">	    	i++</div><div class="line">	    &#125;</div><div class="line">	    <span class="keyword">for</span>(; j &gt; i;)&#123;</div><div class="line">	    	<span class="keyword">if</span>(height[j] &gt; maxHeight[<span class="number">1</span>])&#123;</div><div class="line">	    		<span class="keyword">if</span>(height[i] &lt; height[j])</div><div class="line">	    			<span class="keyword">break</span></div><div class="line">	    		maxHeight[<span class="number">1</span>] = height[j]</div><div class="line">	    		<span class="keyword">var</span> area = <span class="built_in">Math</span>.min(maxHeight[<span class="number">1</span>], height[i]) * (j - i)</div><div class="line">	    		<span class="keyword">if</span>(area &gt; maxArea)</div><div class="line">	    			maxArea = area</div><div class="line">	    	&#125;</div><div class="line">	    	j--</div><div class="line">	    &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> maxArea</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="Regular-Expression-Matching"><a href="#Regular-Expression-Matching" class="headerlink" title="Regular Expression Matching"></a>Regular Expression Matching</h2><ul>
+<li>难度：Hard</li>
+<li>代码语言：JavaScript</li>
+<li>时间：16-11-08</li>
+</ul>
+<h3 id="题目描述-3"><a href="#题目描述-3" class="headerlink" title="题目描述"></a>题目描述</h3><p>Implement regular expression matching with support for<code>&#39;.&#39;</code> and<code>&#39;*&#39;</code>.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&apos;.&apos; Matches any single character.</div><div class="line">&apos;*&apos; Matches zero or more of the preceding element.</div><div class="line"></div><div class="line">The matching should cover the entire input string (not partial).</div><div class="line"></div><div class="line">The function prototype should be:</div><div class="line">bool isMatch(const char *s, const char *p)</div><div class="line"></div><div class="line">Some examples:</div><div class="line">isMatch(&quot;aa&quot;,&quot;a&quot;) → false</div><div class="line">isMatch(&quot;aa&quot;,&quot;aa&quot;) → true</div><div class="line">isMatch(&quot;aaa&quot;,&quot;aa&quot;) → false</div><div class="line">isMatch(&quot;aa&quot;, &quot;a*&quot;) → true</div><div class="line">isMatch(&quot;aa&quot;, &quot;.*&quot;) → true</div><div class="line">isMatch(&quot;ab&quot;, &quot;.*&quot;) → true</div><div class="line">isMatch(&quot;aab&quot;, &quot;c*a*b&quot;) → true</div></pre></td></tr></table></figure>
+<h3 id="解题思路-3"><a href="#解题思路-3" class="headerlink" title="解题思路"></a>解题思路</h3><ol>
+<li><p>递归解法：</p>
+<ul>
+<li>如果<code>p</code>的第二位不是<code>*</code>，那么说明<code>s</code>的第一位一定要匹配<code>p</code>的第一位，那么从<code>p</code>的第二位和<code>s</code>的第二位开始再执行这个函数（进行递归），否则返回<code>false</code></li>
+<li>如果<code>p</code>的第二位是<code>*</code>，需要一个循环，将<code>s.substring(0), s.substring(1), s.substring(2)...</code>与<code>p</code>去掉头两个进行match（递归），直到<code>s.substring(i)</code>的第一个字符和<code>p</code>的第一个字符不一样；举个例子：<code>s</code>是<code>aaabcd</code>，<code>p</code>是<code>a*bcd</code>，那么，要将<code>aabcd</code>和<code>bcd</code>比较，不符合的话，再对<code>abcd</code>和<code>bcd</code>比较…</li>
+<li>这种解法的算法复杂度，似乎在最差情况下会达到$O(n^2)$</li>
+</ul>
+</li>
+<li><p>其他解法：</p>
+<p>暂时还在想..</p>
+</li>
+</ol>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * [isMatch 递归写法]</span></div><div class="line"><span class="comment"> * @param  &#123;[type]&#125;  s [description]</span></div><div class="line"><span class="comment"> * @param  &#123;[type]&#125;  p [description]</span></div><div class="line"><span class="comment"> * @return &#123;Boolean&#125;   [description]</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">var</span> isMatch = <span class="function"><span class="keyword">function</span>(<span class="params">s, p</span>) </span>&#123;</div><div class="line">	<span class="comment">// "acccdfaaac", "ac*.*aa*ac"</span></div><div class="line">	<span class="keyword">if</span>(p.length == <span class="number">0</span> &amp;&amp; s.length == <span class="number">0</span>)</div><div class="line">		<span class="keyword">return</span> <span class="literal">true</span></div><div class="line">	<span class="keyword">if</span>(p.length == <span class="number">1</span>)&#123;</div><div class="line">		<span class="keyword">if</span>(s.length != <span class="number">1</span>)</div><div class="line">			<span class="keyword">return</span> <span class="literal">false</span></div><div class="line">		<span class="keyword">else</span></div><div class="line">			<span class="keyword">return</span> (p.charAt(<span class="number">0</span>) == <span class="string">'.'</span> || p.charAt(<span class="number">0</span>) == s.charAt(<span class="number">0</span>))</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(p.charAt(<span class="number">1</span>) != <span class="string">'*'</span>)&#123;</div><div class="line">		<span class="keyword">if</span>(s.length == <span class="number">0</span>)&#123;</div><div class="line">			<span class="keyword">return</span> <span class="literal">false</span></div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span></div><div class="line">			<span class="keyword">return</span> ((p.charAt(<span class="number">0</span>) == <span class="string">'.'</span> || s.charAt(<span class="number">0</span>) == p.charAt(<span class="number">0</span>)) &amp;&amp; isMatch(s.substring(<span class="number">1</span>), p.substring(<span class="number">1</span>)))</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span>&#123;</div><div class="line">		<span class="keyword">var</span> i = <span class="number">0</span></div><div class="line">		<span class="keyword">for</span>(; (s.charAt(i) == p.charAt(<span class="number">0</span>) || p.charAt(<span class="number">0</span>) == <span class="string">'.'</span>) &amp;&amp; i &lt; s.length; i++)&#123;</div><div class="line">			<span class="keyword">if</span>(isMatch(s.substring(i), p.substring(<span class="number">2</span>)))</div><div class="line">				<span class="keyword">return</span> <span class="literal">true</span></div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> isMatch(s.substring(i), p.substring(<span class="number">2</span>))</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="Median-of-Two-Sorted-Arrays"><a href="#Median-of-Two-Sorted-Arrays" class="headerlink" title="Median of Two Sorted Arrays"></a>Median of Two Sorted Arrays</h2><ul>
+<li>难度：Hard</li>
+<li>代码语言：JavaScript</li>
+<li>时间：16-09-30</li>
+</ul>
+<h3 id="题目描述-4"><a href="#题目描述-4" class="headerlink" title="题目描述"></a>题目描述</h3><p>There are two sorted arrays nums1 and nums2 of size m and n respectively.</p>
+<p>Find the median of the two sorted arrays. The overall run time complexity should be <code>O(log (m+n))</code>.</p>
+<p>Example 1:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">nums1 = [1, 3]</div><div class="line">nums2 = [2]</div><div class="line"></div><div class="line">The median is 2.0</div></pre></td></tr></table></figure></p>
+<p>Example 2:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">nums1 = [1, 2]</div><div class="line">nums2 = [3, 4]</div><div class="line"></div><div class="line">The median is (2 + 3)/2 = 2.5</div></pre></td></tr></table></figure></p>
+<h3 id="解题思路-4"><a href="#解题思路-4" class="headerlink" title="解题思路"></a>解题思路</h3><p>一开始以为是<a href="http://baike.baidu.com/link?url=5HGW_bBNSxvLNSVhMYM6ztXE-SWUxB_PBxnrY_uX7gUkX-SNCF12vmXyguPBknf4fEDo2G6IJiJWxAUVq7xStkGfjZnJwPd-1Mpu5XnDeQwjpj4i5-B-ylsxJu4gdJhT" target="_blank" rel="external">归并排序</a>的一个小小的应用而已，但一直不明白：<code>O(log (m+n))</code>的时间复杂度怎么达到……后来才明白这个题的恐怖之处就在于此，结题方案是利用二分查找类似的方法，来找到这个值，具体算法比较难写，先挖个坑，后面填上，贴上一个别人的解决方案：<a href="https://ask.julyedu.com/question/197" target="_blank" rel="external"></a></p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><p>时间复杂度为O(M+N)的算法：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * @param &#123;number[]&#125; nums1</span></div><div class="line"><span class="comment"> * @param &#123;number[]&#125; nums2</span></div><div class="line"><span class="comment"> * @return &#123;number&#125;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">var</span> findMedianSortedArrays = <span class="function"><span class="keyword">function</span>(<span class="params">nums1, nums2</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> length1 = nums1.length, length2 = nums2.length;</div><div class="line">  <span class="keyword">var</span> flag = <span class="number">0</span>, median = <span class="built_in">Math</span>.floor((length1 + length2) / <span class="number">2</span>) + <span class="number">1</span>;</div><div class="line">  <span class="keyword">var</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</div><div class="line">  <span class="keyword">var</span> mergeArr = [];</div><div class="line">  <span class="keyword">if</span>((length1 + length2) % <span class="number">2</span> === <span class="number">0</span>)<span class="comment">//flag = 1 : even</span></div><div class="line">    flag = <span class="number">1</span>;</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> k = <span class="number">0</span>; k &lt; median; k++)&#123;</div><div class="line">    <span class="keyword">if</span>((i &lt; length1 &amp;&amp; j &lt; length2 &amp;&amp; nums1[i] &lt; nums2[j]) || j &gt;= length2)&#123;</div><div class="line">        mergeArr[k] = nums1[i];</div><div class="line">        i++;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span>&#123;</div><div class="line">        mergeArr[k] = nums2[j];</div><div class="line">        j++;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">if</span>(flag === <span class="number">1</span>)</div><div class="line">    <span class="keyword">return</span> (mergeArr[median<span class="number">-1</span>] + mergeArr[median<span class="number">-2</span>])/<span class="number">2</span>;</div><div class="line">  <span class="keyword">else</span></div><div class="line">    <span class="keyword">return</span> mergeArr[median<span class="number">-1</span>];</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>时间复杂度为O(log(m+n))的算法：<br>先挖坑：<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * @param &#123;number[]&#125; nums1</span></div><div class="line"><span class="comment"> * @param &#123;number[]&#125; nums2</span></div><div class="line"><span class="comment"> * @return &#123;number&#125;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">var</span> findMedianSortedArrays = <span class="function"><span class="keyword">function</span>(<span class="params">nums1, nums2</span>) </span>&#123;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>81.90%……玛德其实这个什么卵用都没有！因为即便这么差的算法也能跑这么快？今天以后就不贴了 ZZ；<br><img src="http://o6vut8vrh.bkt.clouddn.com/16-9-30/89256071.jpg" alt=""></p>
+<h2 id="Longest-Substring-Without-Repeating-Characters"><a href="#Longest-Substring-Without-Repeating-Characters" class="headerlink" title="Longest Substring Without Repeating Characters"></a>Longest Substring Without Repeating Characters</h2><ul>
+<li>难度：Medium</li>
+<li>代码语言：JavaScript</li>
+<li>时间：16-09-29</li>
+</ul>
+<h3 id="题目描述-5"><a href="#题目描述-5" class="headerlink" title="题目描述"></a>题目描述</h3><p>Given a string, find the length of the longest substring without repeating characters.<br>Examples:</p>
+<ul>
+<li>Given <code>&quot;abcabcbb&quot;</code>, the answer is <code>&quot;abc&quot;</code>, which the length is 3.</li>
+<li>Given <code>&quot;bbbbb&quot;</code>, the answer is <code>&quot;b&quot;</code>, with the length of 1.</li>
+<li>Given <code>&quot;pwwkew&quot;</code>, the answer is <code>&quot;wke&quot;</code>, with the length of 3. Note that the answer must be a substring, <code>&quot;pwke&quot;</code> is a subsequence and not a substring.</li>
+</ul>
+<p>PS:最后要求返回的是子字符串的长度，而不是子字符串。</p>
+<h3 id="解题思路-5"><a href="#解题思路-5" class="headerlink" title="解题思路"></a>解题思路</h3><p>这题一眼就能看出来，最快的算法肯定是O(N)。在这个算法当中，有一步是必须的：</p>
+<ul>
+<li>发现一个字符是否有重复：利用类似哈希表的一个数据结构就能在O(1)时间内发现。</li>
+</ul>
+<p>举个例子来说明：<br>假设字符串是：<code>&quot;abvdfrhvmcvxdcgtew&quot;</code></p>
+<ul>
+<li><p>不断向下遍历，并且在一个数组（类似哈希表）里面存入已发现的字符最大的下标，假设该数组叫：<code>charMaxSub</code>,当遍历到第二个<code>v</code>之前，就已经存储了：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">charMaxSub = &#123;</div><div class="line">  a: <span class="number">0</span>,</div><div class="line">  b: <span class="number">1</span>,</div><div class="line">  d: <span class="number">3</span>,</div><div class="line">  f: <span class="number">4</span>,</div><div class="line">  h: <span class="number">6</span>,</div><div class="line">  r: <span class="number">5</span>,</div><div class="line">  v: <span class="number">2</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>当找到重复字符<code>v</code>时，就会发现，在<code>charMaxSub</code>里面已经存了<code>v</code>，所以这个时候就会产生第一个没有重复字符的最长子字符串：<code>&quot;abvdfrh&quot;</code>。此刻应该把<code>charMaxSub.v</code>更新为新的下标。</p>
+</li>
+<li>此时，继续往后遍历，再发现新的没有重复的子字符串，也只能是从第一个<code>v</code>后面产生的，所以，可以把第一个<code>v</code>后面的第一个字符，也就是下标为3的这个当做数组的开始。</li>
+<li>继续重复以上的环节，一直往后遍历，直到对比出最长的没有重复字符的子字符串。</li>
+</ul>
+<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * @param &#123;string&#125; s</span></div><div class="line"><span class="comment"> * @return &#123;number&#125;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">var</span> lengthOfLongestSubstring = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> charMaxSub = [];<span class="comment">//用来存放字符串中每个字符的最大下标</span></div><div class="line">  <span class="keyword">var</span> initSub = <span class="number">0</span>; <span class="comment">//随着字符串的遍历，最新的没有重复的子字符串的起始位置</span></div><div class="line">  <span class="keyword">var</span> maxLength = <span class="number">0</span>, temp = <span class="number">0</span>;</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; s.length; i++)&#123;</div><div class="line">    <span class="keyword">if</span>(charMaxSub[s[i]] &gt;= initSub)&#123;<span class="comment">//!== undefined)&#123;</span></div><div class="line">      temp = i - initSub;</div><div class="line">      maxLength = temp &gt; maxLength ? temp : maxLength;</div><div class="line">      temp = charMaxSub[s[i]]+<span class="number">1</span>;</div><div class="line">      initSub = temp &gt; initSub ? temp : initSub;</div><div class="line">    &#125;</div><div class="line">    charMaxSub[s[i]] = i;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">if</span>(s.length-initSub &gt; maxLength)</div><div class="line">    maxLength = s.length - initSub;</div><div class="line">  <span class="keyword">return</span> maxLength</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h3><p>Your runtime beats 43.41% of javascript submissions.<br><img src="http://o6vut8vrh.bkt.clouddn.com/16-9-30/3230190.jpg" alt=""></p>
+<h2 id="Add-Two-Numbers"><a href="#Add-Two-Numbers" class="headerlink" title="Add Two Numbers"></a>Add Two Numbers</h2><ul>
+<li>难度：Medium</li>
+<li>代码语言：JavaScript</li>
+<li>时间：16-09-28</li>
+</ul>
+<h3 id="题目描述-6"><a href="#题目描述-6" class="headerlink" title="题目描述"></a>题目描述</h3><p>You are given two linked lists representing two non-negative numbers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
+<p><strong>Input:</strong> (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br><strong>Output:</strong> 7 -&gt; 0 -&gt; 8</p>
+<h3 id="解题思路-6"><a href="#解题思路-6" class="headerlink" title="解题思路"></a>解题思路</h3><p>其实就是一般性的加法运算，就很简单，就是个位和个位相加，向前进位。但是你不能先把两个链表先分别整理成整数，也就是不能把(2 -&gt; 4 -&gt; 3)搞成342，因为可能链表比较长的时候就会比较大，会有case通不过……<br>这题竟然是medium，值得吐槽……</p>
+<h3 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h3><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Definition for singly-linked list.</span></div><div class="line"><span class="comment"> * function ListNode(val) &#123;</span></div><div class="line"><span class="comment"> *     this.val = val;</span></div><div class="line"><span class="comment"> *     this.next = null;</span></div><div class="line"><span class="comment"> * &#125;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * @param &#123;ListNode&#125; l1</span></div><div class="line"><span class="comment"> * @param &#123;ListNode&#125; l2</span></div><div class="line"><span class="comment"> * @return &#123;ListNode&#125;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">var</span> addTwoNumbers = <span class="function"><span class="keyword">function</span>(<span class="params">l1, l2</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> nextNode1 = l1, nextNode2 = l2;</div><div class="line">    <span class="keyword">var</span> addVal1 = <span class="number">0</span>, addVal2 = <span class="number">0</span>, sum = <span class="number">0</span>, carryOver = <span class="number">0</span>;</div><div class="line">    <span class="keyword">var</span> resNode = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</div><div class="line">    <span class="keyword">var</span> resNodeList = resNode;</div><div class="line">    <span class="keyword">while</span>(resNodeList !== <span class="literal">null</span>)&#123;</div><div class="line">      <span class="keyword">if</span>(nextNode1 === <span class="literal">null</span>)&#123;</div><div class="line">        addVal1 = <span class="number">0</span>;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">else</span>&#123;</div><div class="line">        addVal1 = nextNode1.val;</div><div class="line">        nextNode1 = nextNode1.next;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">if</span>(nextNode2 === <span class="literal">null</span>)&#123;</div><div class="line">        addVal2 = <span class="number">0</span>;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">else</span>&#123;</div><div class="line">        addVal2 = nextNode2.val;</div><div class="line">        nextNode2 = nextNode2.next;</div><div class="line">      &#125;</div><div class="line">      sum = addVal1 + addVal2 + carryOver;</div><div class="line">      <span class="keyword">if</span>(sum &gt;= <span class="number">10</span>)&#123;</div><div class="line">        carryOver = <span class="number">1</span>;</div><div class="line">        sum %= <span class="number">10</span>;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">else</span></div><div class="line">        carryOver = <span class="number">0</span>;</div><div class="line">      resNodeList.val = sum;</div><div class="line">      <span class="keyword">if</span>(nextNode1 === <span class="literal">null</span> &amp;&amp; nextNode2 === <span class="literal">null</span> &amp;&amp; carryOver === <span class="number">0</span>)</div><div class="line">        resNodeList.next = <span class="literal">null</span>;</div><div class="line">      <span class="keyword">else</span>&#123;</div><div class="line">        resNodeList.next = &#123;&#125;;</div><div class="line">      &#125;</div><div class="line">      resNodeList = resNodeList.next;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> resNode;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="结果-2"><a href="#结果-2" class="headerlink" title="结果"></a>结果</h3><p>这种算法的效率beats了46.06%的提交者<br><img src="http://o6vut8vrh.bkt.clouddn.com/16-9-30/54382861.jpg" alt=""></p>
+<h2 id="Two-Sum"><a href="#Two-Sum" class="headerlink" title="Two Sum"></a>Two Sum</h2><ul>
+<li>难度：easy</li>
+<li>代码语言：JavaScript</li>
+<li>时间：16-09-27</li>
+</ul>
+<h3 id="题目描述-7"><a href="#题目描述-7" class="headerlink" title="题目描述"></a>题目描述</h3><p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.<br>You may assume that each input would have exactly one solution.<br><strong>Example:</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Given nums = [2, 7, 11, 15], target = 9,</div><div class="line"></div><div class="line">Because nums[0] + nums[1] = 2 + 7 = 9,</div><div class="line">return [0, 1].</div></pre></td></tr></table></figure></p>
+<p><strong>UPDATE (2016/2/13):</strong><br>The return format had been changed to zero-based indices. Please read the above updated description carefully.</p>
+<h3 id="解题思路-7"><a href="#解题思路-7" class="headerlink" title="解题思路"></a>解题思路</h3><p>这道题最终的思路就是找到一个时间复杂度为O(N)的算法。</p>
+<ol>
+<li>一次遍历下去，假设下标为i，每次用target减去数组中对应的那个值nums[i]，把差存放在一个新的数组中；</li>
+<li>遍历的同时，去看看存储差值的那个数组里是否已经包含了当前这个nums[i]，如果包含的话，就相当于找到了这一对的值；</li>
+<li>所以目标是把每次寻找的时间复杂度降低到O(1)，这样总体复杂度也就降低到了O[N]。</li>
+</ol>
+<p>具体就看代码吧，很简单。</p>
+<h3 id="代码-4"><a href="#代码-4" class="headerlink" title="代码"></a>代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">* @param &#123;number[]&#125; nums</span></div><div class="line"><span class="comment">* @param &#123;number&#125; target</span></div><div class="line"><span class="comment">* @return &#123;number[]&#125;</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="keyword">var</span> twoSum = <span class="function"><span class="keyword">function</span>(<span class="params">nums, target</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> diff = [];</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.length; i++)&#123;</div><div class="line">	<span class="keyword">if</span>(diff[nums[i]] !== <span class="literal">undefined</span>)&#123;</div><div class="line">	  <span class="keyword">return</span> [diff[nums[i]], i];</div><div class="line">	&#125;</div><div class="line">	diff[target - nums[i]] = i;</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="结果-3"><a href="#结果-3" class="headerlink" title="结果"></a>结果</h3><p><img src="http://o6vut8vrh.bkt.clouddn.com/16-9-27/8303849.jpg" alt=""></p>
+<h2 id="37-Sudoku-Solver"><a href="#37-Sudoku-Solver" class="headerlink" title="37.Sudoku Solver"></a>37.Sudoku Solver</h2><ul>
+<li>难度：hard</li>
+<li>代码语言：JavaScript</li>
+<li>时间：18-04-09</li>
+</ul>
+<h3 id="题目描述-8"><a href="#题目描述-8" class="headerlink" title="题目描述"></a>题目描述</h3><p>Write a program to solve a Sudoku puzzle by filling the empty cells.</p>
+<p>Empty cells are indicated by the character <code>&#39;.&#39;</code>.</p>
+<p>You may assume that there will be only one unique solution.</p>
+<p>也就是找数独的解，而且保证输入的数独是有唯一解的</p>
+<h3 id="解题思路-8"><a href="#解题思路-8" class="headerlink" title="解题思路"></a>解题思路</h3><p>其实就是个回溯。但是首先可以进行两个预处理。</p>
+<ol>
+<li>先建立一个set，包含1-9的元素，然后去遍历每一个待填充的格子所在行、所在列和所在的九宫格，从set中删掉那些这些行、列和九宫格里已经填好的元素，得到的最终的set作为该单元格的可能解，假如这个可能解只有一个，那么刚好可以直接填入。</li>
+<li>经历第一步后，每个待填充的单元格都会有它的可能解了。但可能，某个单元格包含的可能解，该单元格同行的那些待填充的单元格都不包含，那么只能它来填充这个可能解了，于是乎该单元格也被确定下来。同列和同九宫格的那些也一样。</li>
+<li>在这两个基础上，再进行深度优先搜索的回溯，就会快很多。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> getPossible = <span class="function"><span class="keyword">function</span> (<span class="params">i, j, board</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> result = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'4'</span>, <span class="string">'5'</span>, <span class="string">'6'</span>, <span class="string">'7'</span>, <span class="string">'8'</span>, <span class="string">'9'</span>])</div><div class="line"></div><div class="line">    board.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">row</span>) </span>&#123;</div><div class="line">        result.delete(row[j])</div><div class="line">    &#125;)</div><div class="line">    board[i].forEach(<span class="function"><span class="keyword">function</span> (<span class="params">ele</span>) </span>&#123;</div><div class="line">        result.delete(ele)</div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">var</span> x = <span class="built_in">Math</span>.floor(i / <span class="number">3</span>) * <span class="number">3</span>,</div><div class="line">        y = <span class="built_in">Math</span>.floor(j / <span class="number">3</span>) * <span class="number">3</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> dx = <span class="number">0</span>; dx &lt; <span class="number">3</span>; dx++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> dy = <span class="number">0</span>; dy &lt; <span class="number">3</span>; dy++) &#123;</div><div class="line">            <span class="keyword">var</span> ele = board[x + dx][y + dy]</div><div class="line">            result.delete(ele)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (result.size == <span class="number">1</span>) &#123;</div><div class="line">        board[i][j] = [...result][<span class="number">0</span>]</div><div class="line">        board.blankCount--</div><div class="line">        <span class="keyword">if</span> (board.blankCount != <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> update(i, j, board)</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span></div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (result.size &gt; <span class="number">1</span>) &#123;</div><div class="line">        board[i][j] = result</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">-1</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> testPossible = <span class="function"><span class="keyword">function</span> (<span class="params">i, j, board</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> ele = [...board[i][j]]</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> t = <span class="number">0</span>; t &lt; ele.length; t++) &#123;</div><div class="line">        possible = ele[t]</div><div class="line">        <span class="keyword">let</span> deepCopy = board.map(<span class="function"><span class="keyword">function</span> (<span class="params">row, i</span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> row.map(<span class="function"><span class="keyword">function</span> (<span class="params">ele, j</span>) </span>&#123;</div><div class="line">                <span class="keyword">return</span> ele</div><div class="line">            &#125;)</div><div class="line">        &#125;)</div><div class="line">        deepCopy[i][j] = possible</div><div class="line">        deepCopy.blankCount = board.blankCount - <span class="number">1</span></div><div class="line">        <span class="keyword">var</span> state = update(i, j, deepCopy)</div><div class="line">        <span class="keyword">if</span> (state == <span class="number">0</span>) &#123;</div><div class="line">            deepCopy.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">row, i</span>) </span>&#123;</div><div class="line">                row.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">ele, j</span>) </span>&#123;</div><div class="line">                    board[i][j] = ele</div><div class="line">                &#125;)</div><div class="line">            &#125;)</div><div class="line">            <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (state == <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">var</span> ii = <span class="number">-1</span>,</div><div class="line">                jj = <span class="number">-1</span></div><div class="line">            <span class="keyword">if</span> (deepCopy.some(<span class="function"><span class="keyword">function</span> (<span class="params">row, i</span>) </span>&#123;</div><div class="line">                    <span class="keyword">return</span> row.some(<span class="function"><span class="keyword">function</span> (<span class="params">ele, j</span>) </span>&#123;</div><div class="line">                        <span class="keyword">if</span> (ele <span class="keyword">instanceof</span> <span class="built_in">Object</span>) &#123;</div><div class="line">                            ii = i</div><div class="line">                            jj = j</div><div class="line">                            <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">                        &#125;</div><div class="line">                    &#125;)</div><div class="line">                &#125;)) &#123;</div><div class="line">                <span class="keyword">if</span>(testPossible(ii, jj, deepCopy))&#123;</div><div class="line">                    deepCopy.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">row, i</span>) </span>&#123;</div><div class="line">                        row.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">ele, j</span>) </span>&#123;</div><div class="line">                            board[i][j] = ele</div><div class="line">                        &#125;)</div><div class="line">                    &#125;)</div><div class="line">                    <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> update = <span class="function"><span class="keyword">function</span> (<span class="params">x, y, board</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> state = <span class="number">1</span></div><div class="line">    board.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">row, i</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> j = y</div><div class="line">        <span class="keyword">if</span> ((row[j] <span class="keyword">instanceof</span> <span class="built_in">Object</span>) || row[j] == <span class="string">'.'</span>) &#123;</div><div class="line">            state = getPossible(i, j, board)</div><div class="line">            <span class="keyword">if</span> (state == <span class="number">0</span>) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">0</span></div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (state == <span class="number">-1</span>) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">-1</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">var</span> i = x</div><div class="line">    board[i].forEach(<span class="function"><span class="keyword">function</span> (<span class="params">ele, j, row</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> ((ele <span class="keyword">instanceof</span> <span class="built_in">Object</span>) || ele == <span class="string">'.'</span>) &#123;</div><div class="line">            state = getPossible(i, j, board)</div><div class="line">            <span class="keyword">if</span> (state == <span class="number">0</span>) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">0</span></div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (state == <span class="number">-1</span>) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">-1</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    x = <span class="built_in">Math</span>.floor(x / <span class="number">3</span>) * <span class="number">3</span>, y = <span class="built_in">Math</span>.floor(y / <span class="number">3</span>) * <span class="number">3</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> dx = <span class="number">0</span>; dx &lt; <span class="number">3</span>; dx++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> dy = <span class="number">0</span>; dy &lt; <span class="number">3</span>; dy++) &#123;</div><div class="line">            i = x + dx</div><div class="line">            j = y + dy</div><div class="line">            <span class="keyword">var</span> ele = board[i][j]</div><div class="line">            <span class="keyword">if</span> ((ele <span class="keyword">instanceof</span> <span class="built_in">Object</span>) || ele == <span class="string">'.'</span>) &#123;</div><div class="line">                state = getPossible(i, j, board)</div><div class="line">                <span class="keyword">if</span> (state == <span class="number">0</span>) &#123;</div><div class="line">                    <span class="keyword">return</span> <span class="number">0</span></div><div class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (state == <span class="number">-1</span>) &#123;</div><div class="line">                    <span class="keyword">return</span> <span class="number">-1</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> state</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * @param &#123;character[][]&#125; board</span></div><div class="line"><span class="comment"> * @return &#123;void&#125; Do not return anything, modify board in-place instead.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">var</span> solveSudoku = <span class="function"><span class="keyword">function</span> (<span class="params">board</span>) </span>&#123;</div><div class="line">    board.blankCount = <span class="number">0</span></div><div class="line">    board.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">row, j</span>) </span>&#123;</div><div class="line">        row.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">ele, i</span>) </span>&#123;</div><div class="line">            <span class="keyword">if</span> (ele == <span class="string">'.'</span>) &#123;</div><div class="line">                board.blankCount++</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    <span class="keyword">var</span> count = <span class="number">0</span></div><div class="line">    <span class="keyword">var</span> state = <span class="number">1</span></div><div class="line">    board.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">row, i</span>) </span>&#123;</div><div class="line">        row.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">ele, j</span>) </span>&#123;</div><div class="line">            <span class="keyword">if</span> ((ele <span class="keyword">instanceof</span> <span class="built_in">Object</span>) || ele == <span class="string">'.'</span>) &#123;</div><div class="line">                <span class="built_in">console</span>.log(i, j, count++)</div><div class="line">                state = getPossible(i, j, board)</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    board.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">row, i</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> record = [[],[],[],[],[],[],[],[],[],[]]</div><div class="line">        row.forEach(<span class="function">(<span class="params">ele, j</span>) =&gt;</span> &#123;</div><div class="line">            <span class="keyword">if</span>(ele <span class="keyword">instanceof</span> <span class="built_in">Object</span>)&#123;</div><div class="line">                ele.forEach(<span class="function"><span class="params">e</span> =&gt;</span> &#123;</div><div class="line">                    record[e].push([i, j])</div><div class="line">                &#125;)</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">        record.forEach(<span class="function">(<span class="params">r, t</span>) =&gt;</span> &#123;</div><div class="line">            <span class="keyword">if</span>(r.length == <span class="number">1</span>)&#123;</div><div class="line">                board[r[<span class="number">0</span>][<span class="number">0</span>]][r[<span class="number">0</span>][<span class="number">1</span>]] = <span class="string">''</span> + t</div><div class="line">                board.blankCount--</div><div class="line">                <span class="keyword">var</span> state = update(r[<span class="number">0</span>][<span class="number">0</span>], r[<span class="number">0</span>][<span class="number">1</span>], board)</div><div class="line">                <span class="keyword">if</span>(state == <span class="number">0</span>)&#123;</div><div class="line">                    <span class="keyword">return</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">    &#125;)</div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; board[<span class="number">0</span>].length; j++)&#123;</div><div class="line">        <span class="keyword">var</span> record = [[],[],[],[],[],[],[],[],[],[]]</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; board.length; i++)&#123;</div><div class="line">            <span class="keyword">var</span> ele = board[i][j]</div><div class="line">            <span class="keyword">if</span>(ele <span class="keyword">instanceof</span> <span class="built_in">Object</span>)&#123;</div><div class="line">                ele.forEach(<span class="function"><span class="params">e</span> =&gt;</span> &#123;</div><div class="line">                    record[e].push([i, j])</div><div class="line">                &#125;)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        record.forEach(<span class="function">(<span class="params">r, t</span>) =&gt;</span> &#123;</div><div class="line">            <span class="keyword">if</span>(r.length == <span class="number">1</span>)&#123;</div><div class="line">                board[r[<span class="number">0</span>][<span class="number">0</span>]][r[<span class="number">0</span>][<span class="number">1</span>]] = <span class="string">''</span> + t</div><div class="line">                board.blankCount--</div><div class="line">                <span class="keyword">var</span> state = update(r[<span class="number">0</span>][<span class="number">0</span>], r[<span class="number">0</span>][<span class="number">1</span>], board)</div><div class="line">                <span class="keyword">if</span>(state == <span class="number">0</span>)&#123;</div><div class="line">                    <span class="keyword">return</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(x = <span class="number">0</span>; x &lt; <span class="number">9</span>; x += <span class="number">3</span>)&#123;</div><div class="line">        <span class="keyword">for</span>(y = <span class="number">0</span>; y &lt; <span class="number">9</span>; y += <span class="number">3</span>)&#123;</div><div class="line">            <span class="keyword">var</span> record = [[],[],[],[],[],[],[],[],[],[]]</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> dx = <span class="number">0</span>; dx &lt; <span class="number">3</span>; dx++) &#123;</div><div class="line">                <span class="keyword">for</span> (<span class="keyword">var</span> dy = <span class="number">0</span>; dy &lt; <span class="number">3</span>; dy++) &#123;</div><div class="line">                    <span class="keyword">var</span> i = x + dx, j = y + dy</div><div class="line">                    <span class="keyword">var</span> ele = board[i][j]</div><div class="line">                    <span class="keyword">if</span>(ele <span class="keyword">instanceof</span> <span class="built_in">Object</span>)&#123;</div><div class="line">                        ele.forEach(<span class="function"><span class="params">e</span> =&gt;</span> &#123;</div><div class="line">                            record[e].push([i, j])</div><div class="line">                        &#125;)</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            record.forEach(<span class="function">(<span class="params">r, t</span>) =&gt;</span> &#123;</div><div class="line">                <span class="keyword">if</span>(r.length == <span class="number">1</span>)&#123;</div><div class="line">                    board[r[<span class="number">0</span>][<span class="number">0</span>]][r[<span class="number">0</span>][<span class="number">1</span>]] = <span class="string">''</span> + t</div><div class="line">                    board.blankCount--</div><div class="line">                    <span class="keyword">var</span> state = update(r[<span class="number">0</span>][<span class="number">0</span>], r[<span class="number">0</span>][<span class="number">1</span>], board)</div><div class="line">                    <span class="keyword">if</span>(state == <span class="number">0</span>)&#123;</div><div class="line">                        <span class="keyword">return</span></div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> ii = <span class="number">-1</span>,</div><div class="line">        jj = <span class="number">-1</span></div><div class="line">    <span class="keyword">if</span> (board.some(<span class="function"><span class="keyword">function</span> (<span class="params">row, i</span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> row.some(<span class="function"><span class="keyword">function</span> (<span class="params">ele, j</span>) </span>&#123;</div><div class="line">                <span class="keyword">if</span> (ele <span class="keyword">instanceof</span> <span class="built_in">Object</span>) &#123;</div><div class="line">                    ii = i</div><div class="line">                    jj = j</div><div class="line">                    <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">                &#125;</div><div class="line">            &#125;)</div><div class="line">        &#125;)) &#123;</div><div class="line">            testPossible(ii, jj, board)</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="39-Combination-Sum"><a href="#39-Combination-Sum" class="headerlink" title="39.Combination Sum"></a>39.Combination Sum</h2><ul>
+<li>难度：Medium</li>
+<li>代码语言：JavaScript</li>
+<li>时间：18-04-10</li>
+</ul>
+<h3 id="题目描述-9"><a href="#题目描述-9" class="headerlink" title="题目描述"></a>题目描述</h3><p>Given a <strong>set</strong> of candidate numbers (<strong>C</strong>) <strong>(without duplicates)</strong> and a target number (<strong>T</strong>), find all unique combinations in <strong>C</strong> where the candidate numbers sums to <strong>T</strong>.</p>
+<p>The <strong>same</strong> repeated number may be chosen from <strong>C</strong> unlimited number of times.</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li>All numbers (including target) will be positive integers.</li>
+<li>The solution set must not contain duplicate combinations.</li>
+</ul>
+<p>For example, given candidate set <code>[2, 3, 6, 7]</code> and target <code>7</code>,<br>A solution set is: </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">[</div><div class="line">  [7],</div><div class="line">  [2, 2, 3]</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>给定目标7，要从候选的数组里面选出不同的组合，使得和为7</p>
+<h3 id="解题思路-9"><a href="#解题思路-9" class="headerlink" title="解题思路"></a>解题思路</h3><p>简单想，其实是一个递归，最简单的递归思路如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * @param &#123;number[]&#125; candidates</span></div><div class="line"><span class="comment"> * @param &#123;number&#125; target</span></div><div class="line"><span class="comment"> * @return &#123;number[][]&#125;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">var</span> combinationSum = <span class="function"><span class="keyword">function</span> (<span class="params">candidates, target</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> candidateSet = <span class="keyword">new</span> <span class="built_in">Set</span>(candidates)</div><div class="line">    <span class="keyword">let</span> result = []</div><div class="line">    candidates.forEach(<span class="function"><span class="params">candidate</span> =&gt;</span> &#123;</div><div class="line">        <span class="keyword">let</span> times = <span class="number">1</span></div><div class="line">        candidateSet.delete(candidate)</div><div class="line">        <span class="keyword">while</span> (times * candidate &lt;= target) &#123;</div><div class="line">            <span class="keyword">let</span> thisResult = []</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; times; i++) &#123;</div><div class="line">                thisResult.push(candidate)</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (target == times * candidate) &#123;</div><div class="line">                result.push(thisResult)</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                combinationSum([...candidateSet], target - times * candidate).forEach(<span class="function"><span class="params">solution</span> =&gt;</span> &#123;</div><div class="line">                    result.push(thisResult.concat(solution))</div><div class="line">                &#125;)</div><div class="line">            &#125;</div><div class="line">            times++</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">return</span> result</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>上述的解法比较简洁，因为应用了set的特性，但是JavaScript中，set的构建和解构是非常耗时的，我们希望转换成数组的形式：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * @param &#123;number[]&#125; candidates</span></div><div class="line"><span class="comment"> * @param &#123;number&#125; target</span></div><div class="line"><span class="comment"> * @return &#123;number[][]&#125;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">var</span> combinationSum = <span class="function"><span class="keyword">function</span> (<span class="params">candidates, target</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> _combinationSum(candidates, <span class="number">0</span>, target)</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">_combinationSum</span>(<span class="params">candidates, start, target</span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> result = []</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> k = start; k &lt; candidates.length; k++)&#123;</div><div class="line">        <span class="keyword">let</span> candidate = candidates[k]</div><div class="line">        <span class="keyword">let</span> times = <span class="number">1</span></div><div class="line">        <span class="keyword">while</span> (times * candidate &lt;= target) &#123;</div><div class="line">            <span class="keyword">let</span> thisResult = []</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; times; i++) &#123;</div><div class="line">                thisResult.push(candidate)</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (target == times * candidate) &#123;</div><div class="line">                result.push(thisResult)</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">let</span> iteResult = _combinationSum(candidates, k + <span class="number">1</span>, target - times * candidate)</div><div class="line">                iteResult.forEach(<span class="function"><span class="params">solution</span> =&gt;</span> &#123;</div><div class="line">                    result.push(thisResult.concat(solution))</div><div class="line">                &#125;)</div><div class="line">            &#125;</div><div class="line">            times++</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="41-First-Missing-Positive"><a href="#41-First-Missing-Positive" class="headerlink" title="41.First Missing Positive"></a>41.First Missing Positive</h2><ul>
+<li>难度：hard</li>
+<li>代码语言：JavaScript</li>
+<li>时间：18-04-11</li>
+</ul>
+<h3 id="题目描述-10"><a href="#题目描述-10" class="headerlink" title="题目描述"></a>题目描述</h3><p>Given an unsorted integer array, find the first missing positive integer.</p>
+<p>For example,<br>Given <code>[1,2,0]</code> return <code>3</code>,<br>and <code>[3,4,-1,1]</code> return <code>2</code>.</p>
+<p>Your algorithm should run in <em>O</em>(<em>n</em>) time and uses constant space.</p>
+<p>就是找最小的没有在数组中出现的正数。但难点在于如何用O(n)的时间和常数的空间。</p>
+<h3 id="解题思路-10"><a href="#解题思路-10" class="headerlink" title="解题思路"></a>解题思路</h3><ol>
+<li><p>看到这种题，自然而然第一想法就是去排序，然后遍历就OK。但难点在于O(n)的排序算法</p>
+</li>
+<li><p>一般的排序算法，最快也得要O(n*logn)，比如快排。当然也有一种trick，利用散列，用O(n)的效率就能将它们散列好（具体代码可以看下方），但从中去遍历的效率就和最大值成正比了，况且这种排序方法的空间并不是一个常数空间，需要在遍历数组的时候，不断扩大。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 简单的排序，效率是常数的，O(max(array))，这里是简单实现，最终结果是不包含重复值的</span></div><div class="line"><span class="keyword">var</span> hashSort = <span class="function"><span class="keyword">function</span>(<span class="params">array</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> sortedArray = array.reduce(<span class="function">(<span class="params">result, num</span>) =&gt;</span> &#123;</div><div class="line">        result[num] = <span class="literal">true</span></div><div class="line">        <span class="keyword">return</span> result</div><div class="line">    &#125;, [])</div><div class="line">    <span class="keyword">return</span> sortedArray.filter(<span class="function"><span class="params">num</span> =&gt;</span> !<span class="built_in">isNaN</span>(num))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>但是还好，我们是找最小缺失的正整数，所以这个正整数一定不会大于数组的长度！</p>
+</li>
+<li><p>当明白了以上这一点之后，也就解决了非常数空间的问题了，于是解决方案如下，效率也极为高效：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * @param &#123;number[]&#125; nums</span></div><div class="line"><span class="comment"> * @return &#123;number&#125;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">var</span> firstMissingPositive = <span class="function"><span class="keyword">function</span> (<span class="params">nums</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> record = []</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</div><div class="line">        <span class="keyword">let</span> num = nums[i]</div><div class="line">        <span class="keyword">if</span> (num &gt; <span class="number">0</span> &amp;&amp; num &lt;= nums.length) &#123;</div><div class="line">            record[num] = <span class="literal">true</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> i = <span class="number">1</span></div><div class="line">    <span class="keyword">for</span> (; i &lt; record.length; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (!record[i]) &#123;</div><div class="line">            <span class="keyword">return</span> i</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> i</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="http://o6vut8vrh.bkt.clouddn.com/18-4-11/45194885.jpg" alt=""></p>
+<h2 id="42-Trapping-Rain-Water"><a href="#42-Trapping-Rain-Water" class="headerlink" title="42.Trapping Rain Water"></a>42.Trapping Rain Water</h2><ul>
+<li>难度：hard</li>
+<li>代码语言：JavaScript</li>
+<li>时间：18-04-11</li>
+</ul>
+<h3 id="题目描述-11"><a href="#题目描述-11" class="headerlink" title="题目描述"></a>题目描述</h3><p>Given <em>n</em> non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.</p>
+<p>For example,<br>Given <code>[0,1,0,2,1,0,1,3,2,1,2,1]</code>, return <code>6</code>.</p>
+<p><img src="http://o6vut8vrh.bkt.clouddn.com/18-4-11/48626419.jpg" alt=""></p>
+<p>The above elevation map is represented by array [0,1,0,2,1,0,1,3,2,1,2,1]. In this case, 6 units of rain water (blue section) are being trapped. <strong>Thanks Marcos</strong> for contributing this image!</p>
+<p>就是给你一堆黑色的条状图，然后下雨，算出能装满的雨水量。</p>
+<h3 id="解题思路-11"><a href="#解题思路-11" class="headerlink" title="解题思路"></a>解题思路</h3><ol>
+<li>假如我们从左往右进行遍历，能装雨水的地方，一定是某根柱子和它右边的第一根不比它矮的柱子之间的部分。于是我们寻找这样的组合即可。</li>
+<li>但有可能这根柱子右边没有比它高的柱子了，那么从左往右的遍历方法就失效了。故而我们要从右往左再遍历一遍。直到所有的柱子都遍历完。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * @param &#123;number[]&#125; height</span></div><div class="line"><span class="comment"> * @return &#123;number&#125;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">var</span> trap = <span class="function"><span class="keyword">function</span>(<span class="params">height</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> leftIndex = <span class="number">0</span>, rightIndex = height.length - <span class="number">1</span>;</div><div class="line">    <span class="keyword">let</span> trapping = <span class="number">0</span></div><div class="line">    <span class="keyword">let</span> range = [leftIndex, rightIndex]</div><div class="line">    <span class="keyword">while</span>(leftIndex &lt; rightIndex)&#123;</div><div class="line">        range = scanLeft(leftIndex, rightIndex, height)</div><div class="line">        <span class="keyword">if</span>(range[<span class="number">1</span>] != <span class="number">-1</span>)&#123;</div><div class="line">            leftIndex = range[<span class="number">1</span>]</div><div class="line">            trapping += calTrapping(range[<span class="number">0</span>], range[<span class="number">1</span>], height)</div><div class="line">        &#125;</div><div class="line">        range = scanRight(leftIndex, rightIndex, height)</div><div class="line">        <span class="keyword">if</span>(range[<span class="number">0</span>] != <span class="number">-1</span>)&#123;</div><div class="line">            rightIndex = range[<span class="number">0</span>]</div><div class="line">            trapping += calTrapping(range[<span class="number">0</span>], range[<span class="number">1</span>], height)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> trapping</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">calTrapping</span>(<span class="params">left, right, height</span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> maxHeight = <span class="built_in">Math</span>.min(height[left], height[right])</div><div class="line">    <span class="keyword">let</span> result = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = left; i &lt;= right; i++)&#123;</div><div class="line">        <span class="keyword">if</span>(height[i] &lt; maxHeight)&#123;</div><div class="line">            result += (maxHeight - height[i])</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">scanLeft</span>(<span class="params">left, right, height</span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> leftHeight = height[left]</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = left + <span class="number">1</span>; i &lt;= right; i++)&#123;</div><div class="line">        <span class="keyword">if</span>(height[i] &gt;= leftHeight)&#123;</div><div class="line">            <span class="keyword">return</span> [left, i]</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> [left, <span class="number">-1</span>]</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">scanRight</span>(<span class="params">left, right, height</span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> rightHeight = height[right]</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = right - <span class="number">1</span>; i &gt;= left; i--)&#123;</div><div class="line">        <span class="keyword">if</span>(height[i] &gt;= rightHeight)&#123;</div><div class="line">            <span class="keyword">return</span> [i, right]</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> [<span class="number">-1</span>, right]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://o6vut8vrh.bkt.clouddn.com/18-4-11/59406759.jpg" alt=""></p>
+<h2 id="44-Wildcard-Matching"><a href="#44-Wildcard-Matching" class="headerlink" title="44. Wildcard Matching"></a>44. Wildcard Matching</h2><ul>
+<li>难度：hard</li>
+<li>代码语言：JavaScript</li>
+<li>时间：18-04-14</li>
+</ul>
+<h3 id="题目描述-12"><a href="#题目描述-12" class="headerlink" title="题目描述"></a>题目描述</h3><p>Given an input string (<code>s</code>) and a pattern (<code>p</code>), implement wildcard pattern matching with support for <code>&#39;?&#39;</code> and <code>&#39;*&#39;</code>.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&apos;?&apos; Matches any single character.</div><div class="line">&apos;*&apos; Matches any sequence of characters (including the empty sequence).</div></pre></td></tr></table></figure>
+<p>The matching should cover the <strong>entire</strong> input string (not partial).</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li><code>s</code> could be empty and contains only lowercase letters <code>a-z</code>.</li>
+<li><code>p</code> could be empty and contains only lowercase letters <code>a-z</code>, and characters like <code>?</code> or <code>*</code>.</li>
+</ul>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Input:</div><div class="line">s = &quot;aa&quot;</div><div class="line">p = &quot;a&quot;</div><div class="line">Output: false</div><div class="line">Explanation: &quot;a&quot; does not match the entire string &quot;aa&quot;.</div></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Input:</div><div class="line">s = &quot;aa&quot;</div><div class="line">p = &quot;*&quot;</div><div class="line">Output: true</div><div class="line">Explanation: &apos;*&apos; matches any sequence.</div></pre></td></tr></table></figure>
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Input:</div><div class="line">s = &quot;cb&quot;</div><div class="line">p = &quot;?a&quot;</div><div class="line">Output: false</div><div class="line">Explanation: &apos;?&apos; matches &apos;c&apos;, but the second letter is &apos;a&apos;, which does not match &apos;b&apos;.</div></pre></td></tr></table></figure>
+<p><strong>Example 4:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Input:</div><div class="line">s = &quot;adceb&quot;</div><div class="line">p = &quot;*a*b&quot;</div><div class="line">Output: true</div><div class="line">Explanation: The first &apos;*&apos; matches the empty sequence, while the second &apos;*&apos; matches the substring &quot;dce&quot;.</div></pre></td></tr></table></figure>
+<p><strong>Example 5:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Input:</div><div class="line">s = &quot;acdcb&quot;</div><div class="line">p = &quot;a*c?b&quot;</div><div class="line">Output: false</div></pre></td></tr></table></figure>
+<p>问题可以简单表述为正则匹配，<code>*</code>表示匹配0或多个任意字符，<code>?</code>表示匹配1个任意字符。字符只包含<code>a-z</code>。</p>
+<h3 id="解题思路-12"><a href="#解题思路-12" class="headerlink" title="解题思路"></a>解题思路</h3><ol>
+<li>我的思路是，在正则表达式中，<code>*</code>是一个很特殊的存在，因为它可以匹配<code>[0, Inifinity]</code>个任意字符，所以要特殊对待。</li>
+<li>我专门写了一个<code>findFromS</code>函数方便调用，用来查找某个字符串str在输入的s中的所有位置，能够处理<code>?</code>的情况，效率应该是$O(len(s) * len(str))$。</li>
+<li>首先我们来看头和尾，如果正则表达式的头和尾都不是<code>*</code>，那么就需要看看能不能和字符串s的头尾相吻合，如果吻合则p和s都去掉头尾。</li>
+<li>对于p的中间的部分，我们可以用<code>*</code>来分割它们，则会得到一个序列，我们只要去s中寻找，是否有这样的序列即可。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * @param &#123;string&#125; s</span></div><div class="line"><span class="comment"> * @param &#123;string&#125; p</span></div><div class="line"><span class="comment"> * @return &#123;boolean&#125;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">var</span> isMatch = <span class="function"><span class="keyword">function</span> (<span class="params">s, p</span>) </span>&#123;</div><div class="line">  	<span class="comment">// 预处理，将多个*合并成一个</span></div><div class="line">    <span class="keyword">var</span> newp = <span class="string">''</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; p.length; i++) &#123;</div><div class="line">        newp += p[i]</div><div class="line">        <span class="keyword">if</span> (p[i] == <span class="string">'*'</span>) &#123;</div><div class="line">            i--</div><div class="line">            <span class="keyword">while</span> (p[i + <span class="number">1</span>] == <span class="string">'*'</span>) &#123;</div><div class="line">                i++</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    p = newp</div><div class="line"></div><div class="line">    <span class="keyword">let</span> result = []</div><div class="line">    <span class="comment">// head</span></div><div class="line">    <span class="keyword">let</span> head = <span class="string">''</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; p.length &amp;&amp; p[i] != <span class="string">'*'</span>; i++) &#123;</div><div class="line">        head += p[i]</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">let</span> headInfo</div><div class="line">    <span class="keyword">if</span> (head.length) &#123;</div><div class="line">        headInfo = findFromS(s, head)[<span class="number">0</span>]</div><div class="line">        <span class="keyword">if</span> (!headInfo || headInfo[<span class="number">0</span>] != <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">        &#125;</div><div class="line">        p = p.slice(headInfo[<span class="number">1</span>])</div><div class="line">        s = s.slice(headInfo[<span class="number">0</span>] + headInfo[<span class="number">1</span>])</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// tail</span></div><div class="line">    <span class="keyword">let</span> tail = <span class="string">''</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = p.length - <span class="number">1</span>; i &gt;= <span class="number">0</span> &amp;&amp; p[i] != <span class="string">'*'</span>; i--) &#123;</div><div class="line">        tail = p[i] + tail</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">let</span> tailInfo</div><div class="line">    <span class="keyword">if</span> (tail.length) &#123;</div><div class="line">        tailInfo = findFromS(s, tail).pop()</div><div class="line">        <span class="keyword">if</span> (!tailInfo || tailInfo[<span class="number">0</span>] + tailInfo[<span class="number">1</span>] != s.length) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">        &#125;</div><div class="line">        p = p.slice(<span class="number">0</span>, p.length - tailInfo[<span class="number">1</span>])</div><div class="line">        s = s.slice(<span class="number">0</span>, tailInfo[<span class="number">0</span>])</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (!p.length &amp;&amp; s.length) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">let</span> spliteP = p.split(<span class="string">'*'</span>).filter(<span class="function"><span class="params">s</span> =&gt;</span> s.length)</div><div class="line">    <span class="keyword">if</span> (spliteP.length == <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> !spliteP.map(<span class="function"><span class="params">str</span> =&gt;</span> findFromS(s, str)).some(<span class="function"><span class="params">element</span> =&gt;</span> &#123;</div><div class="line">        <span class="keyword">if</span> (element.length == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">if</span> (result.length == <span class="number">0</span>) &#123;</div><div class="line">                result.push(element[<span class="number">0</span>])</div><div class="line">                <span class="keyword">return</span> <span class="literal">false</span></div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">return</span> !element.some(<span class="function"><span class="params">e</span> =&gt;</span> &#123;</div><div class="line">                    <span class="keyword">if</span> (e[<span class="number">0</span>] &gt;= (result[result.length - <span class="number">1</span>][<span class="number">0</span>] + result[result.length - <span class="number">1</span>][<span class="number">1</span>])) &#123;</div><div class="line">                        result.push(e)</div><div class="line">                        <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">    <span class="comment">// return _isMatch(s, p, 0, 0)</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">findFromS</span>(<span class="params">s, str, init = <span class="number">0</span></span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> length = str.length</div><div class="line">    <span class="keyword">let</span> result = []</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = init; i &lt; s.length; i++) &#123;</div><div class="line">        <span class="keyword">let</span> state = <span class="literal">true</span></div><div class="line">        <span class="keyword">if</span> (i &gt; s.length - str.length) &#123;</div><div class="line">            state = <span class="literal">false</span></div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> k = <span class="number">0</span>; k &lt; str.length; k++) &#123;</div><div class="line">                <span class="keyword">if</span> (s[i + k] != str[k] &amp;&amp; str[k] != <span class="string">'?'</span>) &#123;</div><div class="line">                    state = <span class="literal">false</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (state) &#123;</div><div class="line">            result.push([i, length])</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://o6vut8vrh.bkt.clouddn.com/18-4-14/87965568.jpg" alt=""></p>
+<h2 id="49-Group-Anagrams"><a href="#49-Group-Anagrams" class="headerlink" title="49. Group Anagrams"></a>49. Group Anagrams</h2><ul>
+<li>难度：Medium</li>
+<li>代码语言：JavaScript</li>
+<li>时间：18-05-08</li>
+</ul>
+<h3 id="题目描述-13"><a href="#题目描述-13" class="headerlink" title="题目描述"></a>题目描述</h3><ul>
+<li><p>Given an array of strings, group anagrams together.</p>
+<p><strong>Example:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Input: [&quot;eat&quot;, &quot;tea&quot;, &quot;tan&quot;, &quot;ate&quot;, &quot;nat&quot;, &quot;bat&quot;],</div><div class="line">Output:</div><div class="line">[</div><div class="line">  [&quot;ate&quot;,&quot;eat&quot;,&quot;tea&quot;],</div><div class="line">  [&quot;nat&quot;,&quot;tan&quot;],</div><div class="line">  [&quot;bat&quot;]</div><div class="line">]</div></pre></td></tr></table></figure>
+<p><strong>Note:</strong></p>
+<ul>
+<li>All inputs will be in lowercase.</li>
+<li>The order of your output does not matter.</li>
+</ul>
+<p>​</p>
+</li>
+</ul>
+<p>找到Anagrams，具体什么叫Anagrams应该在例子中说明的比较清楚。</p>
+<h3 id="解题思路-13"><a href="#解题思路-13" class="headerlink" title="解题思路"></a>解题思路</h3><p>这题思路其实不难，但一直有个瓶颈，关于如何将一个字符串，hash成为一个数字的问题。看了最佳答案，它的hash方法值得学习：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> primes = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>, <span class="number">17</span>, <span class="number">19</span>, <span class="number">23</span>, <span class="number">29</span>, <span class="number">31</span>,</div><div class="line">    <span class="number">37</span>, <span class="number">41</span>, <span class="number">43</span>, <span class="number">47</span>, <span class="number">53</span>, <span class="number">59</span>, <span class="number">61</span>, <span class="number">67</span>, <span class="number">71</span>, <span class="number">73</span>, <span class="number">79</span>, <span class="number">83</span>, <span class="number">89</span>,</div><div class="line">    <span class="number">97</span>, <span class="number">101</span></div><div class="line">] <span class="comment">// 26 primes</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> alphaToInteger = <span class="function"><span class="params">x</span> =&gt;</span> x.charCodeAt(<span class="number">0</span>) - <span class="number">97</span></div><div class="line"><span class="keyword">const</span> alphaToPrime = <span class="function"><span class="params">x</span> =&gt;</span> primes[alphaToInteger(x)]</div><div class="line"></div><div class="line"><span class="keyword">const</span> hashStr = <span class="function">(<span class="params">s</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">let</span> hash = <span class="number">1</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; s.length; i++) &#123;</div><div class="line">        hash *= alphaToPrime(s[i])</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> hash</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>用反证法证明其有效性：</p>
+<p>假设存在四个质数：$a,b,c,d$，使得$a\times b=c\times d$，显然，这是不可能的，因为如果成立，$a$和$b$就是$c \times d$的公约数，而显然$c \times d$的公约质数只有$c $和$d$，所以不存在$a \times b = c \times d$。</p>
+<p>故而不同的质数相乘，一定会得到不一样的解，也就解决了hash过程中collision的问题。</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/2016/11/26/CSS@6盒模型/" data-toggle="tooltip" data-placement="top"
+                           title="CSS@6盒模型">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/2016/10/23/CSS@5文本/" data-toggle="tooltip" data-placement="top"
+                           title="CSS@5文本">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTk2MC82NTI1">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#32-Longest-Valid-Parentheses"><span class="toc-text">32.Longest Valid Parentheses</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解题思路"><span class="toc-text">解题思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Substring-with-Concatenation-of-All-Words"><span class="toc-text">Substring with Concatenation of All Words</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述-1"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解题思路-1"><span class="toc-text">解题思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Container-With-Most-Water"><span class="toc-text">Container With Most Water</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述-2"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解题思路-2"><span class="toc-text">解题思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Regular-Expression-Matching"><span class="toc-text">Regular Expression Matching</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述-3"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解题思路-3"><span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Median-of-Two-Sorted-Arrays"><span class="toc-text">Median of Two Sorted Arrays</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述-4"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解题思路-4"><span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码-1"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结果"><span class="toc-text">结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Longest-Substring-Without-Repeating-Characters"><span class="toc-text">Longest Substring Without Repeating Characters</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述-5"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解题思路-5"><span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码-2"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结果-1"><span class="toc-text">结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-Two-Numbers"><span class="toc-text">Add Two Numbers</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述-6"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解题思路-6"><span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码-3"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结果-2"><span class="toc-text">结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Two-Sum"><span class="toc-text">Two Sum</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述-7"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解题思路-7"><span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码-4"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结果-3"><span class="toc-text">结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#37-Sudoku-Solver"><span class="toc-text">37.Sudoku Solver</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述-8"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解题思路-8"><span class="toc-text">解题思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#39-Combination-Sum"><span class="toc-text">39.Combination Sum</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述-9"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解题思路-9"><span class="toc-text">解题思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#41-First-Missing-Positive"><span class="toc-text">41.First Missing Positive</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述-10"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解题思路-10"><span class="toc-text">解题思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#42-Trapping-Rain-Water"><span class="toc-text">42.Trapping Rain Water</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述-11"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解题思路-11"><span class="toc-text">解题思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#44-Wildcard-Matching"><span class="toc-text">44. Wildcard Matching</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述-12"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解题思路-12"><span class="toc-text">解题思路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#49-Group-Anagrams"><span class="toc-text">49. Group Anagrams</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述-13"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解题思路-13"><span class="toc-text">解题思路</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/blog/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/blog/tags/#leetcode"
+                           title="leetcode">leetcode</a>
+                        
+                        <a class="tag" href="/blog/tags/#日记"
+                           title="日记">日记</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/deepfeel-anxis">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/JackieAnxis">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 咸鱼Jackie 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/blog/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://jackieanxis.github.io/blog/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    var _baId = '46a3d5833f277ac4dc2a9cf1285413de';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="http://o6vut8vrh.bkt.clouddn.com/17-1-24/89289633-file_1485227996130_e75a.jpg">
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+
+</html>

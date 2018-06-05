@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="唯一特长是打退堂鼓">
+    <meta name="keyword" content="null">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
+    <link rel="alternate" type="application/atom+xml" title="咸鱼Jackie" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        JavaScript执行环境和作用域｜叫Jackie的咸鱼
+        
+    </title>
+
+    <link rel="canonical" href="http://jackieanxis.github.io/blog/2017/07/24/JavaScript执行环境和作用域/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/blog/css/syntax.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/blog/">
+                <span class="brand-logo">
+                    咸鱼Jackie
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/blog/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/blog/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/blog/blog/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="http://o6vut8vrh.bkt.clouddn.com/background.png">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>JavaScript执行环境和作用域</h1>
+                    
+                    <span class="meta">
+                         作者 Jackie Anxis
+                        <span>
+                          日期 2017-07-24
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/blog/tags/#前端"
+                           title="前端">前端</a>
+                        
+                        <a class="tag" href="/blog/tags/#笔记"
+                           title="笔记">笔记</a>
+                        
+                        <a class="tag" href="/blog/tags/#JavaScript"
+                           title="JavaScript">JavaScript</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            JavaScript执行环境和作用域
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="JavaScript执行环境和作用域"><a href="#JavaScript执行环境和作用域" class="headerlink" title="JavaScript执行环境和作用域"></a>JavaScript执行环境和作用域</h1><h2 id="重要概念"><a href="#重要概念" class="headerlink" title="重要概念"></a>重要概念</h2><ul>
+<li><p><strong>执行环境</strong>（excution context，有时候也称之为“环境”）</p>
+</li>
+<li><p><strong>环境栈</strong>：当执行流进入一个函数时，函数的环境就会被推入一个环境栈中。执行之后，再从环境栈中弹出。</p>
+</li>
+<li><p><strong>作用域链</strong>(scope chain):保证对执行环境有权访问的所有变量和函数的有序访问。作用域链的前端，始终都是当前执行的代码所在环境的变量对象。</p>
+</li>
+<li><p>请谨记：</p>
+<blockquote>
+<p>JavaScript中的函数运行在它们被定义的作用域里,而不是它们被执行的作用域里。</p>
+<p>——《JavaScript权威指南》</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="变量对象-和-活动对象"><a href="#变量对象-和-活动对象" class="headerlink" title="变量对象 和 活动对象"></a>变量对象 和 活动对象</h2><h3 id="变量对象"><a href="#变量对象" class="headerlink" title="变量对象"></a>变量对象</h3><p><strong>变量对象</strong>（variable object，每个执行环境都有一个与之关联的变量对象），变量对象保存了以下三个内容：</p>
+<ol>
+<li>形参（如果执行环境是一个函数的话）</li>
+<li><p><code>var</code>声明的<strong>变量</strong>。</p>
+<ul>
+<li>用<code>let</code>和<code>const</code>声明变量只存在于块级作用域内，无法放入执行环境栈的变量对象中。</li>
+<li>直接声明的变量，比如<code>a=10</code>，其实不能称之为变量，它只是全局对象的一个属性，也无法保存进变量对象中。<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(a); <span class="comment">// undefined</span></div><div class="line"><span class="built_in">console</span>.log(b); <span class="comment">// Uncaught ReferenceError: b is not defined</span></div><div class="line">b = <span class="number">10</span>;</div><div class="line"><span class="keyword">var</span> a = <span class="number">20</span>;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>函数声明，不包括函数表达式。<strong>函数声明</strong>和<strong>函数表达式</strong>的区别，在我的另一篇博客里有说明：<a href="http://jackieanxis.coding.me/2017/05/19/JavaScript%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8C%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E/" target="_blank" rel="external">JavaScript函数表达式和函数声明</a>。</p>
+</li>
+</ol>
+<h3 id="活动对象"><a href="#活动对象" class="headerlink" title="活动对象"></a>活动对象</h3><p><strong>活动对象</strong>（activation object），如果所在环境是函数，那么就会把这个函数的<strong>活动对象</strong>作为变量对象(在函数中，变量对象==活动对象)。它一开始只包含<code>arguments</code>对象。一般而言，函数执行过程，可以分成两步：1.进入执行环境；2.执行代码。<br>比如，下面这个<code>test</code>函数：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> c = <span class="number">10</span>;</div><div class="line">	<span class="function"><span class="keyword">function</span> <span class="title">d</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">	<span class="keyword">var</span> e = <span class="function"><span class="keyword">function</span> <span class="title">_e</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">	(<span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;);</div><div class="line">	g = <span class="number">10</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">test(<span class="number">10</span>);</div></pre></td></tr></table></figure></p>
+<p>在执行<code>test(10)</code>的时候，分成了两步：</p>
+<ol>
+<li><p>进入执行环境。<br>此时，会用<code>arguments</code>对象初始化活动对象（AO, activation object）。并且，会把形参、<code>var</code>声明的变量和函数声明放入活动对象AO中。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">AO: &#123;</div><div class="line">  <span class="built_in">arguments</span>: &#123;</div><div class="line">      callee: test,</div><div class="line">      length: <span class="number">1</span>,</div><div class="line">      <span class="number">0</span>: <span class="number">10</span></div><div class="line">  &#125;,</div><div class="line">  a: <span class="number">10</span>,</div><div class="line">  b: <span class="literal">undefined</span>,</div><div class="line">  c: <span class="literal">undefined</span>,</div><div class="line">  d: <span class="xml"><span class="tag">&lt;<span class="name">reference</span> <span class="attr">to</span> <span class="attr">FunctionDeclaration</span> "<span class="attr">d</span>"&gt;</span>,</span></div><div class="line"><span class="xml">  e: undefined</span></div><div class="line"><span class="xml">&#125;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>执行代码。AO会变成：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">AO: &#123;</div><div class="line">  <span class="built_in">arguments</span>: &#123;</div><div class="line">      callee: test,</div><div class="line">      length: <span class="number">1</span>,</div><div class="line">      <span class="number">0</span>: <span class="number">10</span></div><div class="line">  &#125;,</div><div class="line">  a: <span class="number">10</span>,</div><div class="line">  b: <span class="literal">undefined</span>,</div><div class="line">  c: <span class="number">10</span>,</div><div class="line">  d: <span class="xml"><span class="tag">&lt;<span class="name">reference</span> <span class="attr">to</span> <span class="attr">FunctionDeclaration</span> "<span class="attr">d</span>"&gt;</span>,</span></div><div class="line">  e: &lt;reference to FunctionDeclaration "_e"&gt;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><p><strong>作用域链</strong>与一个执行上下文相关，是内部上下文所有变量对象（包括父变量对象）的列表，用于变量查询。</p>
+<p><strong>作用域链的用途，是保证对执行环境有权访问的所有变量和函数的有序访问。</strong></p>
+<p><strong>全局执行环境的变量对象始终都是作用域链中的最后一个对象。</strong></p>
+<h3 id="函数生命周期"><a href="#函数生命周期" class="headerlink" title="函数生命周期"></a>函数生命周期</h3><h4 id="函数创建（定义）"><a href="#函数创建（定义）" class="headerlink" title="函数创建（定义）"></a>函数创建（定义）</h4><ul>
+<li><p>在一个函数被<strong>定义</strong>的时候, 会将它<strong>定义时刻</strong>的scope chain链接到这个函数对象的<code>[[Scopes]]</code>属性，函数可以通过这个属性来访问更高层的作用域。</p>
+</li>
+<li><p><code>[[Scopes]]</code>是所有父变量对象的层级链，处于当前函数上下文之上，在函数创建时存于其中。</p>
+</li>
+<li><p><code>[[Scopes]]</code>在函数创建时被存储－－静态（不变的），永远永远，直至函数销毁。</p>
+</li>
+<li><p><code>[[Scopes]]</code>存储的是定义时刻的作用域链，是函数本身<strong>所依赖的变量对象</strong>+其所在环境的<code>[[Scopes]]</code>组成的。值得注意的是，<code>[[Scopes]]</code>不会存储函数本身不依赖的变量对象（也就是不存在冗余），例子如下：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> x = <span class="number">0</span>;</div><div class="line">  <span class="keyword">var</span> y = <span class="number">1</span>;</div><div class="line">  <span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(x);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> f;</div><div class="line">&#125;</div><div class="line">func();</div></pre></td></tr></table></figure>
+<p><code>f</code>函数的<code>[[Scopes]]</code>属性：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">[[Scopes]] = [&#123;</div><div class="line">  x: <span class="number">0</span></div><div class="line">&#125;, Global(Window)]</div></pre></td></tr></table></figure>
+<p>故而，<code>[[Scopes]]</code>属性和作用域链有微小的区别，但是使用起来可以当做一致，本文后面也将它们视作一致。</p>
+</li>
+<li><p>与作用域链对比，<code>[[Scopes]]</code>是函数的一个属性而不是上下文。</p>
+</li>
+<li><p>一个简单的例子：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(a);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> f1 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line">  f();</div><div class="line">&#125;</div><div class="line">f1(); <span class="comment">// 0</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="函数激活（执行）"><a href="#函数激活（执行）" class="headerlink" title="函数激活（执行）"></a>函数激活（执行）</h4><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">scope chain = VO/AO + [[Scopes]]</div></pre></td></tr></table></figure>
+<ul>
+<li><p>一个详细的例子（转载自：<a href="http://www.laruence.com/2009/05/28/863.html" target="_blank" rel="external">Javascript作用域原理@Laruence</a>）</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">factory</span>(<span class="params"></span>) </span>&#123;</div><div class="line">     <span class="keyword">var</span> name = <span class="string">'laruence'</span>;</div><div class="line">     <span class="keyword">var</span> intro = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">          alert(<span class="string">'I am '</span> + name);</div><div class="line">     &#125;</div><div class="line">     <span class="keyword">return</span> intro;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">app</span>(<span class="params">para</span>)</span>&#123;</div><div class="line">     <span class="keyword">var</span> name = para;</div><div class="line">     <span class="keyword">var</span> func = factory();</div><div class="line">     func();</div><div class="line">&#125;</div><div class="line"> </div><div class="line">app(<span class="string">'eve'</span>);</div></pre></td></tr></table></figure>
+<ol>
+<li><p>调用<code>app</code>，刚进入执行上下文时，此时<code>app</code>的作用域链（scope chain）应该是活动对象（AO）加上其<code>[[Scopes]]</code>属性</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">[[Scopes]] = [</div><div class="line">  Global(Window)</div><div class="line">]</div><div class="line"></div><div class="line">scope chain = [&#123;</div><div class="line">  para: <span class="string">'eve'</span>,</div><div class="line">  name: <span class="literal">undefined</span>,</div><div class="line">  func: <span class="literal">undefined</span>,</div><div class="line">  <span class="built_in">arguments</span>: [<span class="number">1</span>]</div><div class="line">&#125;, <span class="comment">// AO</span></div><div class="line">Global(Window)]</div></pre></td></tr></table></figure>
+</li>
+<li><p>调用<code>factory</code>，刚进入执行上下文时，此时<code>factory</code>的作用域链：<code>factory</code>的活动对象+其<code>[[Scopes]]</code>属性</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">[[Scopes]] = [</div><div class="line">  Global(Window)</div><div class="line">]</div><div class="line"></div><div class="line">scope chain = [</div><div class="line">&#123;</div><div class="line">    name: <span class="literal">undefined</span>,</div><div class="line">	intro: <span class="literal">undefined</span>,</div><div class="line">  	<span class="built_in">arguments</span>: []</div><div class="line">&#125;, <span class="comment">// AO</span></div><div class="line">Global(Window)]</div></pre></td></tr></table></figure>
+<p>此时的作用域链中，不包含app的活动对象，因为函数内部只能通过<code>[[Scopes]]</code>属性访问上层的作用域。</p>
+</li>
+<li><p>定义<code>intro</code>函数时候，会将当前的作用域链写入<code>intro</code>函数的<code>[[Scopes]]</code>属性</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">[[Scopes]] = [&#123;</div><div class="line">    name: <span class="string">'laruence'</span>,</div><div class="line">  	intro: <span class="function"><span class="keyword">function</span>(<span class="params"></span>),</span></div><div class="line">  	arguments: []</div><div class="line">&#125;, </div><div class="line">Global(Window)]</div></pre></td></tr></table></figure>
+</li>
+<li><p>从<code>factory</code>函数返回以后，在<code>app</code>体内调用<code>intro</code>的时候，进入<code>intro</code>的执行上下文时，<code>scope chain</code>应该是这样的：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">scope chain = [&#123;</div><div class="line">&#125;,   <span class="comment">// AO</span></div><div class="line"><span class="comment">// 下面是[[Scopes]]属性</span></div><div class="line">&#123;</div><div class="line">  name: <span class="string">'laruence'</span>,</div><div class="line">  intro: <span class="function"><span class="keyword">function</span>(<span class="params"></span>),</span></div><div class="line">  arguments: []</div><div class="line">&#125;, Global(Window)]</div></pre></td></tr></table></figure>
+</li>
+<li><p>故而，输出是：<code>I am laruence</code></p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="eval函数"><a href="#eval函数" class="headerlink" title="eval函数"></a><code>eval</code>函数</h2><p>代码<code>eval</code>的上下文与当前的调用上下文（calling context）拥有同样的作用域链。</p>
+<p>唯一的小小的区别是，因为<code>eval</code>函数创建的函数，在定义阶段，无法确定函数内部依赖活动对象中的哪些属性，故而会把整个活动对象都写入<code>[[Scopes]]</code>属性中。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">factory</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> name = <span class="string">'laruence'</span>;</div><div class="line">  <span class="built_in">eval</span>(<span class="string">"var intro = function () &#123; console.log('I am ' + name); &#125;"</span>);</div><div class="line">  <span class="keyword">return</span> intro;</div><div class="line">&#125;</div><div class="line">factory();</div></pre></td></tr></table></figure>
+<p><code>intro</code>函数的<code>[[Scopes]]</code>属性：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">[[Scopes]] = [&#123;</div><div class="line">  <span class="built_in">arguments</span>: [],</div><div class="line">  intro: <span class="function"><span class="keyword">function</span>,</span></div><div class="line"><span class="function">  <span class="title">name</span>: '<span class="title">laruence</span>'</span></div><div class="line"><span class="function">&#125;, <span class="title">Global</span>(<span class="params">Window</span>)]</span></div></pre></td></tr></table></figure>
+<p>在严格模式下，<code>eval</code>语句本身就是一个作用域，不再能够生成全局变量了，它所生成的变量只能用于<code>eval</code>内部。</p>
+<h2 id="with语句"><a href="#with语句" class="headerlink" title="with语句"></a><code>with</code>语句</h2><ul>
+<li><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/with" target="_blank" rel="external">MDN上关于with的定义</a></p>
+</li>
+<li><p><a href="http://luopq.com/2016/02/14/js-with-keyword/" target="_blank" rel="external">Javascript中的with关键字</a></p>
+</li>
+<li><p>总而言之：<code>with</code>语句会将传入的对象，添加到作用域的最前端。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> x = <span class="number">10</span>, y = <span class="number">10</span>;</div><div class="line"> </div><div class="line"><span class="keyword">with</span> (&#123;<span class="attr">x</span>: <span class="number">20</span>&#125;) &#123;</div><div class="line">  <span class="keyword">var</span> x = <span class="number">30</span>, y = <span class="number">30</span>;</div><div class="line">  alert(x); <span class="comment">// 30</span></div><div class="line">  alert(y); <span class="comment">// 30</span></div><div class="line">&#125;</div><div class="line"> </div><div class="line">alert(x); <span class="comment">// 10</span></div><div class="line">alert(y); <span class="comment">// 30</span></div></pre></td></tr></table></figure>
+<ol>
+<li>x = 10, y = 10;</li>
+<li>对象{x:20}添加到作用域的前端;</li>
+<li>在with内部，遇到了var声明，当然什么也没创建，因为在进入上下文时，所有变量已被解析添加;</li>
+<li>在第二步中，仅修改变量“x”，实际上对象中的“x”现在被解析，并添加到作用域链的最前端，“x”为20，变为30;</li>
+<li>同样也有变量对象“y”的修改，被解析后其值也相应的由10变为30;</li>
+<li>此外，在with声明完成后，它的特定对象从作用域链中移除（已改变的变量“x”－－30也从那个对象中移除），即作用域链的结构恢复到with得到加强以前的状态。</li>
+<li>在最后两个alert中，当前变量对象的“x”保持同一，“y”的值现在等于30，在with声明运行中已发生改变。</li>
+</ol>
+</li>
+<li><p><code>catch</code>也具有相似的效应。</p>
+</li>
+</ul>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/2017/07/25/JavaScript中的this关键字/" data-toggle="tooltip" data-placement="top"
+                           title="JavaScript中的this关键字">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/2017/05/19/JavaScript函数表达式和函数声明/" data-toggle="tooltip" data-placement="top"
+                           title="JavaScript函数表达式和函数声明">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTk2MC82NTI1">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript执行环境和作用域"><span class="toc-text">JavaScript执行环境和作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#重要概念"><span class="toc-text">重要概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量对象-和-活动对象"><span class="toc-text">变量对象 和 活动对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#变量对象"><span class="toc-text">变量对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活动对象"><span class="toc-text">活动对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域链"><span class="toc-text">作用域链</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#函数生命周期"><span class="toc-text">函数生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#函数创建（定义）"><span class="toc-text">函数创建（定义）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#函数激活（执行）"><span class="toc-text">函数激活（执行）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#eval函数"><span class="toc-text">eval函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#with语句"><span class="toc-text">with语句</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/blog/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/blog/tags/#前端"
+                           title="前端">前端</a>
+                        
+                        <a class="tag" href="/blog/tags/#笔记"
+                           title="笔记">笔记</a>
+                        
+                        <a class="tag" href="/blog/tags/#JavaScript"
+                           title="JavaScript">JavaScript</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/deepfeel-anxis">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/JackieAnxis">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 咸鱼Jackie 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/blog/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://jackieanxis.github.io/blog/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    var _baId = '46a3d5833f277ac4dc2a9cf1285413de';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="http://o6vut8vrh.bkt.clouddn.com/17-1-24/89289633-file_1485227996130_e75a.jpg">
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+
+</html>

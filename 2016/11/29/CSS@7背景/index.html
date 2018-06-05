@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="唯一特长是打退堂鼓">
+    <meta name="keyword" content="null">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
+    <link rel="alternate" type="application/atom+xml" title="咸鱼Jackie" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        CSS@7背景｜叫Jackie的咸鱼
+        
+    </title>
+
+    <link rel="canonical" href="http://jackieanxis.github.io/blog/2016/11/29/CSS@7背景/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/blog/css/syntax.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/blog/">
+                <span class="brand-logo">
+                    咸鱼Jackie
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/blog/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/blog/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/blog/blog/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="http://o6vut8vrh.bkt.clouddn.com/background.png">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>CSS@7背景</h1>
+                    
+                    <span class="meta">
+                         作者 Jackie Anxis
+                        <span>
+                          日期 2016-11-29
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/blog/tags/#前端"
+                           title="前端">前端</a>
+                        
+                        <a class="tag" href="/blog/tags/#笔记"
+                           title="笔记">笔记</a>
+                        
+                        <a class="tag" href="/blog/tags/#CSS"
+                           title="CSS">CSS</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            CSS@7背景
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="CSS背景-background"><a href="#CSS背景-background" class="headerlink" title="CSS背景 background"></a>CSS背景 <code>background</code></h1><hr>
+<h3 id="background-color-背景颜色"><a href="#background-color-背景颜色" class="headerlink" title="background-color 背景颜色"></a><code>background-color</code> 背景颜色</h3><blockquote>
+<p>background-color:&lt;color&gt;</p>
+</blockquote>
+<p><strong>解释：</strong></p>
+<ul>
+<li>背景颜色，默认是transparent，全透明</li>
+</ul>
+<hr>
+<h3 id="background-image-背景图片"><a href="#background-image-背景图片" class="headerlink" title="background-image 背景图片"></a><code>background-image</code> 背景图片</h3><blockquote>
+<p>background-image:&lt;bg-image&gt;[,&lt;bg-image&gt;]*<br>&lt;bg-image&gt; = &lt;image&gt;|none</p>
+</blockquote>
+<p><strong>解释：</strong></p>
+<ul>
+<li>image的引入方法（引号改成单引号或者不加引号都可以）：<ul>
+<li>绝对地址：<code>url(&quot;绝对地址&quot;)</code></li>
+<li>相对地址：<code>url(&quot;/image/x.png&quot;)</code></li>
+<li>相对地址2：<code>url(&quot;../image/x.png&quot;)</code> （<code>..</code>表示向上一级）</li>
+</ul>
+</li>
+<li>可以写多个图片，先写的覆盖后写的。<code>background-image:url(red.png), url(blue.png)</code></li>
+<li><code>background-image</code>的优先级高于<code>background-color</code>，也就是<code>background-color</code>铺在后面：<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">div</span>&#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">250px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">250px</span>;</div><div class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(...);</div><div class="line">	<span class="attribute">background-color</span>: lightblue;</div><div class="line">	<span class="attribute">background-repeat</span>:no-repeat;<span class="comment">/*之后会讲*/</span></div><div class="line">	<span class="attribute">background-position</span>:<span class="number">50%</span> <span class="number">50%</span>;<span class="comment">/*之后会讲*/</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<div style="width:250px;height:250px;background-image:url(http://o6vut8vrh.bkt.clouddn.com/public/16-11-29/16656082.jpg);background-color:lightblue;background-repeat:no-repeat;margin:0 auto 20px;background-position:50% 50%;"></div>
+
+<hr>
+<h3 id="background-repeat-背景图片延伸方式"><a href="#background-repeat-背景图片延伸方式" class="headerlink" title="background-repeat 背景图片延伸方式"></a><code>background-repeat</code> 背景图片延伸方式</h3><blockquote>
+<p>background-repeat: &lt;repeat-style&gt;[,&lt;repeat-style&gt;]*<br>&lt;repeat-style&gt; = repeat-x|repeat-y|[repeat|space|round|no-repeat]{1,2}</p>
+</blockquote>
+<p><strong>解释：</strong></p>
+<ul>
+<li>设置背景图片以何种方式填满这个元素。默认是<code>repeat</code>。</li>
+<li>这之前必须要设置<code>background-image</code></li>
+<li>可以提供1对或多对参数，中间用逗号隔开，每对参数包含2个或1个参数。</li>
+<li>多对参数的意义在于，当设置多张<code>background-image</code>时，为它们一一设置（这一点同样适用于后面的各个<code>background-image</code>相关的属性）<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">div</span>&#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">250px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">250px</span>;</div><div class="line">	<span class="attribute">background-image</span>:</div><div class="line">	<span class="built_in">url</span>(<span class="string">'http://o6vut8vrh.bkt.clouddn.com/public/16-11-29/16656082.jpg'</span>),</div><div class="line">	<span class="built_in">url</span>(<span class="string">'http://o6vut8vrh.bkt.clouddn.com/avatar.png'</span>);</div><div class="line">	<span class="attribute">background-repeat</span>:no-repeat, repeat;</div><div class="line">	<span class="attribute">background-position</span>:<span class="number">50%</span> <span class="number">50%</span>;<span class="comment">/*之后会讲*/</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<div style="width:250px;height:250px;background-image:url(http://o6vut8vrh.bkt.clouddn.com/public/16-11-29/16656082.jpg),url(http://o6vut8vrh.bkt.clouddn.com/avatar.png);background-color:lightblue;background-repeat:no-repeat, repeat;margin:0 auto 20px;background-position:50% 50%;"></div>
+
+<ul>
+<li>提供2个参数时，第一个参数用于横向，第二个参数用于纵向。</li>
+<li>如果只提供一个参数，则横向纵向都使用。特殊值<code>repeat-x</code>,<code>repeat-y</code>只能设置它们所对应的轴。</li>
+<li>下面看一下<code>repeat</code>, <code>space</code>, <code>round</code>, <code>no-repeat</code>的效果:<br><div><div style="display:inline-block;height:150px;width:150px;background-image:url(http://o6vut8vrh.bkt.clouddn.com/public/16-12-5/17139779.jpg);background-repeat:repeat;position:relative;background-color:#eee;"><p style="position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);font-size:14px;color:white;">repeat</p></div> <div style="display:inline-block;height:150px;width:150px;background-image:url(http://o6vut8vrh.bkt.clouddn.com/public/16-12-5/17139779.jpg);background-repeat:space;position:relative;background-color:#eee;"><p style="position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);font-size:14px;color:white;">space</p></div> <div style="display:inline-block;height:150px;width:150px;background-image:url(http://o6vut8vrh.bkt.clouddn.com/public/16-12-5/17139779.jpg);background-repeat:round;position:relative;background-color:#eee;"><p style="position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);font-size:14px;color:white;">round</p></div> <div style="display:inline-block;height:150px;width:150px;background-image:url(http://o6vut8vrh.bkt.clouddn.com/public/16-12-5/17139779.jpg);background-repeat:no-repeat;position:relative;background-color:#eee;"><p style="position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);font-size:14px;color:white;">no-repeat</p></div> </div><ul>
+<li><code>repeat</code>:默认值，表示不进行缩放，图片不断重复</li>
+<li><code>space</code>:表示不缩放，完全填满整个元素，中间可以有间隙</li>
+<li><code>round</code>:表示用最小程度的缩放，完全填满整个元素，中间没有任何间隙</li>
+<li><code>no-repeat</code>:表示不重复</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="background-attachment-背景固定"><a href="#background-attachment-背景固定" class="headerlink" title="background-attachment 背景固定"></a><code>background-attachment</code> 背景固定</h3><blockquote>
+<p>background-attachment:&lt;attachment&gt; [, &lt;attachment&gt;]*<br>&lt;attachment&gt; = scroll|fixed|local</p>
+</blockquote>
+<p><strong>解释：</strong></p>
+<ul>
+<li>用来设置背景图片是否相对固定的方式。默认是<code>scroll</code>。</li>
+<li>必须先指定<code>background-image</code>.</li>
+<li>来观察一下效果：<br><div style="width:100%;height:200px;overflow-y:scroll;"><div style="height:250px;overflow-y:scroll;display:inline-block;background-image:url(http://o6vut8vrh.bkt.clouddn.com/public/16-12-5/74072331.jpg);background-color:#eee;background-attachment:scroll;"><div style="display:inline-block;height:300px;width:150px;position:relative;"><p style="position:absolute;left:50%;transform:translate(-50%);font-size:20px;color:white;">scroll</p></div></div> <div style="height:250px;overflow-y:scroll;display:inline-block;background-image:url(http://o6vut8vrh.bkt.clouddn.com/public/16-12-5/74072331.jpg);background-color:#eee;background-attachment:fixed;"><div style="display:inline-block;height:300px;width:150px;position:relative;"><p style="position:absolute;left:50%;transform:translate(-50%);font-size:20px;color:white;">fixed</p></div></div> <div style="height:250px;overflow-y:scroll;display:inline-block;background-image:url(http://o6vut8vrh.bkt.clouddn.com/public/16-12-5/74072331.jpg);background-color:#eee;background-attachment:local;"><div style="display:inline-block;height:300px;width:150px;position:relative;"><p style="position:absolute;left:50%;transform:translate(-50%);font-size:20px;color:white;">local</p></div></div></div><ul>
+<li><code>scroll</code>：背景图像相对于元素固定</li>
+<li><code>fixed</code>：背景图像相对于窗体固定</li>
+<li><code>local</code>：背景图像相对于元素内容（子元素）固定，<code>CSS3</code>新增的属性</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="background-position-背景图片位置"><a href="#background-position-背景图片位置" class="headerlink" title="background-position 背景图片位置"></a><code>background-position</code> 背景图片位置</h3><blockquote>
+<p>background-position：&lt;position&gt; [, &lt;position&gt;]*<br>&lt;position&gt; = [ left | center | right | top | bottom | &lt;percentage&gt; | &lt;length&gt; ] | [ left | center | right | &lt;percentage&gt; | &lt;length&gt; ] [ top | center | bottom | &lt;percentage&gt; | &lt;length&gt; ] | [ center | [ left | right ] [ &lt;percentage&gt; | &lt;length&gt; ]? ] &amp;&amp; [ center | [ top | bottom ] [ &lt;percentage&gt; | &lt;length&gt; ]? ]</p>
+</blockquote>
+<p><strong>解释：</strong></p>
+<ul>
+<li>用来设置背景图片相对的位置</li>
+<li>一般只写两个值，比如：<code>background-position:20px 50px;</code>指的是：<ul>
+<li>以top上边界为基础向下偏移20px，以left左边界为基础向右偏移50px。</li>
+</ul>
+</li>
+<li>再比如：<code>background-position:20% 50%;</code>指的是：<br><img src="http://o6vut8vrh.bkt.clouddn.com/public/16-12-5/397339.jpg" alt=""><ul>
+<li>ab之间占了整体的20%</li>
+<li>ef之间占了背景图片的20%</li>
+<li>ad之间占了整体的50%</li>
+<li>cf之间占了背景图片的50%</li>
+<li>也就是说，<strong>背景图片<code>20% 50%</code>的位置和元素<code>20% 50%</code>的位置重叠在一起</strong>。</li>
+</ul>
+</li>
+<li><strong>注意</strong>：在<code>background-position</code>里面，<code>&lt;length&gt;</code>和<code>&lt;persentage&gt;</code>的偏移基准是不一样的，<code>&lt;length&gt;</code>是纯粹的偏移，而<code>&lt;percentage&gt;</code>有点“对齐”的意思。</li>
+<li>在<code>CSS3</code>，这个属性可以写三个或四个值了。可以写成：方向+偏移量+方向+偏移量，或者方向+偏移量+方向；就是说，<strong>写偏移量之前，一定要声明方向</strong>。举例吧：<ul>
+<li>三个参数：<code>background-position:right 20px bottom;</code>指的是：以右边界为基础向左偏移20px，并和下边界对齐：<div style="width:200px;height:200px;margin:10px auto;background-image:url(http://o6vut8vrh.bkt.clouddn.com/avatar.png);background-repeat:no-repeat;background-color:#ccc;background-size:auto;background-position:right 20px bottom;"></div></li>
+<li>四个参数：<code>background-position:right 20% bottom 50%;</code>，具体效果见下面：<div style="width:200px;height:200px;margin:10px auto;background-image:url(http://o6vut8vrh.bkt.clouddn.com/avatar.png);background-repeat:no-repeat;background-color:#ccc;background-size:auto;background-position:right 20% bottom 50%;"></div></li>
+<li>再强调一遍，<strong>写偏移量（<code>&lt;length&gt;</code>或者<code>&lt;percentage&gt;</code>）之前，一定要声明方向</strong>。写成<code>right 20px 50px</code>或者<code>30% bottom 20%</code>是没用的。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="background-origin-背景图片相对定位方式"><a href="#background-origin-背景图片相对定位方式" class="headerlink" title="background-origin 背景图片相对定位方式"></a><code>background-origin</code> 背景图片相对定位方式</h3><blockquote>
+<p>background-origin: &lt;box&gt;[, &lt;box&gt;]*<br>&lt;box&gt; = border-box | padding-box | content-box</p>
+</blockquote>
+<p><strong>解释：</strong></p>
+<ul>
+<li>设置偏移的基准是哪一个边框。默认是<code>padding-box</code></li>
+<li>用例子来说明：<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line">	<span class="attribute">display</span>: inline-block;</div><div class="line">	<span class="attribute">width</span>: <span class="number">150px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">150px</span>;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">25px</span>;</div><div class="line">	<span class="attribute">background-color</span>: <span class="number">#bbb</span>;</div><div class="line">	<span class="attribute">background-image</span>: <span class="built_in">url</span>(http://o6vut8vrh.bkt.clouddn.com/avatar.png);</div><div class="line">	<span class="attribute">background-repeat</span>: no-repeat;</div><div class="line">	<span class="attribute">padding</span>: <span class="number">25px</span>;</div><div class="line">	<span class="attribute">border</span>: <span class="number">25px</span> solid <span class="built_in">rgba</span>(0, 0, 0, 0.3);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.border-box</span> &#123;</div><div class="line">	<span class="attribute">background-origin</span>: border-box;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.padding-box</span> &#123;</div><div class="line">	<span class="attribute">background-origin</span>: padding-box;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.content-box</span> &#123;</div><div class="line">	<span class="attribute">background-origin</span>: content-box;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<div style="margin:0 auto;width:600px;"><div style="display:inline-block;width:150px;height:150px;margin:25px;background-image:url(http://o6vut8vrh.bkt.clouddn.com/avatar.png);background-repeat:no-repeat;padding:25px;border:25px solid rgba(0, 0, 0, 0.3);background-origin: border-box;"></div><div style="display:inline-block;width:150px;height:150px;margin:25px;background-image:url(http://o6vut8vrh.bkt.clouddn.com/avatar.png);background-repeat:no-repeat;padding:25px;border:25px solid rgba(0, 0, 0, 0.3);background-origin: padding-box;"></div><div style="display:inline-block;width:150px;height:150px;margin:25px;background-image:url(http://o6vut8vrh.bkt.clouddn.com/avatar.png);background-repeat:no-repeat;padding:25px;border:25px solid rgba(0, 0, 0, 0.3);background-origin: content-box;"></div></div>
+
+<hr>
+<h3 id="background-clip-背景图片-颜色覆盖范围"><a href="#background-clip-背景图片-颜色覆盖范围" class="headerlink" title="background-clip 背景图片/颜色覆盖范围"></a><code>background-clip</code> 背景图片/颜色覆盖范围</h3><blockquote>
+<p>background-clip: &lt;box&gt;[, &lt;box&gt;]*<br>&lt;box&gt; = border-box | padding-box | content-box</p>
+</blockquote>
+<p><strong>解释：</strong></p>
+<ul>
+<li>用来设置，背景图片覆盖到的范围。默认是<code>border-box</code>。</li>
+<li><code>background-clip</code>对<code>background-color</code>也同样有效。也就是说，背景颜色的覆盖范围也和它有关。</li>
+<li><code>border-box</code>:背景图片除了没法覆盖<code>margin</code>以外，都能覆盖到</li>
+<li><code>padding-box</code>:背景图片只能覆盖到<code>border</code>以内（不包含<code>border</code>）</li>
+<li><code>content-box</code>:背景图片只能覆盖到<code>padding</code>以内（不包含<code>padding</code>）</li>
+<li>以下从左往右，分别是<code>border-box</code>，<code>padding-box</code>，<code>content-box</code>。<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">div</span>&#123;</div><div class="line">	<span class="attribute">display</span>:inline-block;</div><div class="line">	<span class="attribute">width</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">margin</span>:<span class="number">25px</span>;</div><div class="line">	<span class="attribute">background-image</span>:<span class="built_in">url</span>(http://o6vut8vrh.bkt.clouddn.com/avatar.png);</div><div class="line">	<span class="attribute">padding</span>:<span class="number">25px</span>;</div><div class="line">	<span class="attribute">border</span>: <span class="number">25px</span> solid <span class="built_in">rgba</span>(0,0,0,0.3);</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.border-box</span>&#123;</div><div class="line">	<span class="attribute">background-clip</span>:border-box;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.padding-box</span>&#123;</div><div class="line">	<span class="attribute">background-clip</span>:padding-box;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.content-box</span>&#123;</div><div class="line">	<span class="attribute">background-clip</span>:content-box;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<div style="margin:0 auto;width:600px;"><div style="display:inline-block;width:150px;height:150px;margin:25px;background-image:url(http://o6vut8vrh.bkt.clouddn.com/avatar.png);padding:25px;border: 25px solid rgba(0,0,0,0.3);"></div><div style="display:inline-block;width:150px;height:150px;margin:25px; background-image:url(http://o6vut8vrh.bkt.clouddn.com/avatar.png);padding:25px;border: 25px solid rgba(0,0,0,0.3);background-clip:padding-box;"></div><div style="display:inline-block;width:150px;height:150px;margin:25px;background-image:url(http://o6vut8vrh.bkt.clouddn.com/avatar.png);padding:25px;border: 25px solid rgba(0,0,0,0.3);background-clip:content-box;"></div></div>
+
+<hr>
+<h3 id="background-size-背景图片大小"><a href="#background-size-背景图片大小" class="headerlink" title="background-size 背景图片大小"></a><code>background-size</code> 背景图片大小</h3><blockquote>
+<p>background-size:&lt;bg-size&gt; [, &lt;bg-size&gt;]*<br>&lt;bg-size&gt; = [&lt;length&gt;|&lt;percentage&gt;|auto]{1, 2}|cover|contain</p>
+</blockquote>
+<p><strong>解释：</strong></p>
+<ul>
+<li>用来定义背景图片大小，默认是<code>auto</code>，表示无缩放地展示背景图片。</li>
+<li><code>&lt;length&gt;</code>：不言而喻，就是直接定义长宽</li>
+<li><code>&lt;percentage&gt;</code>：相对于背景图片的容器的百分比（注意不是相对于原图，而是以容器本身为基准）</li>
+<li><code>cover</code>：背景图片的长宽都超过容器，但尽可能小。也就是等比例缩放到刚好能完全<strong>覆盖</strong>整个元素。</li>
+<li><code>contain</code>：图片的长宽都不超过容器，但尽可能大。也就是等比例缩放到刚好能完全<strong>撑满</strong>整个元素。</li>
+</ul>
+<hr>
+<h3 id="linear-gradient-线性渐变"><a href="#linear-gradient-线性渐变" class="headerlink" title="linear-gradient() 线性渐变"></a><code>linear-gradient()</code> 线性渐变</h3><blockquote>
+<p>linear-gradient([[&lt;angle&gt;|to &lt;side-or-center&gt;],]? &lt;color-stop&gt;[, &lt;color-stop&gt;]+)<br>&lt;side-or-corner&gt; = [left | right] || [top | bottom]<br>&lt;color-stop&gt; = &lt;color&gt;[&lt;percentage&gt; | &lt;length&gt;]?</p>
+</blockquote>
+<p><strong>解释：</strong></p>
+<ul>
+<li><code>linear-gradient</code>是用来定义线性渐变的背景图片的，一般用法像这样：<code>background-image:linear-gradient(red, bule);</code>表示红蓝渐变，效果如下(当然我改了颜色值，不然略微有点丑）：<div style="margin:0 auto; width:100px; height:100px; background-image:linear-gradient(coral, lightblue)"></div></li>
+<li>第一个参数<code>[&lt;angle&gt;|to &lt;side-or-center&gt;]</code>是可选的，可以写一个角度，表示渐变的方向（默认是<code>180deg</code>，表示从上往下）；也可以用关键词的方式，来定义从左往右（<code>to right</code>）或者从右往左(<code>to left</code>)或者从上往下（<code>to bottom</code>，默认）以及从下往上（<code>to top</code>）</li>
+<li>第二个参数是必须的，而且必须写两个及以上，用来表示颜色渐变。第二个参数，不光指定渐变的颜色，还能指定颜色停止的位置。比如：<code>background-image:linear-gradient(gold, pink 70%, purple);</code>指定粉色在渐变70%的位置结束。在下面举了例子，在此不再深究。<div style="margin:0 auto; width:100px; height:100px; background-image:linear-gradient(gold, lightcoral 70%, mediumvioletred);"></div>
+
+</li>
+</ul>
+<hr>
+<h3 id="radial-gradient-径向渐变"><a href="#radial-gradient-径向渐变" class="headerlink" title="radial-gradient() 径向渐变"></a><code>radial-gradient()</code> 径向渐变</h3><p>这是一个大坑，详细讲的话要讲很久，只举几个例子，详细的请看这里：<a href="http://www.css88.com/book/css/values/image/index.htm" target="_blank" rel="external">CSS参考手册</a>。</p>
+<ul>
+<li><code>background-image:radial-gradient(gold, pink);</code>省略了默认值，补充完整是<code>radial-gradient(ellipse, farthest-corner, gold, pink)</code><div style="margin:10px auto; width:200px; height:100px; background-image:radial-gradient(gold, pink);"></div></li>
+<li><code>background-image:radial-gradient(closest-side, gold, pink);</code><div style="margin:10px auto; width:200px; height:100px; background-image:radial-gradient(closest-side, gold, pink);"></div></li>
+<li><code>background-image:radial-gradient(circle, gold, pink);</code> 默认是<code>farthest-corner</code>，也就是扩散到远端。<div style="margin:10px auto; width:200px; height:100px; background-image:radial-gradient(circle, gold, pink);"></div></li>
+<li><code>background-image:radial-gradient(circle 50px, gold, pink);</code><div style="margin:10px auto; width:200px; height:100px; background-image:radial-gradient(circle 50px, gold, pink);"></div></li>
+<li><code>background-image:radial-gradient(100px 50px, gold, pink);</code><div style="margin:10px auto; width:200px; height:100px; background-image:radial-gradient(100px 50px, gold, pink);"></div></li>
+<li><code>background-image:radial-gradient(100px 50px at 0 0, gold, pink);</code><div style="margin:10px auto; width:200px; height:100px; background-image:radial-gradient(100px 50px at 0 0, gold, pink);"></div></li>
+<li><code>background-image:radial-gradient(gold, pink 20%, mediumvioletred);</code><div style="margin:10px auto; width:200px; height:100px;background-image:radial-gradient(gold, pink 20%, mediumvioletred);"></div>
+
+</li>
+</ul>
+<hr>
+<h3 id="repeating-gradient-循环渐变"><a href="#repeating-gradient-循环渐变" class="headerlink" title="repeating-*-gradient() 循环渐变"></a><code>repeating-*-gradient()</code> 循环渐变</h3><ul>
+<li><code>*</code>可以替换成<code>linear</code>或<code>radial</code>，表示渐变不断地循环</li>
+</ul>
+<hr>
+<h3 id="backgound-缩写"><a href="#backgound-缩写" class="headerlink" title="backgound 缩写"></a><code>backgound</code> 缩写</h3><blockquote>
+<p>background: [&lt;bg-layer&gt; ,]* &lt;final-bg-layer&gt;<br>&lt;bg-layer&gt; = &lt;bg-image&gt; || &lt;position&gt; [/ &lt;bg-size&gt;]? || &lt;repeat-style&gt; || &lt;attachment&gt; || &lt;box&gt; || &lt;box&gt;<br>&lt;final-bg-layer&gt; = &lt;bg-layer&gt; || &lt;’backgorund-color’&gt;</p>
+</blockquote>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/2016/11/30/读《一道JS面试题引发的思考》笔记和思考/" data-toggle="tooltip" data-placement="top"
+                           title="读《一道JS面试题引发的思考》">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/2016/11/26/CSS@6盒模型/" data-toggle="tooltip" data-placement="top"
+                           title="CSS@6盒模型">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTk2MC82NTI1">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS背景-background"><span class="toc-text">CSS背景 background</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#background-color-背景颜色"><span class="toc-text">background-color 背景颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background-image-背景图片"><span class="toc-text">background-image 背景图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background-repeat-背景图片延伸方式"><span class="toc-text">background-repeat 背景图片延伸方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background-attachment-背景固定"><span class="toc-text">background-attachment 背景固定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background-position-背景图片位置"><span class="toc-text">background-position 背景图片位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background-origin-背景图片相对定位方式"><span class="toc-text">background-origin 背景图片相对定位方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background-clip-背景图片-颜色覆盖范围"><span class="toc-text">background-clip 背景图片/颜色覆盖范围</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background-size-背景图片大小"><span class="toc-text">background-size 背景图片大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#linear-gradient-线性渐变"><span class="toc-text">linear-gradient() 线性渐变</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#radial-gradient-径向渐变"><span class="toc-text">radial-gradient() 径向渐变</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#repeating-gradient-循环渐变"><span class="toc-text">repeating-*-gradient() 循环渐变</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#backgound-缩写"><span class="toc-text">backgound 缩写</span></a></li></ol></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/blog/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/blog/tags/#前端"
+                           title="前端">前端</a>
+                        
+                        <a class="tag" href="/blog/tags/#笔记"
+                           title="笔记">笔记</a>
+                        
+                        <a class="tag" href="/blog/tags/#CSS"
+                           title="CSS">CSS</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/deepfeel-anxis">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/JackieAnxis">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 咸鱼Jackie 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/blog/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://jackieanxis.github.io/blog/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    var _baId = '46a3d5833f277ac4dc2a9cf1285413de';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="http://o6vut8vrh.bkt.clouddn.com/17-1-24/89289633-file_1485227996130_e75a.jpg">
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+
+</html>

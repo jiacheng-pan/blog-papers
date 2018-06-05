@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="唯一特长是打退堂鼓">
+    <meta name="keyword" content="null">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
+    <link rel="alternate" type="application/atom+xml" title="咸鱼Jackie" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        HTML@4嵌入资源标签｜叫Jackie的咸鱼
+        
+    </title>
+
+    <link rel="canonical" href="http://jackieanxis.github.io/blog/2016/08/07/HTML@4嵌入资源标签/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/blog/css/syntax.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/blog/">
+                <span class="brand-logo">
+                    咸鱼Jackie
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/blog/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/blog/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/blog/blog/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="http://o6vut8vrh.bkt.clouddn.com/background.png">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>HTML@4嵌入资源标签</h1>
+                    
+                    <span class="meta">
+                         作者 Jackie Anxis
+                        <span>
+                          日期 2016-08-07
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/blog/tags/#前端"
+                           title="前端">前端</a>
+                        
+                        <a class="tag" href="/blog/tags/#笔记"
+                           title="笔记">笔记</a>
+                        
+                        <a class="tag" href="/blog/tags/#HTML"
+                           title="HTML">HTML</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            HTML@4嵌入资源标签
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h2 id="常用标签"><a href="#常用标签" class="headerlink" title="常用标签"></a>常用标签</h2><h3 id="嵌入资源标签"><a href="#嵌入资源标签" class="headerlink" title="嵌入资源标签"></a>嵌入资源标签</h3><h4 id="图片-img"><a href="#图片-img" class="headerlink" title="图片 img"></a>图片 <code>img</code></h4><p><span style="color:orange">提示：</span>img是没有闭合标签的，也就是没有<code>&lt;/img&gt;</code>。<br>img标签有很多属性，简单介绍几个，具体可以去W3School<a href="http://www.w3school.com.cn/tags/tag_img.asp" target="_blank" rel="external">【HTML img标签】</a></p>
+<ul>
+<li><p><strong>src属性</strong>：<br><strong>绝对地址</strong>指的就是这张图片的地址，可以直接将这个地址复制到浏览器中打开这张图。<br><strong>相对地址</strong>指的是，这张图相对于这个HTML文档的地址。<br>比如文档结构是这样的：<br><img src="http://o6vut8vrh.bkt.clouddn.com/16-8-10/1101943.jpg" alt=""><br>在”blog - 副本”文件夹下，有img文件夹和一个index.html文件，index.html文件需要访问到img文件夹中的icon.png文件时，应该写<code>&lt;img src=&quot;img/icon.png&quot;&gt;</code><br>又假如，你需要访问到上级文件夹，此时文件结构是这样的：<br><img src="http://o6vut8vrh.bkt.clouddn.com/16-8-10/56139804.jpg" alt=""><br>你需要在index.html中访问icon.png文件，则要写成这样<code>&lt;img src=&quot;../icon.png&quot;&gt;</code>，要访问上级的上级的文档则需要写<code>src=&quot;../../&quot;</code>，以此类推。</p>
+</li>
+<li><p><strong>alt属性</strong>：如果src中的图片无法显示，alt就会替代该图片显示。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://jackie-anxis.com/img/avatar.png"</span> <span class="attr">alt</span>=<span class="string">"封面"</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://o6vut8vrh.bkt.clouddn.com/16-8-10/81792570.jpg" alt=""></p>
+<ul>
+<li><strong>width&amp;height属性</strong>：用来规定图片大小。可以有两种单位，%和px（像素）。<br>%也就是相对父元素的大小。px就是像素，也就是绝对大小。<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-color:orange; width: 300px; height: 300px;"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"../icon.png"</span> <span class="attr">width</span>=<span class="string">"50%"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://o6vut8vrh.bkt.clouddn.com/16-8-10/14035412.jpg" alt=""><br>显然这个50%指的是父元素的50%。</p>
+<h4 id="页面-iframe"><a href="#页面-iframe" class="headerlink" title="页面 iframe"></a>页面 <code>iframe</code></h4><p>也就是在页面中嵌入另一个页面，假如说我在google的搜索页<code>&lt;body&gt;</code>中添加一段<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"www.google.com"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>就能嵌入一个页面。<br><img src="http://o6vut8vrh.bkt.clouddn.com/16-8-10/30399709.jpg" alt=""><br>当然这是iframe标签最基础的功能，iframe标签还可以用来做很多强大的事。而且它还有很多属性，可以访问<a href="http://www.w3school.com.cn/tags/tag_iframe.asp" target="_blank" rel="external">【HTML iframe标签】</a>和<a href="http://www.cnblogs.com/fangjins/archive/2012/08/19/2645631.html" target="_blank" rel="external">【深入理解iframe】</a>（后面一篇可能需要有点JS基础）。</p>
+<h4 id="插件-object-embed-video-audio-canvas-svg-map-area"><a href="#插件-object-embed-video-audio-canvas-svg-map-area" class="headerlink" title="插件 object embed video audio canvas svg map area"></a>插件 <code>object</code> <code>embed</code> <code>video</code> <code>audio</code> <code>canvas</code> <code>svg</code> <code>map</code> area</h4><p>这些都是用来嵌入一些插件的，但有些比较有难度，我只讲一些比较简单的，其他的，我会给出链接，你们可以参考别人的博客来帮助学习，我的观点是：这些标签你只要懂的它们的作用即可，而具体如何使用可以查看资料。<br><strong><code>&lt;object&gt;</code>标签</strong><br>object标签可以用来嵌入一些插件（除了图片以外的多媒体），比如Flash,Java Applets,MP3,QuickTime Movies等。基本上主流浏览器都支持object标签的实现，故而object可以完全代替标准不赞成使用的applet,embed,bgsound标签。大概写法如下：<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">object</span> <span class="attr">type</span>=<span class="string">"application/x-shockwave-flash"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"movie"</span> <span class="attr">value</span>=<span class="string">"http://pdfReader.swf"</span>&gt;</span></div><div class="line"><span class="comment">&lt;!--播放器地址可以写进value中--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"flashvars"</span> <span class="attr">value</span>=<span class="string">"http://book.pdf"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">object</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>其中，当object元素没有显示的时候，<code>&lt;object&gt;&lt;/object&gt;</code>之间的代码就会被执行。具体我也不再赘述，可以参考<a href="http://www.dreamdu.com/xhtml/tag_object/" target="_blank" rel="external">HTML object标签(梦之园)</a>，<a href="http://www.dreamdu.com/xhtml/tag_object/" target="_blank" rel="external">HTML object标签(大肥子猪)</a></p>
+<p><strong><code>&lt;embed&gt;</code>标签</strong><br>这个标签和object功能类似，但是<code>&lt;embed&gt;</code>标签是HMTL5推出的新特性。同样不支持嵌入图片媒体，不赞成使用这个标签，因为它有很多毛病，也不符合网页设计理念，对旧的浏览器也不支持。</p>
+<p><strong><code>&lt;video&gt;</code>标签</strong><br>用来加载视频资源，也是HTML5新支持的标签，和<code>&lt;img&gt;</code>标签类似，可以非常便捷的引入资源。<br>写法大概是：<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">"media/butterfly.mp4"</span> <span class="attr">controls</span>&gt;</span></div><div class="line">	您的浏览器不支持 video 标签。</div><div class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>src是视频的路径，controls表示显示视频播放控件，默认是不显示的。标签之间的文字会出现在不支持video标签的浏览器中，作为后备内容出现，用来兼容不支持video标签的浏览器。具体属性可以查看<a href="http://www.w3school.com.cn/tags/tag_video.asp" target="_blank" rel="external">HTML video标签</a></p>
+<p><strong><code>&lt;audio&gt;</code>标签</strong><br>基本和video属性一致，不再赘述。要了解详细信息可以看：<a href="http://www.w3school.com.cn/tags/tag_audio.asp" target="_blank" rel="external">HTML audio标签</a></p>
+<p><strong><code>&lt;canvas&gt;</code>标签</strong><br>可以用嵌入的脚本来绘制图形，后面讲JS的时候会提到，然后这里就简单贴一段代码，可以看看它是怎么工作的。<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"myCanvas"</span>&gt;</span></div><div class="line">	your browser does not support the canvas tag</div><div class="line"><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="undefined">	var canvas=document.getElementById('myCanvas');//找到canvas标签</span></div><div class="line"><span class="undefined">	var ctx=canvas.getContext('2d');//制定绘图模式是2d</span></div><div class="line"><span class="undefined">	ctx.fillStyle='#FF0000';//填充颜色</span></div><div class="line"><span class="undefined">	ctx.fillRect(0,0,80,100);//绘制长方形，参数是左上角和右下角的坐标</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>结果如下：<br><img src="http://o6vut8vrh.bkt.clouddn.com/16-8-10/93723471.jpg" alt=""><br>详情：<a href="http://www.w3school.com.cn/tags/tag_canvas.asp" target="_blank" rel="external">HTML canvas标签</a></p>
+<p><strong><code>&lt;map&gt;</code>和<code>&lt;area&gt;</code>标签</strong><br>这两个标签要配合使用，area标签永远嵌套在map标签中，可以用来映射图像区域。<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://o6vut8vrh.bkt.clouddn.com/16-8-10/88534460.jpg"</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">usemap</span>=<span class="string">"#planetmap"</span> <span class="attr">alt</span>=<span class="string">"Planets"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">map</span> <span class="attr">name</span>=<span class="string">"planetmap"</span> <span class="attr">id</span>=<span class="string">"planetmap"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">area</span> <span class="attr">shape</span>=<span class="string">"rect"</span> <span class="attr">coords</span>=<span class="string">"0,0,123,62"</span> <span class="attr">href</span>=<span class="string">"https://www.baidu.com"</span> <span class="attr">target</span> =<span class="string">"_blank"</span> <span class="attr">alt</span>=<span class="string">"Mercury"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">area</span> <span class="attr">shape</span>=<span class="string">"circle"</span> <span class="attr">coords</span>=<span class="string">"166,38,30"</span> <span class="attr">href</span> =<span class="string">"https://www.google.com"</span> <span class="attr">target</span> =<span class="string">"_blank"</span> <span class="attr">alt</span>=<span class="string">"Sun"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">map</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>效果可以直接点击试试看：<br><img src="http://o6vut8vrh.bkt.clouddn.com/16-8-10/88534460.jpg" border="0" usemap="#planetmap" alt="Planets"></p>
+<map name="planetmap" id="planetmap"><br><area shape="rect" coords="0,0,123,62" href="https://www.baidu.com" target="_blank" alt="Mercury"><br><area shape="circle" coords="166,38,30" href="https://www.google.com" target="_blank" alt="Sun"><br></map>
+
+<p>具体参考：<a href="http://www.w3school.com.cn/tags/tag_map.asp" target="_blank" rel="external">HTML map标签</a></p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/2016/08/08/HTML@5表格标签/" data-toggle="tooltip" data-placement="top"
+                           title="HTML@5表格标签">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/2016/08/06/HTML@3组合内容标签/" data-toggle="tooltip" data-placement="top"
+                           title="HTML@3组合内容标签">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTk2MC82NTI1">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#常用标签"><span class="toc-text">常用标签</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#嵌入资源标签"><span class="toc-text">嵌入资源标签</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#图片-img"><span class="toc-text">图片 img</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#页面-iframe"><span class="toc-text">页面 iframe</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#插件-object-embed-video-audio-canvas-svg-map-area"><span class="toc-text">插件 object embed video audio canvas svg map area</span></a></li></ol></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/blog/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/blog/tags/#前端"
+                           title="前端">前端</a>
+                        
+                        <a class="tag" href="/blog/tags/#笔记"
+                           title="笔记">笔记</a>
+                        
+                        <a class="tag" href="/blog/tags/#HTML"
+                           title="HTML">HTML</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/deepfeel-anxis">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/JackieAnxis">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 咸鱼Jackie 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/blog/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://jackieanxis.github.io/blog/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    var _baId = '46a3d5833f277ac4dc2a9cf1285413de';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="http://o6vut8vrh.bkt.clouddn.com/17-1-24/89289633-file_1485227996130_e75a.jpg">
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+
+</html>

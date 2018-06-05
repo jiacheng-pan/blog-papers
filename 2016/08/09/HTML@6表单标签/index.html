@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="唯一特长是打退堂鼓">
+    <meta name="keyword" content="null">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
+    <link rel="alternate" type="application/atom+xml" title="咸鱼Jackie" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        HTML@6表单标签｜叫Jackie的咸鱼
+        
+    </title>
+
+    <link rel="canonical" href="http://jackieanxis.github.io/blog/2016/08/09/HTML@6表单标签/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/blog/css/syntax.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/blog/">
+                <span class="brand-logo">
+                    咸鱼Jackie
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/blog/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/blog/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/blog/blog/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="http://o6vut8vrh.bkt.clouddn.com/background.png">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>HTML@6表单标签</h1>
+                    
+                    <span class="meta">
+                         作者 Jackie Anxis
+                        <span>
+                          日期 2016-08-09
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/blog/tags/#前端"
+                           title="前端">前端</a>
+                        
+                        <a class="tag" href="/blog/tags/#笔记"
+                           title="笔记">笔记</a>
+                        
+                        <a class="tag" href="/blog/tags/#HTML"
+                           title="HTML">HTML</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            HTML@6表单标签
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h2 id="常用标签"><a href="#常用标签" class="headerlink" title="常用标签"></a>常用标签</h2><h3 id="表单标签"><a href="#表单标签" class="headerlink" title="表单标签"></a>表单标签</h3><p>表单标签是HTML中非常重要的标签，可以用来上传信息而且在HTML5中有扩展了很多input类型的表单标签，是和用户进行信息交互的重要媒介。但是表单标签家族人员众多，如果要讲完，还是挺费劲的，所以我也只是简述而已。</p>
+<h4 id="form标签"><a href="#form标签" class="headerlink" title="form标签"></a><code>form</code><strong>标签</strong></h4><p>一般来说，会把<code>&lt;form&gt;</code>标签放在表单的最外面，因为一般而言，表单数据都会发送给后台，让后台进行处理，那么就需要定义，后台的地址是什么，用什么方式传给后台（POST or GET?）等等。总而言之，如果把表单看成一封信，那么form标签就是它的信封，标注着收件地址，怎么寄送等等。挂出W3School的详细信息：<a href="http://www.w3school.com.cn/tags/tag_form.asp" target="_blank" rel="external">HTML form标签</a>。<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/login"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></div><div class="line"><span class="comment">&lt;!--action: 后台地址， method: 提交方式--&gt;</span></div><div class="line"><span class="comment">&lt;!-- 这里面就放入表单 --&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>action属性表示的是后台地址，method就是传输方式（POST or GET）。具体想知道POST和GET传给后台之间有什么区别，以后我也会详细推出一篇笔记来阐述两者区别，现在暂时先看别人的日志：<br><a href="http://www.w3school.com.cn/tags/html_ref_httpmethods.asp" target="_blank" rel="external">W3School：HTTP 方法：GET 对比 POST</a><br><a href="http://www.cnblogs.com/hyddd/archive/2009/03/31/1426026.html" target="_blank" rel="external">hyddd：浅谈HTTP中Get与Post的区别</a><br><a href="http://blog.csdn.net/gideal_wang/article/details/4316691" target="_blank" rel="external">gideal_wang：HTTP POST GET 本质区别详解</a></p>
+<h4 id="fieldset标签"><a href="#fieldset标签" class="headerlink" title="fieldset标签"></a><code>fieldset</code><strong>标签</strong></h4><p>这个标签是用来划分表单的，将不同表单进行分组，比如填写个人基本信息的相关表单放在一个<code>&lt;fieldset&gt;</code>标签，填写个人教育经历的放在另一个。这个没什么好讲的……</p>
+<h4 id="legend标签"><a href="#legend标签" class="headerlink" title="legend标签"></a><code>legend</code><strong>标签</strong></h4><p>通常被用来配合<code>&lt;fieldset&gt;</code>标签使用，是用来表示一个filedset的标题信息的。</p>
+<h4 id="input标签"><a href="#input标签" class="headerlink" title="input标签"></a><code>input</code><strong>标签</strong></h4><p>input标签千变万化，可以用来作为输入框，按钮，单选框等等等等，这都和它的<strong>type</strong>属性息息相关，不同的type就能变幻出不同的形态，当然我还是贴出这个标签的权威解答：<a href="http://www.w3school.com.cn/tags/tag_input.asp" target="_blank" rel="external">HTML input标签</a>。</p>
+<ul>
+<li><p><strong>type属性：</strong> 变换不同形态<br>type属性有以下这些值，当然，你如果想有更多的体验，可以访问→<a href="http://www.w3school.com.cn/tags/att_input_type.asp" target="_blank" rel="external">HTML input标签的type属性</a>，自己写代码试试看：</p>
+<ul>
+<li><p>text：普通的单行输入框</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"在此处输入试试"</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>效果：<input type="text" placeholder="在此处输入试试"></li>
+</ul>
+</li>
+<li><p>password：密码输入框</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">placeholder</span>=<span class="string">"在此处输入密码"</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>效果：<input type="password" placeholder="在此处输入密码"></li>
+</ul>
+</li>
+<li><p>radio：单选框</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"sex"</span> <span class="attr">value</span>=<span class="string">"male"</span>/&gt;</span>男</div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"sex"</span> <span class="attr">value</span>=<span class="string">"female"</span>/&gt;</span>女</div></pre></td></tr></table></figure>
+<ul>
+<li>效果：<input type="radio" name="sex" value="male">男 <input type="radio" name="sex" value="female">女</li>
+</ul>
+</li>
+<li><p>checkbox：多选框</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span>选项一</div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span>选项二</div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span>选项三</div></pre></td></tr></table></figure>
+<ul>
+<li>效果：<input type="checkbox">选项一 <input type="checkbox">选项二 <input type="checkbox">选项三</li>
+</ul>
+</li>
+<li><p>file：文件上传</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>效果：<input type="file"></li>
+</ul>
+</li>
+<li>hidden： 隐藏某个input标签<br>隐藏字段对于用户是不可见的。隐藏字段通常会存储一个默认值，它们的值也可以由 JavaScript 进行修改。</li>
+<li><p>button：没有任何反应的按钮</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>效果：<input type="button"></li>
+</ul>
+</li>
+<li><p>submit：提交按钮，是用来提交整个表单的数据</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>效果：<input type="submit"></li>
+</ul>
+</li>
+<li><p>image：定义图像形式的提交按钮。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"image"</span> <span class="attr">src</span>=<span class="string">"http://o6vut8vrh.bkt.clouddn.com/16-8-13/76798647.jpg"</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>效果：<input type="image" src="http://o6vut8vrh.bkt.clouddn.com/16-8-13/76798647.jpg"></li>
+</ul>
+</li>
+<li><p>reset：重置按钮，重置表单所有数据</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"在此处输入试试"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">placeholder</span>=<span class="string">"在此处输入密码"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span>选项一</div><div class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span>选项二</div><div class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span>选项三</div><div class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"reset"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>效果：（可以先输入信息，点击reset之后清除）<form><br><input type="text" placeholder="在此处输入试试"><br><input type="password" placeholder="在此处输入密码"><br><input type="checkbox">选项一<input type="checkbox">选项二<input type="checkbox">选项三<br><input type="reset"><br></form>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>name属性：</strong> input元素的名称<br>提交表单时对表单数据进行标识，因为你把数据提交到后台后，肯定要对每个表单数据都有一个标记，也就是他们的名字，这也就是name属性的意义。</p>
+</li>
+<li><p><strong>value属性：</strong> input元素的值<br>当然，你经常有需要会让某些input元素有一些预设值，或者让某些input元素有值能提交，比如：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"sex"</span> <span class="attr">value</span>=<span class="string">"male"</span>/&gt;</span>男</div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"sex"</span> <span class="attr">value</span>=<span class="string">"female"</span>/&gt;</span>女</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>placeholder属性：</strong> 输入框的提示信息<br>规定帮助用户填写输入字段的提示。当然非输入字段是没用的……</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"在此处输入试试"</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>效果：<input type="text" placeholder="在此处输入试试"></li>
+</ul>
+</li>
+<li><p><strong>checked属性：</strong> 使带有这个属性的input标签默认处于选中状态</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"sex"</span> <span class="attr">value</span>=<span class="string">"male"</span>/&gt;</span>男</div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"sex"</span> <span class="attr">value</span>=<span class="string">"female"</span> <span class="attr">checked</span>/&gt;</span>女</div></pre></td></tr></table></figure>
+<ul>
+<li>效果：<form><br><input type="radio" name="sex" value="male">男<br><input type="radio" name="sex" value="female" checked>女<br></form>
+</li>
+</ul>
+</li>
+<li><p><strong>disabled属性：</strong> 禁用该标签<br><strong><span style="color:red">提示：</span></strong>disabled属性不能和type=”hidden”一起使用。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"sex"</span> <span class="attr">value</span>=<span class="string">"male"</span>/&gt;</span>男</div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"sex"</span> <span class="attr">value</span>=<span class="string">"female"</span> <span class="attr">checked</span> <span class="attr">disabled</span>/&gt;</span>女</div></pre></td></tr></table></figure>
+<ul>
+<li>效果：<form><br><input type="radio" name="sex" value="male">男<br><input type="radio" name="sex" value="female" checked disabled>女<br></form>
+</li>
+</ul>
+</li>
+<li><p>其他还有很多有用的属性：<strong>autofocus</strong>，<strong>readonly</strong>，<strong>multiple</strong>，<strong>required</strong>等等……可以访问<a href="http://www.w3school.com.cn/tags/tag_input.asp" target="_blank" rel="external">HTML input标签</a>。</p>
+</li>
+</ul>
+<h4 id="select标签"><a href="#select标签" class="headerlink" title="select标签"></a><code>select</code><strong>标签</strong></h4><p>同样先贴上W3School的链接：<a href="http://www.w3school.com.cn/tags/tag_select.asp" target="_blank" rel="external">HTML select标签</a><br>下拉菜单，有几个需要配合select一起使用的标签：</p>
+<ul>
+<li>option：也就是菜单选项</li>
+<li>optgroup：可以对option选项进行分组<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"delivery"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">optgroup</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"0"</span>&gt;</span>快递<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"1"</span>&gt;</span>EMS<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">optgroup</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"2"</span> <span class="attr">selected</span>&gt;</span>平邮<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>效果：<select id="delivery"><br>    <optgroup><br>        <option value="0">快递</option><br>        <option value="1">EMS</option><br>    </optgroup><br>    <option value="2" selected>平邮</option><br></select></p>
+<h4 id="textarea标签"><a href="#textarea标签" class="headerlink" title="textarea标签"></a><code>textarea</code><strong>标签</strong></h4><p>textarea就是多行的文本输入控件。贴上链接：<a href="http://www.w3school.com.cn/tags/tag_textarea.asp" target="_blank" rel="external">HTML textarea标签</a><br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">rows</span>=<span class="string">"3"</span> <span class="attr">cols</span>=<span class="string">"20"</span>&gt;</span></div><div class="line">	在w3school，你可以找到你所需要的所有的网站建设教程。</div><div class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><textarea rows="3" cols="20">在w3school，你可以找到你所需要的所有的网站建设教程。</textarea><br>textarea有几个较为重要的属性，简单讲解：</p>
+<ul>
+<li>rows：文本输入框可见的行数</li>
+<li>cols：文本输入框可见的列数</li>
+<li>其他还有：autofocus，readonly，disabled，placeholder，required等等</li>
+</ul>
+<h4 id="button标签"><a href="#button标签" class="headerlink" title="button标签"></a><code>button</code><strong>标签</strong></h4><p>button标签就是按钮标签，<a href="http://www.w3school.com.cn/tags/tag_button.asp" target="_blank" rel="external">HTML button标签</a>。<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"alert('hello!')"</span>&gt;</span>click here!<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>效果：<button onclick="alert('hello!')">click here!</button><br>这个button标签比<code>&lt;input type=&quot;button&quot;&gt;</code>提供了更为强大的功能和更丰富的内容。</p>
+<h4 id="label标签"><a href="#label标签" class="headerlink" title="label标签"></a><code>label</code><strong>标签</strong></h4><p><code>&lt;label&gt;</code>标签为 input 元素定义标注（标记）。可以用label的for属性绑定另外一个元素，只要label的for属性的值和另外一个元素的id相同，此时如果你点击label标签的文本，就会自动触发那个绑定的控件，就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上。可以将以下代码复制到<code>&lt;body&gt;</code>标签下进行测试。<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"male"</span>&gt;</span>Male<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"sex"</span> <span class="attr">id</span>=<span class="string">"male"</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"female"</span>&gt;</span>Female<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"sex"</span> <span class="attr">id</span>=<span class="string">"female"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure></p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/2016/08/13/HTML@7结尾篇/" data-toggle="tooltip" data-placement="top"
+                           title="HTML@7补充篇">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/2016/08/08/HTML@5表格标签/" data-toggle="tooltip" data-placement="top"
+                           title="HTML@5表格标签">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTk2MC82NTI1">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#常用标签"><span class="toc-text">常用标签</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#表单标签"><span class="toc-text">表单标签</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#form标签"><span class="toc-text">form标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fieldset标签"><span class="toc-text">fieldset标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#legend标签"><span class="toc-text">legend标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#input标签"><span class="toc-text">input标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#select标签"><span class="toc-text">select标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#textarea标签"><span class="toc-text">textarea标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#button标签"><span class="toc-text">button标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#label标签"><span class="toc-text">label标签</span></a></li></ol></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/blog/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/blog/tags/#前端"
+                           title="前端">前端</a>
+                        
+                        <a class="tag" href="/blog/tags/#笔记"
+                           title="笔记">笔记</a>
+                        
+                        <a class="tag" href="/blog/tags/#HTML"
+                           title="HTML">HTML</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/deepfeel-anxis">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/JackieAnxis">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 咸鱼Jackie 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/blog/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://jackieanxis.github.io/blog/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    var _baId = '46a3d5833f277ac4dc2a9cf1285413de';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="http://o6vut8vrh.bkt.clouddn.com/17-1-24/89289633-file_1485227996130_e75a.jpg">
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+
+</html>

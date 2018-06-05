@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="唯一特长是打退堂鼓">
+    <meta name="keyword" content="null">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
+    <link rel="alternate" type="application/atom+xml" title="咸鱼Jackie" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        HTML@1文档结构&amp;标签属性｜叫Jackie的咸鱼
+        
+    </title>
+
+    <link rel="canonical" href="http://jackieanxis.github.io/blog/2016/07/19/HTML@1文档结构&amp;标签属性/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/blog/css/syntax.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/blog/">
+                <span class="brand-logo">
+                    咸鱼Jackie
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/blog/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/blog/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/blog/blog/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="http://o6vut8vrh.bkt.clouddn.com/background.png">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>HTML@1文档结构&amp;标签属性</h1>
+                    
+                    <span class="meta">
+                         作者 Jackie Anxis
+                        <span>
+                          日期 2016-07-19
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/blog/tags/#前端"
+                           title="前端">前端</a>
+                        
+                        <a class="tag" href="/blog/tags/#笔记"
+                           title="笔记">笔记</a>
+                        
+                        <a class="tag" href="/blog/tags/#HTML"
+                           title="HTML">HTML</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            HTML@1文档结构&标签属性
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h2 id="推荐相关教程"><a href="#推荐相关教程" class="headerlink" title="推荐相关教程"></a>推荐相关教程</h2><p><a href="http://www.w3school.com.cn/" target="_blank" rel="external">w3school 在线教程</a>：全球最大的中文 Web 技术教程。其中包括W3C的标准技术:HTML、CSS、XML 。以及其他的技术,诸如JavaScript、PHP、SQL等等。</p>
+<h2 id="举例：如何写一个HTML的表单？"><a href="#举例：如何写一个HTML的表单？" class="headerlink" title="举例：如何写一个HTML的表单？"></a>举例：如何写一个HTML的表单？</h2><p>以下是我以前写过的一个表单的DEMO，这就是一个简单的网站的基本构架，可以先看一下，接下去我会详细讲解……</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"#"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">  	  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">	  	<span class="tag">&lt;<span class="name">td</span>&gt;</span>头像&amp;nbsp;&amp;nbsp;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">	  	<span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"headfile"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">	  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">	  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">	  	<span class="tag">&lt;<span class="name">td</span>&gt;</span>昵称&amp;nbsp;&amp;nbsp;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">	  	<span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">	  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">	  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">td</span>&gt;</span>学历&amp;nbsp;&amp;nbsp;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">td</span>&gt;</span></div><div class="line">		  <span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">"diploma"</span> <span class="attr">id</span>=<span class="string">"diploma"</span>&gt;</span></div><div class="line">		    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"0"</span>&gt;</span>大专<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">		    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"1"</span>&gt;</span>本科<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">		  <span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">	  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">	  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">	  	<span class="tag">&lt;<span class="name">td</span>&gt;</span>性别&amp;nbsp;&amp;nbsp;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">	  	<span class="tag">&lt;<span class="name">td</span>&gt;</span></div><div class="line">	  	  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"sex"</span> <span class="attr">value</span>=<span class="string">"0"</span> <span class="attr">checked</span>&gt;</span></div><div class="line">	  	  <span class="tag">&lt;<span class="name">label</span>&gt;</span>男&amp;nbsp;&amp;nbsp;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">	  	  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"sex"</span> <span class="attr">value</span>=<span class="string">"1"</span>&gt;</span></div><div class="line">	  	  <span class="tag">&lt;<span class="name">label</span>&gt;</span>女<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">	  	<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">	  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">	  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">	  	<span class="tag">&lt;<span class="name">td</span>&gt;</span>爱好&amp;nbsp;&amp;nbsp;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">	  	<span class="tag">&lt;<span class="name">td</span>&gt;</span></div><div class="line">	  	  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"hobby"</span> <span class="attr">value</span>=<span class="string">"0"</span> <span class="attr">checked</span>&gt;</span><span class="tag">&lt;<span class="name">label</span>&gt;</span>电影<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">	  	  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"hobby"</span> <span class="attr">value</span>=<span class="string">"1"</span>&gt;</span><span class="tag">&lt;<span class="name">label</span>&gt;</span>摄影<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">	  	  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"hobby"</span> <span class="attr">value</span>=<span class="string">"2"</span>&gt;</span><span class="tag">&lt;<span class="name">label</span>&gt;</span>音乐<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">	  	  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"hobby"</span> <span class="attr">value</span>=<span class="string">"3"</span> <span class="attr">checked</span>&gt;</span><span class="tag">&lt;<span class="name">label</span>&gt;</span>阅读<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">	  	<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">	  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">	  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">	  	<span class="tag">&lt;<span class="name">td</span> <span class="attr">valign</span>=<span class="string">"top"</span>&gt;</span>签名&amp;nbsp;&amp;nbsp;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">	  	<span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">"sign"</span> <span class="attr">rows</span>=<span class="string">"4"</span> <span class="attr">cols</span>=<span class="string">"30"</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">	  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">	  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">	  	<span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">	  	<span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>保存<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">	  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;/<span class="name">table</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>效果：<br><img src="http://i1.piimg.com/4851/01c75d2bdf4c6788.jpg" alt=""></p>
+<h2 id="HTML文档结构"><a href="#HTML文档结构" class="headerlink" title="HTML文档结构"></a>HTML文档结构</h2><h3 id="lt-DOCTYPE-html-gt-结构声明"><a href="#lt-DOCTYPE-html-gt-结构声明" class="headerlink" title="&lt;!DOCTYPE html&gt;结构声明"></a><code>&lt;!DOCTYPE html&gt;</code>结构声明</h3><p>这一行是用来声明文档结构的，也就是说，这一行是用来表明，浏览器应该用哪个版本的HTML来解析文档，现在HTML5推出之后，基本上都声明称<code>&lt;!DOCTYPE html&gt;</code>用来支持HTML5即可。</p>
+<h3 id="head文档头部"><a href="#head文档头部" class="headerlink" title="head文档头部"></a><code>head</code>文档头部</h3><h4 id="页面标题-title"><a href="#页面标题-title" class="headerlink" title="页面标题 title"></a>页面标题 <code>title</code></h4><p>声明一个<code>&lt;title&gt;</code>标签，可以为一个HTML文档提供<strong>标题</strong>，这个标题显示在页面标签上，也是搜索引擎搜索结果中看到的标题。以上面的DEMO为例，DEMO中我未声明<code>&lt;title&gt;</code>标签，所以默认的标签栏标题就是文件名：<br><img src="http://i2.piimg.com/4851/6c1ee08c32420ddb.png" alt=""><br>在文档头部加入<code>&lt;title&gt;DEMO 3&lt;/title&gt;</code>标签后<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>DEMO 3<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><img src="http://i2.piimg.com/4851/6b930434c97e829f.png" alt=""></p>
+<h4 id="元标签-meta"><a href="#元标签-meta" class="headerlink" title="元标签 meta"></a>元标签 <code>meta</code></h4><p><code>&lt;meta&gt;</code>标签是用来提供有关页面的元信息（meta-information）的标签，没有结束标签（<code>&lt;/meta&gt;</code>），详细的<code>&lt;meta&gt;</code>标签的用法可见<a href="http://www.w3school.com.cn/tags/tag_meta.asp" target="_blank" rel="external">HTML meta标签</a>，我在此只叙述三种最常用的用途：</p>
+<ul>
+<li><p><strong>字符编码</strong>：<code>&lt;meta charset=&quot;utf-8&quot;&gt;</code> 用来定义文档的字符编码，必须要写在第一行，如果不写这一栏，可能无法支持中文等语言……</p>
+</li>
+<li><p><strong>搜索引擎</strong>：<code>&lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;</code>和<code>&lt;meta name=&quot;discription&quot; content=&quot;&quot;&gt;</code>，这两者都是提供给搜索引擎的，很明显，<code>content=&quot;&quot;</code>的双引号中填写内容，keywords这个标签是用来说明该页面的关键词的，而discription则是用来描述该页面的主要内容的</p>
+</li>
+<li><p><strong>移动端</strong>：<code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1&quot;&gt;</code>这个就比较复杂了，讲的详细点可以写一篇博文了，这里就简单介绍：</p>
+<ul>
+<li><p>这个主要用来控制移动端窗口的大小，对移动端浏览器才有效果，通过这个标签可以设置移动端浏览器的视窗的宽高</p>
+</li>
+<li><p>width：这个控制 viewport 的大小，可以指定的一个值，如600，或者特殊的值，如 device-width 为设备的宽度。</p>
+</li>
+<li><p>height：和width相对应</p>
+</li>
+<li><p>initial-scale：字面意思，就是初始缩放大小</p>
+</li>
+<li><p>maximum-scale：允许用户缩放到的最大比例。</p>
+</li>
+<li><p>minimum-scale：允许用户缩放到的最小比例。</p>
+</li>
+<li><p>user-scalable：用户是否可以手动缩放</p>
+</li>
+<li><p>详细内容：<a href="http://webdesign.tutsplus.com/zh-hans/articles/quick-tip-dont-forget-the-viewport-meta-tag--webdesign-5972" target="_blank" rel="external">快捷提示：别忘记Viewport Meta标签</a></p>
+</li>
+<li><p>详细内容：<a href="https://developer.mozilla.org/zh-CN/docs/Mobile/Viewport_meta_tag" target="_blank" rel="external">在移动浏览器中使用viewport元标签控制布局</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="链接标签-link"><a href="#链接标签-link" class="headerlink" title="链接标签 link"></a>链接标签 <code>link</code></h4><p><code>&lt;link&gt;</code>标签主要用来引入外部资源，最常用的用途就是引入外部css样式表和定义页面标签的ICON图标。<br><img src="http://o6vut8vrh.bkt.clouddn.com/16-8-1/22509611.jpg" alt=""><br>详细内容见<a href="http://www.w3school.com.cn/tags/tag_link.asp" target="_blank" rel="external">【HTML link标签 W3School】</a></p>
+<ul>
+<li><strong>定义ICON图标</strong>：<code>&lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot;&gt;</code> 属性<code>rel=&quot;shortcut icon&quot;</code>用来指示这段代码是用来引入ICON图标，而href则用来写icon图标的位置。</li>
+<li><strong>引入外部CSS样式</strong>：<code>&lt;link rel=&quot;stylesheet&quot; href=&quot;../css/style.css&quot;&gt;</code> 属性<code>rel=&quot;stylesheet&quot;</code>用来指示这段代码是用来引入CSS样式资源的，而同样的，href则是写这个CSS文件的地址是”../css/style.css”</li>
+</ul>
+<h4 id="样式标签-style"><a href="#样式标签-style" class="headerlink" title="样式标签 style"></a>样式标签 <code>style</code></h4><p><code>&lt;style&gt;</code>标签之间，可以用来写CSS样式代码，比如这样<br><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="css">	<span class="selector-tag">h1</span> &#123;<span class="attribute">color</span>:red&#125;</span></div><div class="line"><span class="css">	<span class="selector-tag">p</span> &#123;<span class="attribute">color</span>:blue&#125;</span></div><div class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="标签属性"><a href="#标签属性" class="headerlink" title="标签属性"></a>标签属性</h2><p>什么是标签属性呢，可以这么理解，一个标签是一个人，那么id属性就是这个人的身份证号，class属性就可以理解成一个人的民族，style属性就是一个人长什么样等等等等类似，接下来就来详细了解几个常用的标签属性。具体可以看<a href="http://www.w3school.com.cn/html/html_attributes.asp" target="_blank" rel="external">【HTML 属性】</a>。</p>
+<h3 id="id属性"><a href="#id属性" class="headerlink" title="id属性"></a><code>id</code>属性</h3><p><code>&lt;div id=&quot;...&quot;&gt;&lt;/div&gt;</code><br>上面提到，id属性事实上就是一个标签的身份证号，在一个页面下，这个id属性的内容一定要保证在这个页面中是唯一的（虽然发生重复也不会报错），但是如果你用JS脚本来找到这个元素的时候就会出错，只能找到第一个。<br>id属性是一个标签的标志，所以可以通过ID属性来找到唯一的一个标签。</p>
+<h3 id="class属性"><a href="#class属性" class="headerlink" title="class属性"></a><code>class</code>属性</h3><p><code>&lt;div class=&quot;...&quot;&gt;&lt;/div&gt;</code><br>class属性，则是一个标签的类名。拥有同一个类名的标签不用唯一，可以有很多个，也可以通过class属性来获得这些带有同一属性的标签。<br><strong>※id和class的区别</strong>：拥有同一个id属性的标签在同一个页面下只能有一个（虽然有多个也不会报错），但是拥有同一个class属性的标签可以出现多个。</p>
+<h3 id="style属性"><a href="#style属性" class="headerlink" title="style属性"></a><code>style</code>属性</h3><p><code>&lt;div style=&quot;...&quot;&gt;&lt;/div&gt;</code><br>style属性，是一个标签的外表。可以直接在style属性中写样式，但是后面我们会提到，在这里面写的样式具有较高的优先级。不推荐 在这里写样式，因为会增加标签长度。</p>
+<h3 id="title属性"><a href="#title属性" class="headerlink" title="title属性"></a>title属性</h3><p><code>&lt;div title=&quot;...&quot;&gt;&lt;/div&gt;</code><br>title属性规定了元素的额外的一些信息，当鼠标移动到元素上方就会显示这些信息。<br><img src="http://o6vut8vrh.bkt.clouddn.com/16-8-9/52350225.jpg" alt=""></p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/2016/08/05/HTML@2章节标签&文本标签/" data-toggle="tooltip" data-placement="top"
+                           title="HTML@2章节标签&文本标签">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/2016/07/09/大鱼海棠影评/" data-toggle="tooltip" data-placement="top"
+                           title="大鱼海棠观影有感">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTk2MC82NTI1">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#推荐相关教程"><span class="toc-text">推荐相关教程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#举例：如何写一个HTML的表单？"><span class="toc-text">举例：如何写一个HTML的表单？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML文档结构"><span class="toc-text">HTML文档结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-DOCTYPE-html-gt-结构声明"><span class="toc-text"><!DOCTYPE html>结构声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#head文档头部"><span class="toc-text">head文档头部</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#页面标题-title"><span class="toc-text">页面标题 title</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#元标签-meta"><span class="toc-text">元标签 meta</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#链接标签-link"><span class="toc-text">链接标签 link</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#样式标签-style"><span class="toc-text">样式标签 style</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标签属性"><span class="toc-text">标签属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#id属性"><span class="toc-text">id属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#class属性"><span class="toc-text">class属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#style属性"><span class="toc-text">style属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#title属性"><span class="toc-text">title属性</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/blog/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/blog/tags/#前端"
+                           title="前端">前端</a>
+                        
+                        <a class="tag" href="/blog/tags/#笔记"
+                           title="笔记">笔记</a>
+                        
+                        <a class="tag" href="/blog/tags/#HTML"
+                           title="HTML">HTML</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/deepfeel-anxis">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/JackieAnxis">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 咸鱼Jackie 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/blog/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://jackieanxis.github.io/blog/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    var _baId = '46a3d5833f277ac4dc2a9cf1285413de';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="http://o6vut8vrh.bkt.clouddn.com/17-1-24/89289633-file_1485227996130_e75a.jpg">
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+
+</html>

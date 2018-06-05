@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="唯一特长是打退堂鼓">
+    <meta name="keyword" content="null">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
+    <link rel="alternate" type="application/atom+xml" title="咸鱼Jackie" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        CSS@1介绍和准备｜叫Jackie的咸鱼
+        
+    </title>
+
+    <link rel="canonical" href="http://jackieanxis.github.io/blog/2016/08/18/CSS@1介绍和准备/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/blog/css/syntax.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/blog/">
+                <span class="brand-logo">
+                    咸鱼Jackie
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/blog/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/blog/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/blog/blog/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="http://o6vut8vrh.bkt.clouddn.com/background.png">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>CSS@1介绍和准备</h1>
+                    
+                    <span class="meta">
+                         作者 Jackie Anxis
+                        <span>
+                          日期 2016-08-18
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/blog/tags/#前端"
+                           title="前端">前端</a>
+                        
+                        <a class="tag" href="/blog/tags/#笔记"
+                           title="笔记">笔记</a>
+                        
+                        <a class="tag" href="/blog/tags/#CSS"
+                           title="CSS">CSS</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            CSS@1介绍和准备
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h3 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h3><p><a href="http://www.css88.com/book/css/" target="_blank" rel="external">CSS3参考手册</a>，啥都有的参考网站</p>
+<h3 id="引入CSS"><a href="#引入CSS" class="headerlink" title="引入CSS"></a><strong>引入CSS</strong></h3><p>三种方法用于在HTML文档中引入CSS：</p>
+<ol>
+<li><p>外部样式表</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"base.css"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>内部样式表</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="css">		<span class="selector-tag">body</span>&#123;<span class="attribute">background-color</span>:read;&#125;</span></div><div class="line"><span class="css">		<span class="selector-tag">p</span>&#123;<span class="attribute">margin-left</span>:<span class="number">20px</span>;&#125;</span></div><div class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>内嵌样式表<br>不利于后期的维护，静态页面不建议</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"color:read;margin-left:20px;"</span>&gt;</span></div><div class="line">	this is a paragragh.</div><div class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="CSS语法"><a href="#CSS语法" class="headerlink" title="CSS语法"></a><strong>CSS语法</strong></h3><h4 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a><strong>基本语法</strong></h4><figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">selector</span>&#123;</div><div class="line">	<span class="attribute">property</span>: value;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>selector</strong>：选择器，也就是指明样式应用的对象。因为你写CSS样式时，必须要指名道姓的说，我这些样式是写给谁谁谁的，所以必须要用选择器把样式应用的对象挑选出来。<br><strong>property</strong>：性质或者称为属性。<br><strong>value</strong>：属性的值。</p>
+<p>可以这么认为，如果CSS是一套房子的装修方案，那么selector就可以认为是物品的名字，property就是物品的属性，value则是这个属性的值。比如你想要把东墙，西墙的背景颜色刷成蓝色，墙上写的字体都要是微软雅黑，你可以这么写：<br><figure class="highlight css"><table><tr><td class="code"><pre><div class="line">east_wall, west_wall&#123; //东墙和西墙</div><div class="line">	background-color: blue; //背景颜色为蓝色</div><div class="line">	font-family: Microsoft yahei; //字体为微软雅黑</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="浏览器私有属性"><a href="#浏览器私有属性" class="headerlink" title="浏览器私有属性"></a><strong>浏览器私有属性</strong></h4><p>有时候，有些属性只有某些浏览器实现了，或者说在不同的浏览器中，不同属性的名称叫法不一样，这时，就需要在属性前加上必要的前缀，常见浏览器和它们的私有属性的对应关系如下：</p>
+<table>
+<thead>
+<tr>
+<th>browser</th>
+<th>prefix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>chrome, safari</td>
+<td>-webkit-</td>
+</tr>
+<tr>
+<td>firefox</td>
+<td>-moz-</td>
+</tr>
+<tr>
+<td>IE</td>
+<td>-ms-</td>
+</tr>
+<tr>
+<td>opera</td>
+<td>-o-</td>
+</tr>
+</tbody>
+</table>
+<p>举个例子，以前圆角属性<code>border-radius</code>还未在所有浏览器普及的时候，需要这么写CSS：<br><figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">-webkit-border-radius</span>: 50%;</div><div class="line"><span class="selector-tag">-o-border-radius</span>: 50%;</div><div class="line"><span class="selector-tag">-moz-border-radius</span>: 50%;</div><div class="line"><span class="selector-tag">-ms-border-radius</span>: 50%;</div><div class="line"><span class="selector-tag">border-radius</span>: 50%;</div></pre></td></tr></table></figure></p>
+<hr>
+<h4 id="属性值语法"><a href="#属性值语法" class="headerlink" title="属性值语法"></a><strong>属性值语法</strong></h4><p>因为我们后面会介绍不同的属性，属性的值必须要符合一定语法，其实这和正则表达式比较像的，比如，background-color是颜色，它的值可能就是一个关键词（如blue, red）或者16进制RGB值（#ffffff或#fff表示白色)，而border-width是边框宽度，那可能就是一个数字。我们这里要讲的，就是说明如何表示属性值的规则。OK，来举个栗子：<br>    <code>margin: [&lt;length&gt;|&lt;percentage&gt;|auto]{1,4}</code></p>
+<p>这句话的意思就是，margin这个属性的值，可以是length（长度），或者percentage（百分数），或者关键词auto，而这个值可以写1-4个。因为一个元素的外边距（margin）有上下左右四个，所以可以写1-4个值，而值的类型当然可以是绝对长度，或者相对长度或者自动设置（auto）。<br>OK，那么我们来学一下这句话是怎么写的，也就是规则是什么。</p>
+<p style="display: inline; font-family: Consolas; background-color: #eee; padding:3px 10px; border-radius: 3px; color: gray;">margin: <span style="color: rgb(126, 213, 61)">[<span style="color: red">&lt;length&gt;</span>|<span style="color: red">&lt;percentage&gt;</span>|<span style="color: red">auto</span>]</span><span style="color: blue">{1,4}</span></p>
+
+<ol>
+<li>红色部分：<span style="color: red">基本元素</span><br>基本元素有三种：<ul>
+<li>关键词：<code>auto</code>, <code>solid</code>, <code>bold</code>…</li>
+<li>类型<ul>
+<li>基本类型（<code>&lt;length&gt;</code>, <code>&lt;percentage&gt;</code>, <code>&lt;color&gt;</code>…）</li>
+<li>特殊类型（<code>&lt;padding-width&gt;</code>, <code>&lt;background-color&gt;</code>…）</li>
+</ul>
+</li>
+<li>其他：inherit(继承)，initial（默认）</li>
+</ul>
+</li>
+<li><p>绿色部分：<span style="color: rgb(126, 213, 61)">组合符号</span><br>组合符号就是用来表示这些基本元素之间的关系是怎么样的：</p>
+<ul>
+<li><code>|</code>：分隔两个基本元素，表示<strong><span style="color: orange;">两者只能出现一个</span></strong>，比如后面我们会讲到：<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">display:block|inline|inline-block|none</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这一句表示，<code>display</code>这个属性的值只能是<code>block</code>, <code>inline</code>, <code>inline-block</code>, <code>none</code>中的其中一个。</p>
+<ul>
+<li><code> </code>(空格)：表示这两个基本类型<strong><span style="color: orange;">必须出现</span></strong>，而且<strong><span style="color: orange;">必须以相同的排列顺序</span></strong>出现，随便举个例子，比如：<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">font:&lt;font-family&gt; &lt;font-size&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>表示：font这个属性的值，一定要由一个<strong>类型为font-family的值</strong>和一个<strong>类型为font-size的值</strong>以<strong>如上的排列顺序</strong>构成。</p>
+<ul>
+<li><p><code>||</code>：表示<strong><span style="color: orange;">前后两个元素至少出现一个</span></strong>，对顺序不作要求。</p>
+</li>
+<li><p><code>&amp;&amp;</code>：表示<strong><span style="color: orange;">前后两个元素必须出现</span></strong>，对顺序不做要求。</p>
+</li>
+<li><p><code>[]</code>：表示一个优先级，也就是方括号中的整个看做一个整体，随便举个例子：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">font-weight:[bold|thin] [&lt;percentage&gt;|&lt;lenth&gt;]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>表示font-weight这个属性一定要有两个值组成，一个是bold或thin，一个是一个百分比值或长度值，且前后顺序要保证。</p>
+</li>
+<li><p>蓝色部分：<span style="color:blue">数量符号</span></p>
+<ul>
+<li><code>{}</code>:花括号中间写两个值，中间用逗号隔开。表示<strong><span style="color: orange;">最少出现次数</span></strong>和<strong><span style="color: orange;">最多出现次数</span></strong>。当然，两个值当中其中一个不设置，就表示不作要求。举个例子：<br><code>margin: [&lt;length&gt;|&lt;percentage&gt;]{1,4}</code><br>其中的<code>{1,4}</code>就表示，中括号中的值要出现最少一次，最多四次。</li>
+<li><code>?</code>:表示出现0次或1次。相当于<code>{0, 1}</code></li>
+<li><code>*</code>:表示出现0次或多次。相当于<code>{0, }</code></li>
+<li><code>+</code>:表示出现1次或多次。相当于<code>{1, }</code></li>
+<li><code>#</code>:表示出现1次或多次。<strong><span style="color: red">注意：</span></strong><code>#</code>和<code>+</code>很像，但是唯一不同的是，当用<code>#</code>表示时，这个元素多次出现需要用逗号隔开。<br>对比一下，符合<code>bold smaller#</code>这一条规则的取值有：<ul>
+<li><span style="font-family: consolas;">bold smaller</span></li>
+<li><span style="font-family: consolas;">bold smaller, smaller</span></li>
+<li><span style="font-family: consolas;">bold smaller, smaller, smaller</span><br>而符合<code>bold smaller+</code>这一条规则的取值有：</li>
+<li><span style="font-family: consolas;">bold smaller</span></li>
+<li><span style="font-family: consolas;">bold smaller smaller</span></li>
+<li><span style="font-family: consolas;">bold smaller smaller smaller</span></li>
+</ul>
+</li>
+<li>无：说明该元素<strong><span style="color: orange;">只出现一次</span></strong>。</li>
+</ul>
+</li>
+</ol>
+<p>OK，在学习之后做个简单的练习，有个属性叫text-shadow。它可以写none，也可以写一个或多个用逗号隔开的，由2个或3个长度类型的值以及0或1个颜色类型的值构成的组合。答案在下方，我写成白色了，当然不是唯一的答案：<br>答案：<span style="font-family: consolas; color: white;">text-shadow:none|[&lt;length&gt;{2,3}&amp;&amp;&lt;color&gt;?]#</span></p>
+<hr>
+<h4 id="规则语法"><a href="#规则语法" class="headerlink" title="@规则语法"></a><strong>@规则语法</strong></h4><p>我在这儿不再赘述，这些内容在后面会再出现。<br>@media：用来做响应式的布局，只有设备符合@media媒体查询条件样式才能生效<br>@keyframes：描述css动画的中间步骤<br>@font-face：引入外部字体</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/2016/09/13/CSS@2选择器/" data-toggle="tooltip" data-placement="top"
+                           title="CSS@2选择器">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/2016/08/13/HTML@7结尾篇/" data-toggle="tooltip" data-placement="top"
+                           title="HTML@7补充篇">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTk2MC82NTI1">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#推荐"><span class="toc-text">推荐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引入CSS"><span class="toc-text">引入CSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS语法"><span class="toc-text">CSS语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本语法"><span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#浏览器私有属性"><span class="toc-text">浏览器私有属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#属性值语法"><span class="toc-text">属性值语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#规则语法"><span class="toc-text">@规则语法</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/blog/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/blog/tags/#前端"
+                           title="前端">前端</a>
+                        
+                        <a class="tag" href="/blog/tags/#笔记"
+                           title="笔记">笔记</a>
+                        
+                        <a class="tag" href="/blog/tags/#CSS"
+                           title="CSS">CSS</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/deepfeel-anxis">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/JackieAnxis">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 咸鱼Jackie 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/blog/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://jackieanxis.github.io/blog/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    var _baId = '46a3d5833f277ac4dc2a9cf1285413de';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="http://o6vut8vrh.bkt.clouddn.com/17-1-24/89289633-file_1485227996130_e75a.jpg">
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+
+</html>
