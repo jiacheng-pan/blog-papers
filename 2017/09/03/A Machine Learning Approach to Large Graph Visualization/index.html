@@ -1,195 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Head tag -->
 <head>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Jackie&#39;s Paper Reading">
-    <meta name="keyword" content="Jackie Paper Reading">
-    <meta name="theme-color" content="#600090">
-    <meta name="msapplication-navbutton-color" content="#600090">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
-    <link rel="shortcut icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
-    <link rel="alternate" type="application/atom+xml" title="Jackie Anxis" href="/atom.xml">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
-    <title>
-        
-        A Machine Learning Approach to Large Graph Visualization｜Jackie&#39;s Paper Reading
-        
-    </title>
-
-    <link rel="canonical" href="http://jackieanxis.github.io/papers/2017/09/03/A Machine Learning Approach to Large Graph Visualization/">
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/papers/css/bootstrap.min.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/papers/css/blog-style.css">
-
-    <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/papers/css/syntax.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>A Machine Learning Approach to Large Graph Visualization | Jackie Anxis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="论文原标题：What Would a Graph Look Like in This Layout? A Machine Learning Approach to Large Graph Visualization  为了为图数据挑选一个合适的布局，论文提出了一种机器学习方法，基于用graph kernel计算的图拓扑相似度。这种方法可以显示图结构在不同的布局方法下的外观，并且可以估计这些图在布">
+<meta name="keywords" content="可视化,机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A Machine Learning Approach to Large Graph Visualization">
+<meta property="og:url" content="http://jackieanxis.github.io/2017/09/03/A Machine Learning Approach to Large Graph Visualization/index.html">
+<meta property="og:site_name" content="Jackie Anxis">
+<meta property="og:description" content="论文原标题：What Would a Graph Look Like in This Layout? A Machine Learning Approach to Large Graph Visualization  为了为图数据挑选一个合适的布局，论文提出了一种机器学习方法，基于用graph kernel计算的图拓扑相似度。这种方法可以显示图结构在不同的布局方法下的外观，并且可以估计这些图在布">
+<meta property="og:locale" content="Chinese">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/17-9-1/21892478.jpg">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/17-9-3/37262850.jpg">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/17-9-3/78771086.jpg">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/17-8-31/39145853.jpg">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/17-8-31/55830450.jpg">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/17-8-31/3869351.jpg">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/17-9-3/42643278.jpg">
+<meta property="og:updated_time" content="2018-06-05T06:14:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="A Machine Learning Approach to Large Graph Visualization">
+<meta name="twitter:description" content="论文原标题：What Would a Graph Look Like in This Layout? A Machine Learning Approach to Large Graph Visualization  为了为图数据挑选一个合适的布局，论文提出了一种机器学习方法，基于用graph kernel计算的图拓扑相似度。这种方法可以显示图结构在不同的布局方法下的外观，并且可以估计这些图在布">
+<meta name="twitter:image" content="http://o6vut8vrh.bkt.clouddn.com/17-9-1/21892478.jpg">
+  
+  
+    <link rel="icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
+  
+  <link rel="stylesheet" href="/papers/css/typing.css">
+  <link rel="stylesheet" href="/papers/css/donate.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
 </head>
 
-<style>
-
-    header.intro-header {
-        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
-    }
-</style>
-<!-- hack iOS CSS :active style -->
-<body ontouchstart="" class="animated fadeIn">
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
-" data-ishome = "false" >
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand animated pulse" href="/papers/">
-                <span class="brand-logo">
-                    Jackie Anxis
-                </span>
-                's Paper Reading
-            </a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <!-- Known Issue, found by Hux:
-            <nav>'s height woule be hold on by its content.
-            so, when navbar scale out, the <nav> will cover tags.
-            also mask any touch event of tags, unfortunately.
-        -->
-        <!-- /.navbar-collapse -->
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="http://jackieanxis.github.io">Home</a>
-                    </li>
-					
-                    
-                        
-							
-								
-							
-						
-                    
-                        
-							
-                        <li>
-                            <a href="/papers/tags/">tags</a>
-                        </li>
-							
-						
-                    
-					
-					
-						<li>
-							<a href="/papers/papers/about">About</a>
-						</li>
-					
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- /.container -->
-</nav>
-<script>
-    // Drop Bootstarp low-performance Navbar
-    // Use customize navbar with high-quality material design animation
-    // in high-perf jank-free CSS3 implementation
-//    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
-
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        // CLOSE
-            $navbar.className = " ";
-            // wait until animation end.
-            setTimeout(function(){
-                // prevent frequently toggle
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        // OPEN
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
-    }
-</script>
-
-<!-- Main Content -->
-
-<!--only post-->
-
-
-<img class="wechat-title-img"
-     src="http://o6vut8vrh.bkt.clouddn.com/background.png">
-
-
-<style>
+  
     
-    header.intro-header {
-        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
-    }
-
+      <body>
     
-</style>
-
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
-                <div class="post-heading">
-                    <h1>A Machine Learning Approach to Large Graph Visualization</h1>
-                    
-                    <span class="meta">
-                         作者 Jackie Anxis
-                        <span>
-                          日期 2017-09-03
-                         </span>
-                    </span>
-                    <div class="tags text-center">
-                        
-                        <a class="tag" href="/papers/tags/#可视化"
-                           title="可视化">可视化</a>
-                        
-                        <a class="tag" href="/papers/tags/#机器学习"
-                           title="机器学习">机器学习</a>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
+  
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container" class="container">
+        <article id="post-A Machine Learning Approach to Large Graph Visualization" class="article article-type-post" itemscope itemprop="blogPost">
+  <header id="header" class="header">
+    <div class="mobile-nav">
+      <h1 class="nickname">Jackie Anxis</h1>
+      <a id="menu">
+        &#9776; Menu
+      </a>
     </div>
-    <div class="post-title-haojen">
-        <span>
-            A Machine Learning Approach to Large Graph Visualization
-        </span>
-    </div>
+    
+        <nav id="main-nav" class="main-nav nav-left">
+    
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io">Home</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/frontend">FrontEnd</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/cs229">MLcs229</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/papers">PaperReading</a>
+    
+      <a class="main-nav-link" href="https://github.com/JackieAnxis">Github</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/others">Others</a>
+    
+      <a class="main-nav-link" href="/papers/about">About</a>
+    
+  </nav>
 </header>
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-            <!-- Post Container -->
-            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <ul>
+  <hr/>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      A Machine Learning Approach to Large Graph Visualization
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry typo" itemprop="articleBody">
+      
+        <ul>
 <li>论文原标题：What Would a Graph Look Like in This Layout? A Machine Learning Approach to Large Graph Visualization</li>
 </ul>
 <p>为了为图数据挑选一个合适的布局，论文提出了一种机器学习方法，基于用graph kernel计算的图拓扑相似度。这种方法可以显示图结构在不同的布局方法下的外观，并且可以估计这些图在布局下的美学度量。文章的贡献点是提出了一个可以用来设计graph kernel的框架。</p>
@@ -407,87 +303,61 @@
 <p>上图是8263幅图用RW-LOG-LAPLACIAN kernel计算得到的相似度的一个投影，这一对对的图是9对拓扑结构最相似但却非同构的图。</p>
 <p>这篇论文，为我们进行大图可视化提供了一个新的思路，为了应对大图中高的计算代价，可以通过机器学习的方法，用预计算的代价来代替实时计算。这样就甚至能把大图的某些计算效率提高到实时的级别。</p>
 
-                <hr>
-                
-
-                <ul class="pager">
-                    
-                    <li class="previous">
-                        <a href="/papers/2017/10/03/A Survey on Graph Visualization/" data-toggle="tooltip" data-placement="top"
-                           title="A Survey on Graph Visualization">&larr; Previous Post</a>
-                    </li>
-                    
-                    
-                </ul>
-
-                
-
-                
-
-
-                <!--加入新的评论系统-->
-                
-                <!-- 来必力City版安装代码 -->
-                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTk2MC82NTI1">
-                    <script type="text/javascript">
-                        (function(d, s) {
-                            var j, e = d.getElementsByTagName(s)[0];
-
-                            if (typeof LivereTower === 'function') { return; }
-
-                            j = d.createElement(s);
-                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-                            j.async = true;
-
-                            e.parentNode.insertBefore(j, e);
-                        })(document, 'script');
-                    </script>
-                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
-                </div>
-                <!-- City版安装代码已完成 -->
-                
-            </div>
-
-            <div class="hidden-xs col-sm-3 toc-col">
-                <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、介绍"><span class="toc-text">一、介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#拓扑相似度比较方法——graph-kernel"><span class="toc-text">拓扑相似度比较方法——graph kernel</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#图1：3、4、5节点的所有连通的图元"><span class="toc-text">图1：3、4、5节点的所有连通的图元</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、方法"><span class="toc-text">二、方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设计graphlet-kernel的框架"><span class="toc-text">设计graphlet kernel的框架</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1采样图元"><span class="toc-text">2-1采样图元</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2计算图元频率向量"><span class="toc-text">2-2计算图元频率向量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3定义内积"><span class="toc-text">2-3定义内积</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、用途"><span class="toc-text">三、用途</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1预测图的布局结果（WGL）"><span class="toc-text">3-1预测图的布局结果（WGL）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#图2：图元频率分布的四个例子"><span class="toc-text">图2：图元频率分布的四个例子</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2预测图的美学指标（EAM）"><span class="toc-text">3-2预测图的美学指标（EAM）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、评估"><span class="toc-text">四、评估</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1估算布局的美学指标"><span class="toc-text">4-1估算布局的美学指标</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-1评估目的"><span class="toc-text">4-1-1评估目的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-2实验设计"><span class="toc-text">4-1-2实验设计</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-1-2-1数据集"><span class="toc-text">4-1-2-1数据集</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-1-2-2kernel选取"><span class="toc-text">4-1-2-2kernel选取</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-1-2-3布局方法选取"><span class="toc-text">4-1-2-3布局方法选取</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-1-2-4美学指标的选取"><span class="toc-text">4-1-2-4美学指标的选取</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-3如何评判估算结果是否精确"><span class="toc-text">4-1-3如何评判估算结果是否精确</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-4实验结果"><span class="toc-text">4-1-4实验结果</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-1-4-1估算精度方面"><span class="toc-text">4-1-4-1估算精度方面</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#图3：部分精度评估结果"><span class="toc-text">图3：部分精度评估结果</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-1-4-2计算时间方面"><span class="toc-text">4-1-4-2计算时间方面</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#图4：计算时间和图规模之间的关系"><span class="toc-text">图4：计算时间和图规模之间的关系</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-5讨论"><span class="toc-text">4-1-5讨论</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2预测图的布局结果"><span class="toc-text">4-2预测图的布局结果</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-1评估目的"><span class="toc-text">4-2-1评估目的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-2实验设计"><span class="toc-text">4-2-2实验设计</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-2-1任务"><span class="toc-text">4-2-2-1任务</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#图5：用户调研中的其中一个任务示例"><span class="toc-text">图5：用户调研中的其中一个任务示例</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-2-2-2图的选取"><span class="toc-text">4-2-2-2图的选取</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-3实验结果"><span class="toc-text">4-2-3实验结果</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#图6：用户调研的总结"><span class="toc-text">图6：用户调研的总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-4讨论"><span class="toc-text">4-2-4讨论</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、讨论"><span class="toc-text">五、讨论</span></a></li></ol>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- Sidebar Container -->
-
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                <!-- Featured Tags -->
-                
-                <section>
-                    <!-- no hr -->
-                    <h5 class="text-center">
-                        <a href="/papers/tags/">FEATURED TAGS</a>
-                    </h5>
-                    <div class="tags">
-                        
-                        <a class="tag" href="/papers/tags/#可视化"
-                           title="可视化">可视化</a>
-                        
-                        <a class="tag" href="/papers/tags/#机器学习"
-                           title="机器学习">机器学习</a>
-                        
-                    </div>
-                </section>
-                
-
-                <!-- Friends Blog -->
-                
-            </div>
-        </div>
-
+      
     </div>
+    <footer class="article-footer">
+      <ul class="article-meta">
+        <li>
+          <span class="label">Published Date:</span>
+          <a href="/papers/2017/09/03/A Machine Learning Approach to Large Graph Visualization/" class="article-date">
+  <time datetime="2017-09-02T17:04:00.000Z" itemprop="datePublished">2017-09-03</time>
+</a>
+
+        </li>
+        
+          <li>
+            <span class="label">Categoría:</span>
+            
+  <div class="article-category">
+    <a class="article-category-link" href="/papers/categories/可视化/">可视化</a>
+  </div>
+
+
+          </li>
+        
+        
+          <li>
+            <span class="label">Tag:</span>
+            
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/papers/tags/可视化/">可视化</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/papers/tags/机器学习/">机器学习</a></li></ul>
+
+
+          </li>
+        
+        <hr/>
+      </ul>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav" class="article-nav">
+  
+    <a href="/papers/2017/10/03/A Survey on Graph Visualization/" id="article-nav-newer" class="article-nav-link-wrap newer">
+      <strong class="article-nav-caption">Nuevo</strong>
+      <div class="article-nav-title">
+        
+          A Survey on Graph Visualization
+        
+      </div>
+    </a>
+  
+  
+    <span id="article-nav-older" class="article-nav-link-wrap older"></span>
+  
+</nav>
+
+
+  
 </article>
 
 
@@ -496,135 +366,44 @@
 
 
 
-<!-- Footer -->
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
-                <br>
-                <ul class="list-inline text-center">
-                
-                
-                
-                    <li>
-                        <a target="_blank" href="https://www.zhihu.com/people/deepfeel-anxis">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa  fa-stack-1x fa-inverse">知</i>
-                            </span>
-                        </a>
-                    </li>
-                
 
-                
+      </div>
+      
+    <footer id="footer" class="post-footer footer">
+      
+      <hr/>
+      <div id="footerContent" class="footer-content">
+        <p>nothing</p>
 
-                
 
-                
-                    <li>
-                        <a target="_blank"  href="https://github.com/JackieAnxis">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                
+      </div>
+    </footer>
 
-                
+      
 
-                </ul>
-                <p class="copyright text-muted">
-                    Copyright &copy; Jackie Anxis 2018
-                    <br>
-                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
-                    <br>
-                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
-                </p>
 
-            </div>
-        </div>
+
+
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+
+  <link rel="stylesheet" href="/papers/fancybox/jquery.fancybox.css">
+  <script src="/papers/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/papers/js/typing.js"></script>
+<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+
+
+
+
+
+
+
     </div>
-</footer>
-
-<!-- jQuery -->
-<script src="/papers/js/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="/papers/js/bootstrap.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="/papers/js/blog.js"></script>
-
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-
-<!-- jquery.tagcloud.js -->
-<script>
-    // only load tagcloud.js in tag.html
-    if($('#tag_cloud').length !== 0){
-        async("http://jackieanxis.github.io/papers/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                //size: {start: 1, end: 1, unit: 'em'},
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
-</script>
-
-<!--fastClick.js -->
-<script>
-    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
-</script>
-
-<!-- Google Analytics -->
-
-
-
-<!-- Baidu Tongji -->
-
-<script>
-    var _baId = '46a3d5833f277ac4dc2a9cf1285413de';
-    // Originial
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "//hm.baidu.com/hm.js?" + _baId;
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-
-
-<!-- swiftype -->
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install','null','2.0.0');
-</script>
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-<!--wechat title img-->
-<img class="wechat-title-img" src="http://o6vut8vrh.bkt.clouddn.com/17-1-24/89289633-file_1485227996130_e75a.jpg">
-<script type="text/x-mathjax-config">
+  <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
             inlineMath: [ ["$","$"], ["\\(","\\)"] ],
@@ -652,10 +431,9 @@
   });
 </script>
 
-<script type="text/javascript" src="custom_mathjax_source">
+<script type="text/javascript" src="//cdn.mathjax.org">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
 </body>
-
 </html>

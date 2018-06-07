@@ -1,195 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Head tag -->
 <head>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Jackie&#39;s Paper Reading">
-    <meta name="keyword" content="Jackie Paper Reading">
-    <meta name="theme-color" content="#600090">
-    <meta name="msapplication-navbutton-color" content="#600090">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
-    <link rel="shortcut icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
-    <link rel="alternate" type="application/atom+xml" title="Jackie Anxis" href="/atom.xml">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
-    <title>
-        
-        STRUC2VEC（图结构→向量）论文方法解读｜Jackie&#39;s Paper Reading
-        
-    </title>
-
-    <link rel="canonical" href="http://jackieanxis.github.io/papers/2018/01/17/struc2vec: Learning Node Representations from Structural Identity/">
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/papers/css/bootstrap.min.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/papers/css/blog-style.css">
-
-    <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/papers/css/syntax.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>STRUC2VEC（图结构→向量）论文方法解读 | Jackie Anxis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="STRUC2VEC原文：struc2vec: Learning Node Representations from Structural Identity 捕捉节点在网络中的结构信息，将它表达成一个高维向量，需要考虑以下两个相关的性质：  不同节点的表达之间的距离（也就是高维向量之间的距离）应该跟他们的结构之间的相似度高度相关。 节点的这种结构表达，不应该依赖于节点或者边的属性以及它们的标签。节点">
+<meta name="keywords" content="机器学习,图数据挖掘">
+<meta property="og:type" content="article">
+<meta property="og:title" content="STRUC2VEC（图结构→向量）论文方法解读">
+<meta property="og:url" content="http://jackieanxis.github.io/2018/01/17/struc2vec: Learning Node Representations from Structural Identity/index.html">
+<meta property="og:site_name" content="Jackie Anxis">
+<meta property="og:description" content="STRUC2VEC原文：struc2vec: Learning Node Representations from Structural Identity 捕捉节点在网络中的结构信息，将它表达成一个高维向量，需要考虑以下两个相关的性质：  不同节点的表达之间的距离（也就是高维向量之间的距离）应该跟他们的结构之间的相似度高度相关。 节点的这种结构表达，不应该依赖于节点或者边的属性以及它们的标签。节点">
+<meta property="og:locale" content="Chinese">
+<meta property="og:updated_time" content="2018-06-05T06:08:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="STRUC2VEC（图结构→向量）论文方法解读">
+<meta name="twitter:description" content="STRUC2VEC原文：struc2vec: Learning Node Representations from Structural Identity 捕捉节点在网络中的结构信息，将它表达成一个高维向量，需要考虑以下两个相关的性质：  不同节点的表达之间的距离（也就是高维向量之间的距离）应该跟他们的结构之间的相似度高度相关。 节点的这种结构表达，不应该依赖于节点或者边的属性以及它们的标签。节点">
+  
+  
+    <link rel="icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
+  
+  <link rel="stylesheet" href="/papers/css/typing.css">
+  <link rel="stylesheet" href="/papers/css/donate.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
 </head>
 
-<style>
-
-    header.intro-header {
-        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
-    }
-</style>
-<!-- hack iOS CSS :active style -->
-<body ontouchstart="" class="animated fadeIn">
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
-" data-ishome = "false" >
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand animated pulse" href="/papers/">
-                <span class="brand-logo">
-                    Jackie Anxis
-                </span>
-                's Paper Reading
-            </a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <!-- Known Issue, found by Hux:
-            <nav>'s height woule be hold on by its content.
-            so, when navbar scale out, the <nav> will cover tags.
-            also mask any touch event of tags, unfortunately.
-        -->
-        <!-- /.navbar-collapse -->
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="http://jackieanxis.github.io">Home</a>
-                    </li>
-					
-                    
-                        
-							
-								
-							
-						
-                    
-                        
-							
-                        <li>
-                            <a href="/papers/tags/">tags</a>
-                        </li>
-							
-						
-                    
-					
-					
-						<li>
-							<a href="/papers/papers/about">About</a>
-						</li>
-					
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- /.container -->
-</nav>
-<script>
-    // Drop Bootstarp low-performance Navbar
-    // Use customize navbar with high-quality material design animation
-    // in high-perf jank-free CSS3 implementation
-//    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
-
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        // CLOSE
-            $navbar.className = " ";
-            // wait until animation end.
-            setTimeout(function(){
-                // prevent frequently toggle
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        // OPEN
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
-    }
-</script>
-
-<!-- Main Content -->
-
-<!--only post-->
-
-
-<img class="wechat-title-img"
-     src="http://o6vut8vrh.bkt.clouddn.com/background.png">
-
-
-<style>
+  
     
-    header.intro-header {
-        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
-    }
-
+      <body>
     
-</style>
-
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
-                <div class="post-heading">
-                    <h1>STRUC2VEC（图结构→向量）论文方法解读</h1>
-                    
-                    <span class="meta">
-                         作者 Jackie Anxis
-                        <span>
-                          日期 2018-01-17
-                         </span>
-                    </span>
-                    <div class="tags text-center">
-                        
-                        <a class="tag" href="/papers/tags/#机器学习"
-                           title="机器学习">机器学习</a>
-                        
-                        <a class="tag" href="/papers/tags/#图数据挖掘"
-                           title="图数据挖掘">图数据挖掘</a>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
+  
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container" class="container">
+        <article id="post-struc2vec: Learning Node Representations from Structural Identity" class="article article-type-post" itemscope itemprop="blogPost">
+  <header id="header" class="header">
+    <div class="mobile-nav">
+      <h1 class="nickname">Jackie Anxis</h1>
+      <a id="menu">
+        &#9776; Menu
+      </a>
     </div>
-    <div class="post-title-haojen">
-        <span>
-            STRUC2VEC（图结构→向量）论文方法解读
-        </span>
-    </div>
+    
+        <nav id="main-nav" class="main-nav nav-left">
+    
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io">Home</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/frontend">FrontEnd</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/cs229">MLcs229</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/papers">PaperReading</a>
+    
+      <a class="main-nav-link" href="https://github.com/JackieAnxis">Github</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/others">Others</a>
+    
+      <a class="main-nav-link" href="/papers/about">About</a>
+    
+  </nav>
 </header>
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-            <!-- Post Container -->
-            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h2 id="STRUC2VEC"><a href="#STRUC2VEC" class="headerlink" title="STRUC2VEC"></a>STRUC2VEC</h2><p>原文：struc2vec: Learning Node Representations from Structural Identity</p>
+  <hr/>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      STRUC2VEC（图结构→向量）论文方法解读
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry typo" itemprop="articleBody">
+      
+        <h2 id="STRUC2VEC"><a href="#STRUC2VEC" class="headerlink" title="STRUC2VEC"></a>STRUC2VEC</h2><p>原文：struc2vec: Learning Node Representations from Structural Identity</p>
 <p>捕捉节点在网络中的结构信息，将它表达成一个高维向量，需要考虑以下两个相关的性质：</p>
 <ol>
 <li>不同节点的表达之间的距离（也就是高维向量之间的距离）应该跟他们的结构之间的相似度高度相关。</li>
@@ -265,92 +153,64 @@
 <p>文章使用了<strong>Skip-Gram</strong>[^1]。</p>
 <p>[^1]: Mikolov, Tomas, et al. “Efficient estimation of word representations in vector space.” <em>arXiv preprint arXiv:1301.3781</em> (2013).</p>
 
-                <hr>
-                
-
-                <ul class="pager">
-                    
-                    <li class="previous">
-                        <a href="/papers/2018/04/26/iSphere: Focus+Context Sphere Visualization for Interactive Large Graph Exploration/" data-toggle="tooltip" data-placement="top"
-                           title="iSphere-交互式探索大规模图的焦点+上下文球体可视化技术">&larr; Previous Post</a>
-                    </li>
-                    
-                    
-                    <li class="next">
-                        <a href="/papers/2017/10/03/A Survey on Graph Visualization/" data-toggle="tooltip" data-placement="top"
-                           title="A Survey on Graph Visualization">Next Post &rarr;</a>
-                    </li>
-                    
-                </ul>
-
-                
-
-                
-
-
-                <!--加入新的评论系统-->
-                
-                <!-- 来必力City版安装代码 -->
-                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTk2MC82NTI1">
-                    <script type="text/javascript">
-                        (function(d, s) {
-                            var j, e = d.getElementsByTagName(s)[0];
-
-                            if (typeof LivereTower === 'function') { return; }
-
-                            j = d.createElement(s);
-                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-                            j.async = true;
-
-                            e.parentNode.insertBefore(j, e);
-                        })(document, 'script');
-                    </script>
-                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
-                </div>
-                <!-- City版安装代码已完成 -->
-                
-            </div>
-
-            <div class="hidden-xs col-sm-3 toc-col">
-                <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#STRUC2VEC"><span class="toc-text">STRUC2VEC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一步：度量结构相似度"><span class="toc-text">第一步：度量结构相似度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二步：构造上下文图（context-graph）"><span class="toc-text">第二步：构造上下文图（context graph）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第三步：生成节点的上下文"><span class="toc-text">第三步：生成节点的上下文</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第四步：学习语言模型"><span class="toc-text">第四步：学习语言模型</span></a></li></ol></li></ol></li></ol>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- Sidebar Container -->
-
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                <!-- Featured Tags -->
-                
-                <section>
-                    <!-- no hr -->
-                    <h5 class="text-center">
-                        <a href="/papers/tags/">FEATURED TAGS</a>
-                    </h5>
-                    <div class="tags">
-                        
-                        <a class="tag" href="/papers/tags/#机器学习"
-                           title="机器学习">机器学习</a>
-                        
-                        <a class="tag" href="/papers/tags/#图数据挖掘"
-                           title="图数据挖掘">图数据挖掘</a>
-                        
-                    </div>
-                </section>
-                
-
-                <!-- Friends Blog -->
-                
-            </div>
-        </div>
-
+      
     </div>
+    <footer class="article-footer">
+      <ul class="article-meta">
+        <li>
+          <span class="label">Published Date:</span>
+          <a href="/papers/2018/01/17/struc2vec: Learning Node Representations from Structural Identity/" class="article-date">
+  <time datetime="2018-01-17T09:29:00.000Z" itemprop="datePublished">2018-01-17</time>
+</a>
+
+        </li>
+        
+          <li>
+            <span class="label">Categoría:</span>
+            
+  <div class="article-category">
+    <a class="article-category-link" href="/papers/categories/图数据挖掘/">图数据挖掘</a>
+  </div>
+
+
+          </li>
+        
+        
+          <li>
+            <span class="label">Tag:</span>
+            
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/papers/tags/图数据挖掘/">图数据挖掘</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/papers/tags/机器学习/">机器学习</a></li></ul>
+
+
+          </li>
+        
+        <hr/>
+      </ul>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav" class="article-nav">
+  
+    <a href="/papers/2018/04/26/iSphere: Focus+Context Sphere Visualization for Interactive Large Graph Exploration/" id="article-nav-newer" class="article-nav-link-wrap newer">
+      <strong class="article-nav-caption">Nuevo</strong>
+      <div class="article-nav-title">
+        
+          iSphere-交互式探索大规模图的焦点+上下文球体可视化技术
+        
+      </div>
+    </a>
+  
+  
+    <a href="/papers/2017/10/03/A Survey on Graph Visualization/" id="article-nav-older" class="article-nav-link-wrap older">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">A Survey on Graph Visualization</div>
+    </a>
+  
+</nav>
+
+
+  
 </article>
 
 
@@ -359,135 +219,44 @@
 
 
 
-<!-- Footer -->
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
-                <br>
-                <ul class="list-inline text-center">
-                
-                
-                
-                    <li>
-                        <a target="_blank" href="https://www.zhihu.com/people/deepfeel-anxis">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa  fa-stack-1x fa-inverse">知</i>
-                            </span>
-                        </a>
-                    </li>
-                
 
-                
+      </div>
+      
+    <footer id="footer" class="post-footer footer">
+      
+      <hr/>
+      <div id="footerContent" class="footer-content">
+        <p>nothing</p>
 
-                
 
-                
-                    <li>
-                        <a target="_blank"  href="https://github.com/JackieAnxis">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                
+      </div>
+    </footer>
 
-                
+      
 
-                </ul>
-                <p class="copyright text-muted">
-                    Copyright &copy; Jackie Anxis 2018
-                    <br>
-                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
-                    <br>
-                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
-                </p>
 
-            </div>
-        </div>
+
+
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+
+  <link rel="stylesheet" href="/papers/fancybox/jquery.fancybox.css">
+  <script src="/papers/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/papers/js/typing.js"></script>
+<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+
+
+
+
+
+
+
     </div>
-</footer>
-
-<!-- jQuery -->
-<script src="/papers/js/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="/papers/js/bootstrap.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="/papers/js/blog.js"></script>
-
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-
-<!-- jquery.tagcloud.js -->
-<script>
-    // only load tagcloud.js in tag.html
-    if($('#tag_cloud').length !== 0){
-        async("http://jackieanxis.github.io/papers/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                //size: {start: 1, end: 1, unit: 'em'},
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
-</script>
-
-<!--fastClick.js -->
-<script>
-    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
-</script>
-
-<!-- Google Analytics -->
-
-
-
-<!-- Baidu Tongji -->
-
-<script>
-    var _baId = '46a3d5833f277ac4dc2a9cf1285413de';
-    // Originial
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "//hm.baidu.com/hm.js?" + _baId;
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-
-
-<!-- swiftype -->
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install','null','2.0.0');
-</script>
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-<!--wechat title img-->
-<img class="wechat-title-img" src="http://o6vut8vrh.bkt.clouddn.com/17-1-24/89289633-file_1485227996130_e75a.jpg">
-<script type="text/x-mathjax-config">
+  <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
             inlineMath: [ ["$","$"], ["\\(","\\)"] ],
@@ -515,10 +284,9 @@
   });
 </script>
 
-<script type="text/javascript" src="custom_mathjax_source">
+<script type="text/javascript" src="//cdn.mathjax.org">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
 </body>
-
 </html>

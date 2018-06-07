@@ -1,195 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Head tag -->
 <head>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Jackie&#39;s Paper Reading">
-    <meta name="keyword" content="Jackie Paper Reading">
-    <meta name="theme-color" content="#600090">
-    <meta name="msapplication-navbutton-color" content="#600090">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
-    <link rel="shortcut icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
-    <link rel="alternate" type="application/atom+xml" title="Jackie Anxis" href="/atom.xml">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
-    <title>
-        
-        Affective Color in Visualization｜Jackie&#39;s Paper Reading
-        
-    </title>
-
-    <link rel="canonical" href="http://jackieanxis.github.io/papers/2018/05/03/Affective Color in Visualization/">
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/papers/css/bootstrap.min.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/papers/css/blog-style.css">
-
-    <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/papers/css/syntax.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>Affective Color in Visualization | Jackie Anxis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="论文原文：Affective Color in Visualization 作者：Lyn Bartram，Abhisekh Patra，Maureen Stone 发表刊物/会议：CHI ‘17 Proceedings of the 2017 CHI Conference on Human Factors in Computing Systems。  用正确的情感进行沟通，对视觉交流至关重要。文">
+<meta name="keywords" content="可视化,人机交互">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Affective Color in Visualization">
+<meta property="og:url" content="http://jackieanxis.github.io/2018/05/03/Affective Color in Visualization/index.html">
+<meta property="og:site_name" content="Jackie Anxis">
+<meta property="og:description" content="论文原文：Affective Color in Visualization 作者：Lyn Bartram，Abhisekh Patra，Maureen Stone 发表刊物/会议：CHI ‘17 Proceedings of the 2017 CHI Conference on Human Factors in Computing Systems。  用正确的情感进行沟通，对视觉交流至关重要。文">
+<meta property="og:locale" content="Chinese">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-5-3/13077913.jpg">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-5-1/92964242.jpg">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-5-3/73974099.jpg">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-5-2/72487483.jpg">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-5-2/63264355.jpg">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-5-2/78037304.jpg">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-5-2/4515978.jpg">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-5-2/78594763.jpg">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-5-2/8110228.jpg">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-5-2/77051138.jpg">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-5-3/21023212.jpg">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-5-3/6928939.jpg">
+<meta property="og:updated_time" content="2018-06-05T06:14:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Affective Color in Visualization">
+<meta name="twitter:description" content="论文原文：Affective Color in Visualization 作者：Lyn Bartram，Abhisekh Patra，Maureen Stone 发表刊物/会议：CHI ‘17 Proceedings of the 2017 CHI Conference on Human Factors in Computing Systems。  用正确的情感进行沟通，对视觉交流至关重要。文">
+<meta name="twitter:image" content="http://o6vut8vrh.bkt.clouddn.com/18-5-3/13077913.jpg">
+  
+  
+    <link rel="icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
+  
+  <link rel="stylesheet" href="/papers/css/typing.css">
+  <link rel="stylesheet" href="/papers/css/donate.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
 </head>
 
-<style>
-
-    header.intro-header {
-        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
-    }
-</style>
-<!-- hack iOS CSS :active style -->
-<body ontouchstart="" class="animated fadeIn">
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
-" data-ishome = "false" >
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand animated pulse" href="/papers/">
-                <span class="brand-logo">
-                    Jackie Anxis
-                </span>
-                's Paper Reading
-            </a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <!-- Known Issue, found by Hux:
-            <nav>'s height woule be hold on by its content.
-            so, when navbar scale out, the <nav> will cover tags.
-            also mask any touch event of tags, unfortunately.
-        -->
-        <!-- /.navbar-collapse -->
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="http://jackieanxis.github.io">Home</a>
-                    </li>
-					
-                    
-                        
-							
-								
-							
-						
-                    
-                        
-							
-                        <li>
-                            <a href="/papers/tags/">tags</a>
-                        </li>
-							
-						
-                    
-					
-					
-						<li>
-							<a href="/papers/papers/about">About</a>
-						</li>
-					
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- /.container -->
-</nav>
-<script>
-    // Drop Bootstarp low-performance Navbar
-    // Use customize navbar with high-quality material design animation
-    // in high-perf jank-free CSS3 implementation
-//    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
-
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        // CLOSE
-            $navbar.className = " ";
-            // wait until animation end.
-            setTimeout(function(){
-                // prevent frequently toggle
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        // OPEN
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
-    }
-</script>
-
-<!-- Main Content -->
-
-<!--only post-->
-
-
-<img class="wechat-title-img"
-     src="http://o6vut8vrh.bkt.clouddn.com/background.png">
-
-
-<style>
+  
     
-    header.intro-header {
-        background-image: url('http://o6vut8vrh.bkt.clouddn.com/background.png')
-    }
-
+      <body>
     
-</style>
-
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
-                <div class="post-heading">
-                    <h1>Affective Color in Visualization</h1>
-                    
-                    <span class="meta">
-                         作者 Jackie Anxis
-                        <span>
-                          日期 2018-05-03
-                         </span>
-                    </span>
-                    <div class="tags text-center">
-                        
-                        <a class="tag" href="/papers/tags/#可视化"
-                           title="可视化">可视化</a>
-                        
-                        <a class="tag" href="/papers/tags/#人机交互"
-                           title="人机交互">人机交互</a>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
+  
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container" class="container">
+        <article id="post-Affective Color in Visualization" class="article article-type-post" itemscope itemprop="blogPost">
+  <header id="header" class="header">
+    <div class="mobile-nav">
+      <h1 class="nickname">Jackie Anxis</h1>
+      <a id="menu">
+        &#9776; Menu
+      </a>
     </div>
-    <div class="post-title-haojen">
-        <span>
-            Affective Color in Visualization
-        </span>
-    </div>
+    
+        <nav id="main-nav" class="main-nav nav-left">
+    
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io">Home</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/frontend">FrontEnd</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/cs229">MLcs229</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/papers">PaperReading</a>
+    
+      <a class="main-nav-link" href="https://github.com/JackieAnxis">Github</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/others">Others</a>
+    
+      <a class="main-nav-link" href="/papers/about">About</a>
+    
+  </nav>
 </header>
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-            <!-- Post Container -->
-            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <ul>
+  <hr/>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Affective Color in Visualization
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry typo" itemprop="articleBody">
+      
+        <ul>
 <li>论文原文：Affective Color in Visualization</li>
 <li>作者：Lyn Bartram，Abhisekh Patra，Maureen Stone</li>
 <li>发表刊物/会议：<a href="http://chi2017.acm.org/" target="_blank" rel="external">CHI ‘17</a> Proceedings of the 2017 CHI Conference on Human Factors in Computing Systems。</li>
@@ -409,92 +310,64 @@
 <hr>
 <p>[^1]: Johannes Itten. 1974. The art of color. Reinhold Pub. Corp, New York.<br>[^2]: Thomas J Madden, Kelly Hewett, and Martin S Roth. 2000. Managing images in different cultures: A cross-national study of color meanings and preferences. Journal of international marketing 8, 4 (2000), 90–107.<br>[^3]: Brent Berlin and Paul Kay. 1969. Basic color terms: Their universality and evolution. Univ of California Press, Berkeley.<br>[^4]: Sharon Lin, Julie Fortuna, Chinmay Kulkarni, Maureen Stone, and Jeffrey Heer. 2013. Selecting Semantically-Resonant Colors for Data Visualization. In Computer Graphics Forum, Vol. 32. Wiley Online Library, Blackwell Publishing Ltd, 401–410.<br>[^5]: Vidya Setlur and Maureen C Stone. 2016. A linguistic approach to categorical color assignment for data visualization. IEEE transactions on visualization and computer graphics 22, 1 (2016), 698–707.<br>[^6]: Shigenobu Kobayashi. 1981. The aim and method of the color image scale. Color research &amp; application 6, 2 (1981), 93–107.<br>[^7]: Albrecht Lindner, Bryan Zhi Li, Nicolas Bonnier, and Sabine Süsstrunk. 2012. A large-scale multi-lingual color thesaurus. In Color and Imaging Conference, Vol. 2012. Society for Imaging Science and Technology, 30–35.<br>[^8]: Ali Jahanian, Jerry Liu, Qian Lin, Daniel Tretter, Eamonn O’Brien-Strain, Seungyon Claire Lee, Nic Lyons, and Jan Allebach. 2013. Recommendation system for automatic design of magazine covers. In Proceedings of the 2013 international conference on Intelligent user interfaces. ACM, 95–106.<br>[^9]: Martijn Wijffelaars, Roel Vliegen, Jarke J Van Wijk, and Erik-Jan Van Der Linden. 2008. Generating color palettes using intuitive parameters. In Computer Graphics Forum, Vol. 27. Wiley Online Library, 743–750.<br>[^10]: Connor C Gramazio, David H Laidlaw, and Karen B Schloss. 2016. Colorgorical: Creating Discriminable and Preferable Color Palettes for Information Visualization. IEEE Transactions on Visualization &amp; Computer Graphics 27, 1 (2016), 521–530.<br>[^11]: Sharon Lin and Pat Hanrahan. 2013. Modeling how people extract color themes from images. In Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (CHI ’13). ACM, 3101–3110.<br>[^12]: </p>
 
-                <hr>
-                
-
-                <ul class="pager">
-                    
-                    <li class="previous">
-                        <a href="/papers/2018/05/06/ICCV2017：第一人称视角手势估计/" data-toggle="tooltip" data-placement="top"
-                           title="ICCV2017：第一人称视角手势估计">&larr; Previous Post</a>
-                    </li>
-                    
-                    
-                    <li class="next">
-                        <a href="/papers/2018/04/26/iSphere: Focus+Context Sphere Visualization for Interactive Large Graph Exploration/" data-toggle="tooltip" data-placement="top"
-                           title="iSphere-交互式探索大规模图的焦点+上下文球体可视化技术">Next Post &rarr;</a>
-                    </li>
-                    
-                </ul>
-
-                
-
-                
-
-
-                <!--加入新的评论系统-->
-                
-                <!-- 来必力City版安装代码 -->
-                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTk2MC82NTI1">
-                    <script type="text/javascript">
-                        (function(d, s) {
-                            var j, e = d.getElementsByTagName(s)[0];
-
-                            if (typeof LivereTower === 'function') { return; }
-
-                            j = d.createElement(s);
-                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-                            j.async = true;
-
-                            e.parentNode.insertBefore(j, e);
-                        })(document, 'script');
-                    </script>
-                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
-                </div>
-                <!-- City版安装代码已完成 -->
-                
-            </div>
-
-            <div class="hidden-xs col-sm-3 toc-col">
-                <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、基本介绍"><span class="toc-text">一、基本介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#研究范围"><span class="toc-text">研究范围</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#色彩心理学的结论和工作"><span class="toc-text">色彩心理学的结论和工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#色彩设计方面的结论和工作"><span class="toc-text">色彩设计方面的结论和工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对色彩进行量化"><span class="toc-text">对色彩进行量化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#贡献"><span class="toc-text">贡献</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、方法"><span class="toc-text">二、方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、实验"><span class="toc-text">三、实验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#实验1：图片分析"><span class="toc-text">实验1：图片分析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#方法"><span class="toc-text">方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#结论"><span class="toc-text">结论</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实验2：用户设计色彩组合"><span class="toc-text">实验2：用户设计色彩组合</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#实验之前"><span class="toc-text">实验之前</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#方法-1"><span class="toc-text">方法</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#变量"><span class="toc-text">变量</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#假设"><span class="toc-text">假设</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#实验设计"><span class="toc-text">实验设计</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#参与者"><span class="toc-text">参与者</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#结果"><span class="toc-text">结果</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实验3：用户评价颜色组合"><span class="toc-text">实验3：用户评价颜色组合</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#方法-2"><span class="toc-text">方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#变量-1"><span class="toc-text">变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#假设-1"><span class="toc-text">假设</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#参与者-1"><span class="toc-text">参与者</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#结果-1"><span class="toc-text">结果</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、分析"><span class="toc-text">四、分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、总结"><span class="toc-text">五、总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六、评述"><span class="toc-text">六、评述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#作者讨论的限制性"><span class="toc-text">作者讨论的限制性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#个人评述"><span class="toc-text">个人评述</span></a></li></ol></li></ol></li></ol>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- Sidebar Container -->
-
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                <!-- Featured Tags -->
-                
-                <section>
-                    <!-- no hr -->
-                    <h5 class="text-center">
-                        <a href="/papers/tags/">FEATURED TAGS</a>
-                    </h5>
-                    <div class="tags">
-                        
-                        <a class="tag" href="/papers/tags/#可视化"
-                           title="可视化">可视化</a>
-                        
-                        <a class="tag" href="/papers/tags/#人机交互"
-                           title="人机交互">人机交互</a>
-                        
-                    </div>
-                </section>
-                
-
-                <!-- Friends Blog -->
-                
-            </div>
-        </div>
-
+      
     </div>
+    <footer class="article-footer">
+      <ul class="article-meta">
+        <li>
+          <span class="label">Published Date:</span>
+          <a href="/papers/2018/05/03/Affective Color in Visualization/" class="article-date">
+  <time datetime="2018-05-03T10:18:00.000Z" itemprop="datePublished">2018-05-03</time>
+</a>
+
+        </li>
+        
+          <li>
+            <span class="label">Categoría:</span>
+            
+  <div class="article-category">
+    <a class="article-category-link" href="/papers/categories/可视化/">可视化</a>
+  </div>
+
+
+          </li>
+        
+        
+          <li>
+            <span class="label">Tag:</span>
+            
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/papers/tags/人机交互/">人机交互</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/papers/tags/可视化/">可视化</a></li></ul>
+
+
+          </li>
+        
+        <hr/>
+      </ul>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav" class="article-nav">
+  
+    <a href="/papers/2018/05/06/ICCV2017：第一人称视角手势估计/" id="article-nav-newer" class="article-nav-link-wrap newer">
+      <strong class="article-nav-caption">Nuevo</strong>
+      <div class="article-nav-title">
+        
+          ICCV2017：第一人称视角手势估计
+        
+      </div>
+    </a>
+  
+  
+    <a href="/papers/2018/04/26/iSphere: Focus+Context Sphere Visualization for Interactive Large Graph Exploration/" id="article-nav-older" class="article-nav-link-wrap older">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">iSphere-交互式探索大规模图的焦点+上下文球体可视化技术</div>
+    </a>
+  
+</nav>
+
+
+  
 </article>
 
 
@@ -503,135 +376,44 @@
 
 
 
-<!-- Footer -->
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
-                <br>
-                <ul class="list-inline text-center">
-                
-                
-                
-                    <li>
-                        <a target="_blank" href="https://www.zhihu.com/people/deepfeel-anxis">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa  fa-stack-1x fa-inverse">知</i>
-                            </span>
-                        </a>
-                    </li>
-                
 
-                
+      </div>
+      
+    <footer id="footer" class="post-footer footer">
+      
+      <hr/>
+      <div id="footerContent" class="footer-content">
+        <p>nothing</p>
 
-                
 
-                
-                    <li>
-                        <a target="_blank"  href="https://github.com/JackieAnxis">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                
+      </div>
+    </footer>
 
-                
+      
 
-                </ul>
-                <p class="copyright text-muted">
-                    Copyright &copy; Jackie Anxis 2018
-                    <br>
-                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
-                    <br>
-                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
-                </p>
 
-            </div>
-        </div>
+
+
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+
+  <link rel="stylesheet" href="/papers/fancybox/jquery.fancybox.css">
+  <script src="/papers/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/papers/js/typing.js"></script>
+<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+
+
+
+
+
+
+
     </div>
-</footer>
-
-<!-- jQuery -->
-<script src="/papers/js/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="/papers/js/bootstrap.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="/papers/js/blog.js"></script>
-
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-
-<!-- jquery.tagcloud.js -->
-<script>
-    // only load tagcloud.js in tag.html
-    if($('#tag_cloud').length !== 0){
-        async("http://jackieanxis.github.io/papers/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                //size: {start: 1, end: 1, unit: 'em'},
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
-</script>
-
-<!--fastClick.js -->
-<script>
-    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
-</script>
-
-<!-- Google Analytics -->
-
-
-
-<!-- Baidu Tongji -->
-
-<script>
-    var _baId = '46a3d5833f277ac4dc2a9cf1285413de';
-    // Originial
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "//hm.baidu.com/hm.js?" + _baId;
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-
-
-<!-- swiftype -->
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install','null','2.0.0');
-</script>
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-<!--wechat title img-->
-<img class="wechat-title-img" src="http://o6vut8vrh.bkt.clouddn.com/17-1-24/89289633-file_1485227996130_e75a.jpg">
-<script type="text/x-mathjax-config">
+  <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
             inlineMath: [ ["$","$"], ["\\(","\\)"] ],
@@ -659,10 +441,9 @@
   });
 </script>
 
-<script type="text/javascript" src="custom_mathjax_source">
+<script type="text/javascript" src="//cdn.mathjax.org">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
 </body>
-
 </html>
