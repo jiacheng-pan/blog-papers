@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>SchemeLens, A Content-Aware Vector-Based Fisheye Technique for Navigating Large Systems Diagrams | Jackie Anxis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="论文原文：SchemeLens: A Content-Aware Vector-Based Fisheye Technique for Navigating Large Systems Diagrams 作者：Aurélie Cohé，Bastien Liutkus, Gilles Bailly , James Egan，Eric Lecolinet 发表刊物/会议：2016 TVCG   整体">
+<meta name="keywords" content="可视化,人机交互">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SchemeLens, A Content-Aware Vector-Based Fisheye Technique for Navigating Large Systems Diagrams">
+<meta property="og:url" content="http://jackieanxis.github.io/2018/06/09/SchemeLens, A Content-Aware Vector-Based Fisheye Technique for Navigating Large Systems Diagrams/index.html">
+<meta property="og:site_name" content="Jackie Anxis">
+<meta property="og:description" content="论文原文：SchemeLens: A Content-Aware Vector-Based Fisheye Technique for Navigating Large Systems Diagrams 作者：Aurélie Cohé，Bastien Liutkus, Gilles Bailly , James Egan，Eric Lecolinet 发表刊物/会议：2016 TVCG   整体">
+<meta property="og:locale" content="Chinese">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-6-10/50334813.jpg">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-6-9/95973080.jpg">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-6-9/69993075.jpg">
+<meta property="og:updated_time" content="2018-06-10T14:12:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SchemeLens, A Content-Aware Vector-Based Fisheye Technique for Navigating Large Systems Diagrams">
+<meta name="twitter:description" content="论文原文：SchemeLens: A Content-Aware Vector-Based Fisheye Technique for Navigating Large Systems Diagrams 作者：Aurélie Cohé，Bastien Liutkus, Gilles Bailly , James Egan，Eric Lecolinet 发表刊物/会议：2016 TVCG   整体">
+<meta name="twitter:image" content="http://o6vut8vrh.bkt.clouddn.com/18-6-10/50334813.jpg">
+  
+  
+    <link rel="icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
+  
+  <link rel="stylesheet" href="/blog-papers/css/typing.css">
+  <link rel="stylesheet" href="/blog-papers/css/donate.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+</head>
+
+  
+    
+      <body>
+    
+  
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container" class="container">
+        <article id="post-SchemeLens, A Content-Aware Vector-Based Fisheye Technique for Navigating Large Systems Diagrams" class="article article-type-post" itemscope itemprop="blogPost">
+  <header id="header" class="header">
+    <div class="mobile-nav">
+      <h1 class="nickname">Jackie Anxis</h1>
+      <a id="menu">
+        &#9776; Menu
+      </a>
+    </div>
+    
+        <nav id="main-nav" class="main-nav nav-left">
+    
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io">Home</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/blog-frontend">FrontEnd</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/blog-cs229">MLcs229</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/blog-papers">PaperReading</a>
+    
+      <a class="main-nav-link" href="https://github.com/JackieAnxis">Github</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/blog-others">Others</a>
+    
+      <a class="main-nav-link" href="/blog-papers/about">About</a>
+    
+  </nav>
+</header>
+
+  <hr/>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SchemeLens, A Content-Aware Vector-Based Fisheye Technique for Navigating Large Systems Diagrams
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry typo" itemprop="articleBody">
+      
+        <ul>
+<li>论文原文：SchemeLens: A Content-Aware Vector-Based Fisheye Technique for Navigating Large Systems Diagrams</li>
+<li>作者：<a href="https://dblp.uni-trier.de/pers/c/Coh=eacute=:Aur=eacute=lie" target="_blank" rel="external">Aurélie Cohé</a>，<a href="http://dblp.uni-trier.de/pers/hd/l/Liutkus:Bastien" target="_blank" rel="external">Bastien Liutkus</a>, <a href="https://dblp.uni-trier.de/pers/b/Bailly:Gilles" target="_blank" rel="external">Gilles Bailly</a> , <a href="https://dblp.uni-trier.de/pers/e/Egan:James" target="_blank" rel="external">James Egan</a>，<a href="https://dblp.uni-trier.de/pers/l/Lecolinet:Eric" target="_blank" rel="external">Eric Lecolinet</a></li>
+<li>发表刊物/会议：2016 TVCG</li>
+</ul>
+<p><img src="http://o6vut8vrh.bkt.clouddn.com/18-6-10/50334813.jpg" alt=""></p>
+<h2 id="整体套路介绍："><a href="#整体套路介绍：" class="headerlink" title="整体套路介绍："></a>整体套路介绍：</h2><div id="flowchart-0" class="flow-chart"></div>
+
+
+
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>第一段：介绍了焦点上下文技术，往往需要在空间和信息之间平衡（对局部增加空间，意味着其他地方的信息损失）</p>
+<p>第二段：提出本文所使用的SchemeLens，及其优点：向量化缩放（保持个体的形态，又不会增加空白空间）和考虑拓扑空间</p>
+<p>第三段：提及简单的向量化缩放的缺点（重叠），简单介绍了解决问题的几个原则。</p>
+<p>第四段：交互式的鱼眼技术的优点以及贡献</p>
+<h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>第一段：采访了工程师</p>
+<p>第二段：提出一般的系统图纸所存在的缺点</p>
+<p>第三段：提出了一些系统图纸所的特点</p>
+<p>第四段：三个目标：感兴趣节点的readability，最小化图纸结构的扭曲，在交互期间图纸结构的稳定性</p>
+<p>第五段：详细描述了设计目标</p>
+<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><p>分别描述了：鱼眼透镜，拓扑相关的鱼眼透镜，自适应透镜，导航技术以及感知&amp;可读性的相关工作。</p>
+<h2 id="SchemeLens技术描述"><a href="#SchemeLens技术描述" class="headerlink" title="SchemeLens技术描述"></a>SchemeLens技术描述</h2><p><img src="http://o6vut8vrh.bkt.clouddn.com/18-6-9/95973080.jpg" alt=""></p>
+<p>Schemelens综合了三个模块来做焦点上下文：</p>
+<ol>
+<li><p>放大透镜：</p>
+<p>靠近鼠标的聚焦区域，会被几何放大，给定节点的放大率和其到中心的距离负相关。</p>
+</li>
+<li><p>拓扑透镜：</p>
+<p>在鼠标下面的元素会被放大，然后沿着该元素所在的路径进行放大，测地距离（geodesic distance，也就是拓扑距离）远的放大率低。该机制有利于调节相距比较远的节点。</p>
+</li>
+<li><p>用户意图：移动鼠标时，只有沿着该路径并且和鼠标移动方向一致的节点会被放大，</p>
+</li>
+</ol>
+<h3 id="焦距区域和可读性"><a href="#焦距区域和可读性" class="headerlink" title="焦距区域和可读性"></a>焦距区域和可读性</h3><h4 id="自适应的聚焦区域"><a href="#自适应的聚焦区域" class="headerlink" title="自适应的聚焦区域"></a>自适应的聚焦区域</h4><p>聚焦区域是放大透镜的聚焦区域和拓扑透镜的聚焦区域的并集。</p>
+<p>每个节点自身的放大，都是均匀的。</p>
+<p>为了防止距离焦点近的节点放大后有重叠，但又不能让这些节点的位移过大，作者使用了弹簧模型。</p>
+<p><strong>内容感知的缩放</strong>：为了防止大的节点在放大之后变的太大，使用了一个反指数函数。</p>
+<h4 id="聚焦区域的大小"><a href="#聚焦区域的大小" class="headerlink" title="聚焦区域的大小"></a>聚焦区域的大小</h4><p>放大效果所作用的节点应该被限制在一个合理数量以内。但这个『合理』受到很多因素的影响。</p>
+<p>作者采用了限制『测地距离』的方式来限制节点数量。用户可以通过鼠标滚轮或者键盘来控制参数。</p>
+<h3 id="上下文区域和畸变"><a href="#上下文区域和畸变" class="headerlink" title="上下文区域和畸变"></a>上下文区域和畸变</h3><p>使用了三种启发式的目标来控制畸变：<strong>空间稳定性</strong>（spatial steability），<strong>美学属性</strong>（aesthetic properties），<strong>时间稳定性</strong>（temporal stability）</p>
+<h4 id="美学规则"><a href="#美学规则" class="headerlink" title="美学规则"></a>美学规则</h4><p>作者为整个图创建了一个层次结构：节点，包含这些节点的直线，包含这些直线的子路径。三条美学规则分别是：</p>
+<ol>
+<li><p>对齐。同一直线的节点要对齐（下图左），不同直线但在同一个局部环中的节点也要对齐（下图中），在同一直线上的交点也要对齐（下图右）。</p>
+<p><img src="http://o6vut8vrh.bkt.clouddn.com/18-6-9/69993075.jpg" alt=""></p>
+</li>
+<li><p>正交。边之间的正交被保留。</p>
+</li>
+<li><p>边交叉。不能引入新的边交叉。</p>
+</li>
+</ol>
+<h4 id="节点位移"><a href="#节点位移" class="headerlink" title="节点位移"></a>节点位移</h4><p>因为放大效应不会放大空白区域，所以空白区域会被填充，反而能提高聚焦区域和上下文区域的连续性。</p>
+<h4 id="空间和时间的连续性"><a href="#空间和时间的连续性" class="headerlink" title="空间和时间的连续性"></a>空间和时间的连续性</h4><p>如果没有适当的预防措施，焦点的略微变换就会引发节点位置或大小的巨大变动。针对位置和大小，作者采用了两种不同的策略：</p>
+<ol>
+<li>位置：弹簧模型能提供时间上的连续性，以平滑交互；</li>
+<li>大小：因为放大作用同时由两种不同的透镜同时产生（放大透镜和拓扑透镜），所以可能（1）即使用户用光标靠近它，节点的大小也可能减小，（2）节点的比例可能在某些边界处突然变化。</li>
+</ol>
+<h4 id="捕捉用户意图"><a href="#捕捉用户意图" class="headerlink" title="捕捉用户意图"></a>捕捉用户意图</h4><p>这一点是可选的。</p>
+<p>当用户将光标沿着路径移动的时候，系统会将焦点沿着移动方向向前偏移一些。因此只有沿着路径的节点会被放大。当用户不沿着路径（光标的移动方向垂直于最近的路径或者光标远离所有路径）则不应用该行为。</p>
+<h3 id="Implement"><a href="#Implement" class="headerlink" title="Implement"></a>Implement</h3><p>这一章节详细描述了各部分的实现（放大透镜、拓扑透镜，节点位移以及时空稳定性）</p>
+<h2 id="User-Study"><a href="#User-Study" class="headerlink" title="User Study"></a>User Study</h2><p>第一段讲了两个user study的总览，包括目的，结果。</p>
+<h3 id="实验1"><a href="#实验1" class="headerlink" title="实验1"></a>实验1</h3><p>实验一为了论证有效性</p>
+<h4 id="Experimental-Protocol"><a href="#Experimental-Protocol" class="headerlink" title="Experimental Protocol"></a>Experimental Protocol</h4><ol>
+<li>参与者和设备</li>
+<li>系统图纸的结构（也就是数据集）</li>
+<li>技术（需要对比的技术，SchemeLens和传统的鱼眼）</li>
+<li>任务和过程（任务来源于实际工程，找到图纸中存在错误的节点）</li>
+<li>任务难度：用需要探索的路径数量来区分</li>
+<li>设计：主要描述了整个实验的参数：10个参与者$\times$2种技术$\times$2个图纸$\times$3种难度$\times$18条测例</li>
+</ol>
+<h4 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h4><ol>
+<li>完成时间的分析</li>
+<li>Subjective preferences：偏好投票</li>
+</ol>
+<h3 id="实验2"><a href="#实验2" class="headerlink" title="实验2"></a>实验2</h3><p>实验二为了解释SchemeLens的自适应能力是如何影响用户表现的。</p>
+<p>主要检验两个方面：拓扑自适应和用户意图自适应</p>
+<p>将实验分成四组：</p>
+<ol>
+<li>没有用户意图自适应的鱼眼</li>
+<li>有用户意图自适应的鱼眼</li>
+<li>没有用户意图自适应的SchemeLens</li>
+<li>有用户意图自适应的SchemeLens</li>
+</ol>
+<h4 id="Experimental-Protocol-1"><a href="#Experimental-Protocol-1" class="headerlink" title="Experimental Protocol"></a>Experimental Protocol</h4><p>类似于Study 1</p>
+<h4 id="Results-1"><a href="#Results-1" class="headerlink" title="Results"></a>Results</h4><ol>
+<li>完成时间分析</li>
+<li>Memorization：用一个五分Likert表来评估用户对图表的记忆</li>
+<li>Subjective Preferences</li>
+</ol>
+<h2 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h2><p>整整一页的篇幅，围绕着以下的内容展开：</p>
+<p>第一段：讨论User Study 1的结果，传统的鱼眼和本文技术</p>
+<p>第二段：讨论拓扑自适应和用户意图自适应的意义</p>
+<p>第三段：讨论了对提高记忆的帮助</p>
+<p>第四段：可读性的讨论</p>
+<p>第五段：空间、时间稳定性，也即结构不要发生太大变化</p>
+<p>第六段：空白空间的意义</p>
+<p>第七段：scalability</p>
+<p>第八段：拓扑规则的影响，也就是之前提到的美学规则。</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: Abstract
+e=>end: Conclusion
+op1=>operation: Introduction 背景技术，本文技术优点，贡献点
+op2=>operation: Motivation 动机的来源，现有的缺点，设计目标
+op3=>operation: Related Wrok 分模块介绍相关工作
+op4=>operation: Techniques 详细介绍技术，技术的介绍都是由设计目标启发的
+op5=>operation: User Study 两个实验，分别论证有效性和工作原理
+op6=>operation: Discussion 围绕着实验和一些设计原则展开
+
+st->op1->op2->op3->op4->op5->op6->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></h2>
+      
+    </div>
+    <footer class="article-footer">
+      <ul class="article-meta">
+        <li>
+          <span class="label">Published Date:</span>
+          <a href="/blog-papers/2018/06/09/SchemeLens, A Content-Aware Vector-Based Fisheye Technique for Navigating Large Systems Diagrams/" class="article-date">
+  <time datetime="2018-06-09T09:29:00.000Z" itemprop="datePublished">2018-06-09</time>
+</a>
+
+        </li>
+        
+          <li>
+            <span class="label">Categoría:</span>
+            
+  <div class="article-category">
+    <a class="article-category-link" href="/blog-papers/categories/可视化/">可视化</a>
+  </div>
+
+
+          </li>
+        
+        
+          <li>
+            <span class="label">Tag:</span>
+            
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog-papers/tags/人机交互/">人机交互</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog-papers/tags/可视化/">可视化</a></li></ul>
+
+
+          </li>
+        
+        <hr/>
+      </ul>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav" class="article-nav">
+  
+    <span id="article-nav-newer" class="article-nav-link-wrap newer"></span>
+  
+  
+    <a href="/blog-papers/2018/05/06/ICCV2017：第一人称视角手势估计/" id="article-nav-older" class="article-nav-link-wrap older">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">ICCV2017：第一人称视角手势估计</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+
+
+
+      </div>
+      
+    <footer id="footer" class="post-footer footer">
+      
+      <hr/>
+      <div id="footerContent" class="footer-content">
+        <p>nothing</p>
+
+
+      </div>
+    </footer>
+
+      
+
+
+
+
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog-papers/fancybox/jquery.fancybox.css">
+  <script src="/blog-papers/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog-papers/js/typing.js"></script>
+<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+
+
+
+
+
+
+
+    </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  </body>
+</html>
