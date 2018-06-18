@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>JellyLens, Content-Aware Adaptive Lenses | Jackie Anxis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="论文原文：JellyLens- Content-Aware Adaptive Lenses 作者：Cyprien Pindat, Emmanuel Pietriga, Olivier Chapuis, Claude Puech 发表刊物/会议：2012 TVCG   作者提出了JellyLens，自适应的鱼眼透镜，根据内容来调整透镜形状，提高了焦点区域内容的可见性，又保留了较大部分的上下文区域。">
+<meta name="keywords" content="可视化,人机交互">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JellyLens, Content-Aware Adaptive Lenses">
+<meta property="og:url" content="http://jackieanxis.github.io/2018/06/17/JellyLens- Content-Aware Adaptive Lenses/index.html">
+<meta property="og:site_name" content="Jackie Anxis">
+<meta property="og:description" content="论文原文：JellyLens- Content-Aware Adaptive Lenses 作者：Cyprien Pindat, Emmanuel Pietriga, Olivier Chapuis, Claude Puech 发表刊物/会议：2012 TVCG   作者提出了JellyLens，自适应的鱼眼透镜，根据内容来调整透镜形状，提高了焦点区域内容的可见性，又保留了较大部分的上下文区域。">
+<meta property="og:locale" content="Chinese">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-6-18/18705982.jpg">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-6-18/72742188.jpg">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-6-18/33950652.jpg">
+<meta property="og:updated_time" content="2018-06-18T16:42:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JellyLens, Content-Aware Adaptive Lenses">
+<meta name="twitter:description" content="论文原文：JellyLens- Content-Aware Adaptive Lenses 作者：Cyprien Pindat, Emmanuel Pietriga, Olivier Chapuis, Claude Puech 发表刊物/会议：2012 TVCG   作者提出了JellyLens，自适应的鱼眼透镜，根据内容来调整透镜形状，提高了焦点区域内容的可见性，又保留了较大部分的上下文区域。">
+<meta name="twitter:image" content="http://o6vut8vrh.bkt.clouddn.com/18-6-18/18705982.jpg">
+  
+  
+    <link rel="icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
+  
+  <link rel="stylesheet" href="/blog-papers/css/typing.css">
+  <link rel="stylesheet" href="/blog-papers/css/donate.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+</head>
+
+  
+    
+      <body>
+    
+  
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container" class="container">
+        <article id="post-JellyLens- Content-Aware Adaptive Lenses" class="article article-type-post" itemscope itemprop="blogPost">
+  <header id="header" class="header">
+    <div class="mobile-nav">
+      <h1 class="nickname">Jackie Anxis</h1>
+      <a id="menu">
+        &#9776; Menu
+      </a>
+    </div>
+    
+        <nav id="main-nav" class="main-nav nav-left">
+    
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io">Home</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/blog-frontend">FrontEnd</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/blog-cs229">MLcs229</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/blog-papers">PaperReading</a>
+    
+      <a class="main-nav-link" href="https://github.com/JackieAnxis">Github</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/blog-others">Others</a>
+    
+      <a class="main-nav-link" href="/blog-papers/about">About</a>
+    
+  </nav>
+</header>
+
+  <hr/>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JellyLens, Content-Aware Adaptive Lenses
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry typo" itemprop="articleBody">
+      
+        <ul>
+<li>论文原文：JellyLens- Content-Aware Adaptive Lenses</li>
+<li>作者：Cyprien Pindat, Emmanuel Pietriga, Olivier Chapuis, Claude Puech</li>
+<li>发表刊物/会议：2012 TVCG</li>
+</ul>
+<p><img src="http://o6vut8vrh.bkt.clouddn.com/18-6-18/18705982.jpg" alt=""></p>
+<p>作者提出了JellyLens，自适应的鱼眼透镜，根据内容来调整透镜形状，提高了焦点区域内容的可见性，又保留了较大部分的上下文区域。并进行了一个user study来证明其有效性。</p>
+<h2 id="整体思路："><a href="#整体思路：" class="headerlink" title="整体思路："></a>整体思路：</h2><ol>
+<li>引出透镜，表达透镜的益处，然后说明现有透镜的缺点，总结本技术优势和本文贡献点</li>
+<li>介绍相关工作：围绕2D的鱼眼，3D的，以及自适应的鱼眼透镜外加其他领域的类似工作</li>
+<li>方法概述：大概说明一下方法的思路</li>
+<li>详细描述</li>
+<li>评估（user study）</li>
+<li>讨论和未来工作</li>
+</ol>
+<h2 id="INTRODUCTION"><a href="#INTRODUCTION" class="headerlink" title="INTRODUCTION"></a>INTRODUCTION</h2><p>数据量的增加，了解这些数据需要多层透镜来进行展示，以便用户对数据进行不同层次粒度的查看。</p>
+<p>三种技术：概览+细节，缩放和焦点上下文。其中最有名的焦点上下文就是鱼眼。</p>
+<p>现有的鱼眼技术，存在以下缺点：透镜的形状是固定的，因此带来空间问题。</p>
+<p>本文使用的JellyLens，综合了PathLens和AreaLens，前者能够根据焦点区域的特征进行自适应，后者则能够对焦点区与的物体进行重布局和重新缩放。</p>
+<p>贡献是：1）对任意形状的透镜进行建模的方法；2）两种基于兴趣区域的几何形状动态生成相关透镜形状的方法（PathLens和AreaLens）</p>
+<h2 id="RELATED-WORK"><a href="#RELATED-WORK" class="headerlink" title="RELATED WORK"></a>RELATED WORK</h2><p>分别介绍了：distortion-oriented、magic lens filter、3D等技术，之后又介绍了一个带有自适应的领域相关的技术。</p>
+<p>最后讲了一些图像领域的，content-aware的工作。</p>
+<h2 id="GENERAL-APPROACH"><a href="#GENERAL-APPROACH" class="headerlink" title="GENERAL APPROACH"></a>GENERAL APPROACH</h2><p>JellyLens能动态适应感兴趣区域，因此需要它能够采取任意形状的透镜。</p>
+<p>分成三步来进行自适应：1. 获取场景中需要感兴趣的对象的几何形状；2. 根据在可视化中的位置以及其附近的感兴趣的区域来确定透镜的形状，其中PathLens适合轮廓和路径，AreaLens适合填充区域；3. 通过透镜渲染区域。</p>
+<h2 id="JELLYLENS-MODELING-AND-RENDERING"><a href="#JELLYLENS-MODELING-AND-RENDERING" class="headerlink" title="JELLYLENS MODELING AND RENDERING"></a>JELLYLENS MODELING AND RENDERING</h2><p>本章主要描述如何根据已有形状来建模透镜。</p>
+<p>将整个画面分成三个区域：上下文区域（context, $\cal C$），过渡区域（transition, $\cal T$）以及焦点区域（focus，$\cal F$）。</p>
+<p>其中上下文区域，不存在扭曲；过渡区域的扭曲，则进行加权平衡；焦点区域的扭曲则用多个区域的组合来形成。</p>
+<p>本章最后描述了实现算法：C++和OpenGL</p>
+<h2 id="ADAPTATION"><a href="#ADAPTATION" class="headerlink" title="ADAPTATION"></a>ADAPTATION</h2><p>分别描述了生成PathLens和AreaLens的形状的算法。</p>
+<p>前者用来放大类似路径的对象（比如道路），效果类似于在蜘蛛网上的水滴。</p>
+<p>后者则是用来放大一整块填充区域。</p>
+<h3 id="PathLens"><a href="#PathLens" class="headerlink" title="PathLens"></a>PathLens</h3><p>在该种透镜下，透镜形状主要受两个因素的影响：离鼠标的距离和离最近的对象的距离（指的是可以被放大的那些对象，比如地图中的高速公路等）。</p>
+<p>文中用一个隐式函数来导出：当$f({\bf x}) = lens({\bf x - c}) + data({\bf x})=s$时，就是边界。大概效果如下：</p>
+<p><img src="http://o6vut8vrh.bkt.clouddn.com/18-6-18/72742188.jpg" alt=""></p>
+<h3 id="AreaLens"><a href="#AreaLens" class="headerlink" title="AreaLens"></a>AreaLens</h3><p>相比于前者只考虑最近的对象，AreaLens考虑了所有感兴趣的对象，更适合用来密集区域的块状填充对象。</p>
+<p>所有落在兴趣区域的对象都会有影响，而外面的则不影响。</p>
+<p>提出了四个设计需求：</p>
+<ol>
+<li>放大的对象不能相互重叠</li>
+<li>对象的移动应该平滑</li>
+<li>拓扑信息应该更可能的保留</li>
+<li>上下文区域的对象应该既不被移动也不被放大</li>
+</ol>
+<p>为了应对上述四个需求，分别用两种映射来进行：</p>
+<ol>
+<li>dispersion mapping，用来完成位移，使得被放大的那些对象有足够的空间。</li>
+<li>magnification mapping，用来完成放大离鼠标最近的那些对象（被称为放大对象，其余则被称为移动对象）</li>
+</ol>
+<ul>
+<li><strong>dispersion mapping</strong>：1. 先对移动对象进行位移，位移向量会考虑所有方法对象，并进行加权；2. 缩小这些对象，保证不重叠</li>
+<li><strong>magnification mapping</strong>：离鼠标越近的放大对象则被放的越大</li>
+</ul>
+<p><img src="http://o6vut8vrh.bkt.clouddn.com/18-6-18/33950652.jpg" alt=""></p>
+<h2 id="EVALUATION"><a href="#EVALUATION" class="headerlink" title="EVALUATION"></a>EVALUATION</h2><p>目标是证明相对固定透镜所拥有的潜在的优点（potential benefits）和缺点（pitfalls）</p>
+<p>比较了AreaLens和普通鱼眼（圆形，高斯核）</p>
+<p>任务是找寻视觉元素</p>
+<p>方法是：提出假设，证明不同因素的显著性</p>
+<p>最后也做了一个问卷评价</p>
+<h2 id="DISCUSSION-AND-FUTURE-WORK"><a href="#DISCUSSION-AND-FUTURE-WORK" class="headerlink" title="DISCUSSION AND FUTURE WORK"></a>DISCUSSION AND FUTURE WORK</h2><p>除了总结工作之外，作者提出了两个future work：1. 更多的evaluation；2. 自定义感兴趣的对象</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <ul class="article-meta">
+        <li>
+          <span class="label">Published Date:</span>
+          <a href="/blog-papers/2018/06/17/JellyLens- Content-Aware Adaptive Lenses/" class="article-date">
+  <time datetime="2018-06-17T09:29:00.000Z" itemprop="datePublished">2018-06-17</time>
+</a>
+
+        </li>
+        
+          <li>
+            <span class="label">Category:</span>
+            
+  <div class="article-category">
+    <a class="article-category-link" href="/blog-papers/categories/可视化/">可视化</a>
+  </div>
+
+
+          </li>
+        
+        
+          <li>
+            <span class="label">Tag:</span>
+            
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog-papers/tags/人机交互/">人机交互</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog-papers/tags/可视化/">可视化</a></li></ul>
+
+
+          </li>
+        
+        <hr/>
+      </ul>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav" class="article-nav">
+  
+    <span id="article-nav-newer" class="article-nav-link-wrap newer"></span>
+  
+  
+    <a href="/blog-papers/2018/06/09/SchemeLens, A Content-Aware Vector-Based Fisheye Technique for Navigating Large Systems Diagrams/" id="article-nav-older" class="article-nav-link-wrap older">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">SchemeLens, A Content-Aware Vector-Based Fisheye Technique for Navigating Large Systems Diagrams</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+
+
+
+      </div>
+      
+    <footer id="footer" class="post-footer footer">
+      
+      <hr/>
+      <div id="footerContent" class="footer-content">
+        <p>nothing</p>
+
+
+      </div>
+    </footer>
+
+      
+
+
+
+
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog-papers/fancybox/jquery.fancybox.css">
+  <script src="/blog-papers/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog-papers/js/typing.js"></script>
+<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+
+
+
+
+
+
+
+    </div>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>
