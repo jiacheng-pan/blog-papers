@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>Reﬁnery, Visual Exploration of Large, HeterogeneousNetworks through Associative Browsing | Jackie Anxis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="论文原文：Reﬁnery, Visual Exploration of Large, HeterogeneousNetworks through Associative Browsing 作者：S. Kairam, N. H. Riche, S. Drucker, R. Fernandez, and J. Heer  发表刊物/会议：2015 EuroVis   介绍对数据进行探索有两大类策略：">
+<meta name="keywords" content="可视化,图可视化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Reﬁnery, Visual Exploration of Large, HeterogeneousNetworks through Associative Browsing">
+<meta property="og:url" content="http://jackieanxis.github.io/2018/06/28/Reﬁnery, Visual Exploration of Large, HeterogeneousNetworks through Associative Browsing/index.html">
+<meta property="og:site_name" content="Jackie Anxis">
+<meta property="og:description" content="论文原文：Reﬁnery, Visual Exploration of Large, HeterogeneousNetworks through Associative Browsing 作者：S. Kairam, N. H. Riche, S. Drucker, R. Fernandez, and J. Heer  发表刊物/会议：2015 EuroVis   介绍对数据进行探索有两大类策略：">
+<meta property="og:locale" content="Chinese">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/2018-06-28-085323.png">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/2018-06-28-082048.png">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/2018-06-28-083354.png">
+<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/2018-06-28-083729.png">
+<meta property="og:updated_time" content="2018-06-28T08:53:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reﬁnery, Visual Exploration of Large, HeterogeneousNetworks through Associative Browsing">
+<meta name="twitter:description" content="论文原文：Reﬁnery, Visual Exploration of Large, HeterogeneousNetworks through Associative Browsing 作者：S. Kairam, N. H. Riche, S. Drucker, R. Fernandez, and J. Heer  发表刊物/会议：2015 EuroVis   介绍对数据进行探索有两大类策略：">
+<meta name="twitter:image" content="http://o6vut8vrh.bkt.clouddn.com/2018-06-28-085323.png">
+  
+  
+    <link rel="icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
+  
+  <link rel="stylesheet" href="/blog-papers/css/typing.css">
+  <link rel="stylesheet" href="/blog-papers/css/donate.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+</head>
+
+  
+    
+      <body>
+    
+  
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container" class="container">
+        <article id="post-Reﬁnery, Visual Exploration of Large, HeterogeneousNetworks through Associative Browsing" class="article article-type-post" itemscope itemprop="blogPost">
+  <header id="header" class="header">
+    <div class="mobile-nav">
+      <h1 class="nickname">Jackie Anxis</h1>
+      <a id="menu">
+        &#9776; Menu
+      </a>
+    </div>
+    
+        <nav id="main-nav" class="main-nav nav-left">
+    
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io">Home</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/blog-frontend">FrontEnd</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/blog-cs229">MLcs229</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/blog-papers">PaperReading</a>
+    
+      <a class="main-nav-link" href="https://github.com/JackieAnxis">Github</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/blog-others">Others</a>
+    
+      <a class="main-nav-link" href="/blog-papers/about">About</a>
+    
+  </nav>
+</header>
+
+  <hr/>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Reﬁnery, Visual Exploration of Large, HeterogeneousNetworks through Associative Browsing
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry typo" itemprop="articleBody">
+      
+        <ul>
+<li>论文原文：Reﬁnery, Visual Exploration of Large, HeterogeneousNetworks through Associative Browsing</li>
+<li>作者：S. Kairam, N. H. Riche, S. Drucker, R. Fernandez, and J. Heer </li>
+<li>发表刊物/会议：2015 EuroVis</li>
+</ul>
+<p><img src="http://o6vut8vrh.bkt.clouddn.com/2018-06-28-085323.png" alt="image-20180628165322984"></p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>对数据进行探索有两大类策略：<em>analytical</em>（分析）和<em>browsing</em>（浏览）。前者是对特定的事实进行分析探索，后者则是适合信息搜寻任务。<em>HCI</em>的研究者们发现，<em>orienteering</em>（原意是定向运动）也是常见的探索策略，指的是向已知的信息目标进行导航。<em>associative browsing</em>（关联浏览）则表示想要导航的信息目标是特定的某个主题或者是一个广泛的知识领域。</p>
+<p>本文的可视化系统称为<em>Refinery</em>，用以支持通过<em>associative browsing</em>关联浏览的方式进行大规模异构网络的探索。</p>
+<p><strong>贡献</strong>：</p>
+<ol>
+<li>确定了支持关联浏览的可视化系统的设计准则和策略</li>
+<li>制作了<em>Refinery</em>系统，通过关联浏览支持高效自底向上的异构网络探索</li>
+<li>一种新的基于随机游走的图算法，用以扩展异构网络的<em>DOI(degree-of-interest)</em>可视化</li>
+</ol>
+<h2 id="设计准则"><a href="#设计准则" class="headerlink" title="设计准则"></a>设计准则</h2><p>通过回顾了一些之前的用以信息查询探索的可视化系统，作者提出了四个设计目标：</p>
+<p><strong>G1</strong>. 支持对异构动态集合的浏览。</p>
+<p><strong>G2</strong>. 在表达搜索意图时，平衡简洁性和表达性（表达性指的是提供给用户足够的选择，简洁性则是使得用户能够简单的来评估这些选择，以防产生选择障碍）</p>
+<p><strong>G3</strong>. 通过连续迭代的过程优化用户的搜索意图（交互式的对话窗口来帮助用户优化搜索意图）</p>
+<p><strong>G4</strong>. 提供多种上下文线索以支持用户识别数据，发现规律。</p>
+<h2 id="系统介绍"><a href="#系统介绍" class="headerlink" title="系统介绍"></a>系统介绍</h2><p>作者通过一个case来介绍了系统的各个面板。</p>
+<p>Mae最近参加了一个关于人机交互中的伦理学研究的会议，她想起会上有一个有趣的演讲，但是忘记了作者是谁。她只记得这篇文章赢得了Honorable Mention。她想要找到这篇论文以及相关的论文。</p>
+<h5 id="Free-Text-Search"><a href="#Free-Text-Search" class="headerlink" title="Free-Text Search"></a>Free-Text Search</h5><p>Mae在这里输入了关键词<em>ethics</em>，会返回一些相关的匹配结果（下图a）。然后她继续输入了<em>Honorable Mention</em>。</p>
+<p><img src="http://o6vut8vrh.bkt.clouddn.com/2018-06-28-082048.png" alt="image-20180628162048090"></p>
+<h5 id="Sidebar"><a href="#Sidebar" class="headerlink" title="Sidebar"></a>Sidebar</h5><p><em>Sidebar</em>会列举所有的关键词，然后并提供upvote和downvote功能以便用户优化查询（上图b）。Mae“upvote”了关键词<em>Design</em>，“downvote”了关键词<em>End of Life</em>和<em>E-Government</em>。</p>
+<h5 id="Graph-View"><a href="#Graph-View" class="headerlink" title="Graph View"></a>Graph View</h5><p><img src="http://o6vut8vrh.bkt.clouddn.com/2018-06-28-083354.png" alt="image-20180628163354240"></p>
+<p>在图视图中，与Mae选择的关键词相关的节点以及他们之间的连接被可视化出来。在图视图中，Mae找到了一篇题为<em>Categorised Ethical Guidelines for Large Scale Mobile HCI</em>的文章，并阅读了摘要。她认为这篇文章已经十分接近她想要找的那篇文章，就将这篇文章添加到查询关键字中，这时，<em>CHI2013: Ethics in HCI</em>出现在图视图中，Mae将这个节点也添加进查询中。</p>
+<h5 id="List-View"><a href="#List-View" class="headerlink" title="List View"></a>List View</h5><p><img src="http://o6vut8vrh.bkt.clouddn.com/2018-06-28-083729.png" alt="image-20180628163728991"></p>
+<p>切换到列表视图后，Mae最终找到了她想要的那篇文章<em>Benevolent Deception in Human Computer Interaction</em>。</p>
+<h3 id="随机游走模型"><a href="#随机游走模型" class="headerlink" title="随机游走模型"></a>随机游走模型</h3><p>作者将整个网络建模为一个基于随机游走的概率图模型，边表示从一个节点到另一个节点的概率。<br>$$<br>p(e_{i\rightarrow j})=\frac{w(e_{i\rightarrow j})}{p_H+(1-p_H)\sum_{e\in e_i}w(e)}<br>$$<br>$p_H$是在这个节点停止的概率。在只有一个查询节点时，计算这个节点到达其他节点的概率，并以这个概率作为相关系数。在多节点查询时，根据upvote和downvote的信息对每个查询节点产生的相关系数进行组合。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <ul class="article-meta">
+        <li>
+          <span class="label">Published Date:</span>
+          <a href="/blog-papers/2018/06/28/Reﬁnery, Visual Exploration of Large, HeterogeneousNetworks through Associative Browsing/" class="article-date">
+  <time datetime="2018-06-28T07:16:00.000Z" itemprop="datePublished">2018-06-28</time>
+</a>
+
+        </li>
+        
+          <li>
+            <span class="label">Category:</span>
+            
+  <div class="article-category">
+    <a class="article-category-link" href="/blog-papers/categories/可视化/">可视化</a>
+  </div>
+
+
+          </li>
+        
+        
+          <li>
+            <span class="label">Tag:</span>
+            
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog-papers/tags/可视化/">可视化</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog-papers/tags/图可视化/">图可视化</a></li></ul>
+
+
+          </li>
+        
+        <hr/>
+      </ul>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav" class="article-nav">
+  
+    <span id="article-nav-newer" class="article-nav-link-wrap newer"></span>
+  
+  
+    <a href="/blog-papers/2018/06/26/HiPiler, Visual Exploration of Large Genome Interaction Matrices with Interactive Small Multiples/" id="article-nav-older" class="article-nav-link-wrap older">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">HiPiler Visual Exploration of Large Genome Interaction Matrices with Interactive Small Multiples</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+
+
+
+      </div>
+      
+    <footer id="footer" class="post-footer footer">
+      
+      <hr/>
+      <div id="footerContent" class="footer-content">
+        <p>nothing</p>
+
+
+      </div>
+    </footer>
+
+      
+
+
+
+
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog-papers/fancybox/jquery.fancybox.css">
+  <script src="/blog-papers/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog-papers/js/typing.js"></script>
+<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+
+
+
+
+
+
+
+    </div>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>
