@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-9-8/11209567.jpg">
 <meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-9-7/8710039.jpg">
 <meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-9-8/38861569.jpg">
-<meta property="og:updated_time" content="2018-09-11T06:17:11.598Z">
+<meta property="og:updated_time" content="2018-09-11T06:21:15.554Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Structure-aware Fisheye Views for Efficient Large Graph Exploration">
 <meta name="twitter:description" content="论文原标题： Structure-aware Fisheye Views for Efficient Large Graph Exploration  一、介绍图对于描述关系数据很通用，已经应用于很多领域，复杂的图的布局会有视觉混乱。 交互则是用于减轻这个问题的通用方法之一。包括，平移缩放（pan-and-zoom）配合概览+细节（overview+detail）技术。介绍了概览细节技术的缺点">
@@ -123,8 +123,8 @@
 <p>上述的鱼眼基本都是跟几何变换相关，但是忽视了边的链接。会造成结构的扭曲，如封面图b和c。</p>
 <h3 id="Edge-Vector-based-Stress-Majorization（布局方面）"><a href="#Edge-Vector-based-Stress-Majorization（布局方面）" class="headerlink" title="Edge Vector-based Stress Majorization（布局方面）"></a>Edge Vector-based Stress Majorization（布局方面）</h3><p>$$<br>arg\min_X\sum_{i&lt;j}w_{ij}(x_i-x_j-e_{ij}d_{ij})^2<br>$$</p>
 <p>e为边的目标方向，d为边的目标长度。在这种布局方法的启发下，作者期望通过改变边的朝向跟长度，来产生一个结构相关的并且能够光滑过渡的鱼眼交互。</p>
-<h2 id="四、结构相关的鱼眼（structure-aware-fisheye）"><a href="#四、结构相关的鱼眼（structure-aware-fisheye）" class="headerlink" title="四、结构相关的鱼眼（structure-aware fisheye）"></a>四、结构相关的鱼眼（structure-aware fisheye）</h2><p>$$<br>arg\min_{Z^t}\sum_{(i, j) \in E} \omega_^s||z_i^t-z_j^t-e_{ij}^sd_{ij}^s||^2 \\<br>+\sum_{(i, j) \in \Omega} \omega_^r||z_i^t-z_j^t-e_{ij}^rd_{ij}^r||^2 \\<br>+\sum_{i \in \lbrace 1\ldots n \rbrace} \omega_{i}^t||z_i^t-z_i^{t-1}||^2 \\<br>$$</p>
-<p>其中，$Z^t$指第t次迭代的节点位置，$\omega_^s, \omega_^r, \omega_{i}^t$是归一化的权重，$\Omega$是在焦点区域内的边的集合。$e_{ij}^s$和$d_{ij}^s$则提供了结构的限制，$e_{ij}^r$和$d_{ij}^r$则提供了可读性的限制。最后一项则表达了时序上的连续性也就是光滑过渡。</p>
+<h2 id="四、结构相关的鱼眼（structure-aware-fisheye）"><a href="#四、结构相关的鱼眼（structure-aware-fisheye）" class="headerlink" title="四、结构相关的鱼眼（structure-aware fisheye）"></a>四、结构相关的鱼眼（structure-aware fisheye）</h2><p>$$<br>arg\min_{Z^t}\sum_{(i, j) \in E} \omega_{ij}^s||z_i^t-z_j^t-e_{ij}^sd_{ij}^s||^2 \\<br>+\sum_{(i, j) \in \Omega} \omega_{ij}^r||z_i^t-z_j^t-e_{ij}^rd_{ij}^r||^2 \\<br>+\sum_{i \in \lbrace 1\ldots n \rbrace} \omega_i^t||z_i^t-z_i^{t-1}||^2 \\<br>$$</p>
+<p>其中，$Z^t$指第t次迭代的节点位置，$\omega_{ij}^s, \omega_{ij}^r, \omega_i^t$是归一化的权重，$\Omega$是在焦点区域内的边的集合。$e_{ij}^s$和$d_{ij}^s$则提供了结构的限制，$e_{ij}^r$和$d_{ij}^r$则提供了可读性的限制。最后一项则表达了时序上的连续性也就是光滑过渡。</p>
 <p>值得注意的是，$\Omega$并不只是那些可见的边，其包含了所以点对之间的关系，即便两个点之间没有边相连，因为需要使没有边相连的点相互远离。</p>
 <h3 id="结构相关的限制"><a href="#结构相关的限制" class="headerlink" title="结构相关的限制"></a>结构相关的限制</h3><p>$$<br>e_{ij}^s=\frac{x_i-x_j}{||x_i-x_j||}, d_{ij}^s=||x’_i-x’_j||<br>$$</p>
 <p>$X’$表示的是用鱼眼透镜估计的目标位置。保持了方向的一致性。</p>
