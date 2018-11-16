@@ -20,9 +20,9 @@
 <meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/17-9-3/78771086.jpg">
 <meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/17-8-31/39145853.jpg">
 <meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/17-8-31/55830450.jpg">
-<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/17-8-31/3869351.jpg">
+<meta property="og:image" content="http://jackieanxis.github.io/Users/jackie/Repository/blog/papers/source/_posts/assets/3869351.jpg">
 <meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/17-9-3/42643278.jpg">
-<meta property="og:updated_time" content="2018-09-07T13:39:33.217Z">
+<meta property="og:updated_time" content="2018-11-16T09:15:04.500Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="A Machine Learning Approach to Large Graph Visualization">
 <meta name="twitter:description" content="论文原标题：What Would a Graph Look Like in This Layout? A Machine Learning Approach to Large Graph Visualization  为了为图数据挑选一个合适的布局，论文提出了一种机器学习方法，基于用graph kernel计算的图拓扑相似度。这种方法可以显示图结构在不同的布局方法下的外观，并且可以估计这些图在布">
@@ -94,7 +94,6 @@
 <h2 id="个人评述"><a href="#个人评述" class="headerlink" title="个人评述"></a>个人评述</h2><p>这篇文章简直是一篇集大成的文章，提出了一个重要的思想：用已有的数据集来生成新的可视化效果。竟然不是2017VIS的best paper？通篇下来我竟然没有看出什么特别的缺点，要有的可能只是：</p>
 <ol>
 <li>特征向量只和DGK进行了比较，可能不够丰富</li>
-<li></li>
 </ol>
 <p>启发：</p>
 <ol>
@@ -296,7 +295,7 @@
 <p>左图(a)显示了用户主观的相似图判断和算法结果的匹配程度</p>
 <p>中图(b)显示了，在不同布局下，算法选出的最相似图（$r_T = 1$）和用户的选择的匹配程度</p>
 <p>右图(c)显示了，对于不同的目标图，算法选出的最相似图（$r_T = 1$）和用户的选择的匹配程度</p>
-<p><img src="http://o6vut8vrh.bkt.clouddn.com/17-8-31/3869351.jpg" alt=""></p>
+<p><img src="/Users/jackie/Repository/blog/papers/source/_posts/assets/3869351.jpg" alt=""></p>
 <ul>
 <li>如图：<a href="#用户调研的总结">用户调研的总结</a>，发现有80.46%的情况，参与者认为最相似的选项图（$r_P=1$）和系统选出来的最相似的图（$r_T=1$）刚好吻合（图a最左边的蓝色长条）；90.27%的情况下，参与者认为的最相似（$r_P=1$）和第二相似（$r_P=2$）的选项图和系统选出的最相似图（$r_T=1$）吻合；而93.8%的情况下，参与者选出的第1、2、3相似的图（$r_P={1,2,3}$）和系统选出的最相似图（$r_T=1$）吻合。</li>
 <li>除了treemap布局和spectral布局以外，有78.52%~93.33%的情况下，参与者选出来的最相似图和算法得到的最相似图一致，有94.44%~99.26%的情况下，参与者选出来的最相似的三幅图和算法得到的最相似图吻合。</li>

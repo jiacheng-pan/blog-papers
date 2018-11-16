@@ -13,21 +13,21 @@
 <meta property="og:site_name" content="Jackie Anxis">
 <meta property="og:description" content="论文原标题： Structure-aware Fisheye Views for Efficient Large Graph Exploration  一、介绍图对于描述关系数据很通用，已经应用于很多领域，复杂的图的布局会有视觉混乱。 交互则是用于减轻这个问题的通用方法之一。包括，平移缩放（pan-and-zoom）配合概览+细节（overview+detail）技术。介绍了概览细节技术的缺点">
 <meta property="og:locale" content="Chinese">
-<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-9-8/31693903.jpg">
-<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-9-7/61711555.jpg">
-<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-9-7/53259428.jpg">
-<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-9-7/77703149.jpg">
-<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-9-7/44147952.jpg">
-<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-9-7/71304701.jpg">
-<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-9-7/27496642.jpg">
-<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-9-8/11209567.jpg">
-<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-9-7/8710039.jpg">
-<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-9-8/38861569.jpg">
-<meta property="og:updated_time" content="2018-09-11T06:21:15.554Z">
+<meta property="og:image" content="http://jackieanxis.github.io/Users/jackie/Repository/blog/papers/source/_posts/assets/image-20181116171253691.png">
+<meta property="og:image" content="http://jackieanxis.github.io/Users/jackie/Repository/blog/papers/source/_posts/assets/image-20181116171318315.png">
+<meta property="og:image" content="http://jackieanxis.github.io/Users/jackie/Repository/blog/papers/source/_posts/assets/53259428.jpg">
+<meta property="og:image" content="http://jackieanxis.github.io/Users/jackie/Repository/blog/papers/source/_posts/assets/77703149.jpg">
+<meta property="og:image" content="http://jackieanxis.github.io/Users/jackie/Repository/blog/papers/source/_posts/assets/image-20181116171403266.png">
+<meta property="og:image" content="http://jackieanxis.github.io/Users/jackie/Repository/blog/papers/source/_posts/assets/71304701.jpg">
+<meta property="og:image" content="http://jackieanxis.github.io/Users/jackie/Repository/blog/papers/source/_posts/assets/27496642.jpg">
+<meta property="og:image" content="http://jackieanxis.github.io/Users/jackie/Repository/blog/papers/source/_posts/assets/11209567.jpg">
+<meta property="og:image" content="http://jackieanxis.github.io/Users/jackie/Repository/blog/papers/source/_posts/assets/8710039.jpg">
+<meta property="og:image" content="http://jackieanxis.github.io/Users/jackie/Repository/blog/papers/source/_posts/assets/image-20181116171419003.png">
+<meta property="og:updated_time" content="2018-11-16T09:14:23.315Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Structure-aware Fisheye Views for Efficient Large Graph Exploration">
 <meta name="twitter:description" content="论文原标题： Structure-aware Fisheye Views for Efficient Large Graph Exploration  一、介绍图对于描述关系数据很通用，已经应用于很多领域，复杂的图的布局会有视觉混乱。 交互则是用于减轻这个问题的通用方法之一。包括，平移缩放（pan-and-zoom）配合概览+细节（overview+detail）技术。介绍了概览细节技术的缺点">
-<meta name="twitter:image" content="http://o6vut8vrh.bkt.clouddn.com/18-9-8/31693903.jpg">
+<meta name="twitter:image" content="http://jackieanxis.github.io/Users/jackie/Repository/blog/papers/source/_posts/assets/image-20181116171253691.png">
   
   
     <link rel="icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
@@ -88,7 +88,7 @@
     
     <div class="article-entry typo" itemprop="articleBody">
       
-        <p><img src="http://o6vut8vrh.bkt.clouddn.com/18-9-8/31693903.jpg" alt=""></p>
+        <p><img src="/Users/jackie/Repository/blog/papers/source/_posts/assets/image-20181116171253691.png" alt="image-20181116171253691"></p>
 <ul>
 <li>论文原标题： Structure-aware Fisheye Views for Efficient Large Graph Exploration</li>
 </ul>
@@ -129,18 +129,18 @@
 <h3 id="结构相关的限制"><a href="#结构相关的限制" class="headerlink" title="结构相关的限制"></a>结构相关的限制</h3><p>$$<br>e_{ij}^s=\frac{x_i-x_j}{||x_i-x_j||}, d_{ij}^s=||x’_i-x’_j||<br>$$</p>
 <p>$X’$表示的是用鱼眼透镜估计的目标位置。保持了方向的一致性。</p>
 <p><strong>形状限制</strong>：上述的限制只保证了边方向的限制，只会让局部结构保持的比较好，而较大的结构会被扭曲，如下图，a是初始图，b是经过graphical fisheye的产出，c是加入了边方向限制，d则是加入了形状限制。</p>
-<p><img src="http://o6vut8vrh.bkt.clouddn.com/18-9-7/61711555.jpg" alt=""></p>
+<p><img src="/Users/jackie/Repository/blog/papers/source/_posts/assets/image-20181116171318315.png" alt="image-20181116171318315"></p>
 <p>为了保留初始的结构，文章需要用户提供一组连接的边，称为$E_s$，比如上图c中的其中一圈蓝边，那么算法就能更好的估计$d_{ij}^s$。在缩放的时候，有些边变长，有些边变短。我们需要平衡这种变换。<br>$$<br>\min_{\rho} \sum_{(i, j) \in E_s}(\rho d_{ij}-d’_{ij})^2<br>$$<br>这里估计出了一个平均畸变率$\rho$，使得上图c产生的结构的边长$d’$和$\rho d_{ij}$之间的差距最少。</p>
 <p>由此可以计算得到这个畸变率，那么对所有边长都乘上这个畸变率，就能进行统一变换，再加上上面的边方向的保持，从而保持原结构。</p>
 <p>$$<br>d_{ij}^s=\rho d_{ij}<br>$$</p>
-<h3 id="可读性限制"><a href="#可读性限制" class="headerlink" title="可读性限制"></a>可读性限制</h3><p><img src="http://o6vut8vrh.bkt.clouddn.com/18-9-7/53259428.jpg" alt=""></p>
+<h3 id="可读性限制"><a href="#可读性限制" class="headerlink" title="可读性限制"></a>可读性限制</h3><p><img src="/Users/jackie/Repository/blog/papers/source/_posts/assets/53259428.jpg" alt=""></p>
 <p><strong>不重叠的节点</strong>：<br>$$<br>d_{ij}^r=r_i+r_j+\varepsilon, e_{ij}^r=e_{ij}^s<br>$$<br>$r_i$和$r_j$是节点包围盒的半径，$\varepsilon$则是节点分离系数（设为屏幕尺寸的1%）。当然这中间还包括了那些不出现的虚拟边（也就是没有相连的两个节点之间也要分离）</p>
 <p><strong>最大化边的夹角</strong>：</p>
 <p>Purchase的可读性研究证明，边的相交很能影响可读性。完全解决边相交的问题不可能，特别是大图。最近的研究表明最大化夹角能够提升路径追踪任务的能力。<br>$$<br>e_{ij}^r=e_{ij}^s\oplus\frac{\pi - \alpha}{2}, e_{lk}^r=e_{lk}^s\ominus\frac{\pi - \alpha}{2}<br>$$<br>其中$\alpha$是两条边的夹角，$\oplus$表示顺时针旋转，$\ominus$表示逆时针旋转。</p>
 <h2 id="五、任务导向的鱼眼透镜"><a href="#五、任务导向的鱼眼透镜" class="headerlink" title="五、任务导向的鱼眼透镜"></a>五、任务导向的鱼眼透镜</h2><p><strong>多焦点透镜</strong>：在上面的基础上，加入了多焦点的透镜，效果如下图c，b是对照组。</p>
 <p><strong>聚类透镜</strong>：用户可以制定一个凸包从而可以放大该区域包含的聚类，如图d，红色的聚类是放大聚类，用灰色背景高亮起来。</p>
 <p><strong>路径透镜</strong>：用户简单的挑选两个节点，算法找到最短路径，然后沿着这条路径定义焦点区域，关于这个焦点区域的半径：屏幕尺寸的$\sqrt{m}/28$，其中$m$是放大系数。</p>
-<p><img src="http://o6vut8vrh.bkt.clouddn.com/18-9-7/77703149.jpg" alt=""></p>
+<p><img src="/Users/jackie/Repository/blog/papers/source/_posts/assets/77703149.jpg" alt=""></p>
 <h2 id="六、结果和评估"><a href="#六、结果和评估" class="headerlink" title="六、结果和评估"></a>六、结果和评估</h2><h3 id="定量比较"><a href="#定量比较" class="headerlink" title="定量比较"></a>定量比较</h3><p>对照组：</p>
 <ul>
 <li><p><strong>graphical fisheye</strong>(<strong>GF</strong>, M. Sarkar and M. H. Brown. Graphical fisheye views of graphs. In Proc. SIGCHI conference on Human Factors in Computing Systems, pp. 83–91, 1992. doi: 10.1145/142750.142763)</p>
@@ -162,11 +162,11 @@
 <p>这里只考虑了边方向的变化，而未考虑边长度。它也就揭示了结构的保存完好程度。</p>
 <p>下图a表示了EOO，三种应用了文章方法的技术表现明显优于未应用的。</p>
 <p><strong>节点不重叠</strong>：比较了初始输入跟输出之间的节点重叠数量的差别。下图b表示了重叠的节点的数量，能看到文章的方法效果不错。</p>
-<p><img src="http://o6vut8vrh.bkt.clouddn.com/18-9-7/44147952.jpg" alt=""></p>
+<p><img src="/Users/jackie/Repository/blog/papers/source/_posts/assets/image-20181116171403266.png" alt="image-20181116171403266"></p>
 <p><strong>形状保留</strong>：利用Eades提出的基于形状的美学指标。给定一组节点组成一个图，将该组节点的k最近邻的集合构成的图叫做它的shape graph。那么，通过mean Jaccard similarity来比较缩放前后，某个图的shape graph的相似度，就可以看出其是否保留形状。</p>
-<p><img src="http://o6vut8vrh.bkt.clouddn.com/18-9-7/71304701.jpg" alt=""></p>
+<p><img src="/Users/jackie/Repository/blog/papers/source/_posts/assets/71304701.jpg" alt=""></p>
 <p>下图展示了不同的透镜下的结果（初始布局是利用一个限制了某些形状的，并且聚类之间不重叠的限制的压力模型），a是初始图，b是graphical fisheye，c是hyperbolic fisheye，d是iShpere，e是线性放大，f是文章方法结合graphical fisheye，g是文章方法结合hyperbolic fisheye，h是文章方法结合iSphere。</p>
-<p><img src="http://o6vut8vrh.bkt.clouddn.com/18-9-7/27496642.jpg" alt=""></p>
+<p><img src="/Users/jackie/Repository/blog/papers/source/_posts/assets/27496642.jpg" alt=""></p>
 <h3 id="Lab-Stydy"><a href="#Lab-Stydy" class="headerlink" title="Lab Stydy"></a>Lab Stydy</h3><p>为了验证文章的structure-aware fisheye是否能够有效提升图探索效率，文章设计了这个lab study。比较了五个技术：</p>
 <ul>
 <li>pan-and-zoom(P&amp;Z)</li>
@@ -180,7 +180,7 @@
 <p><strong>数据集</strong>：<strong>图规模</strong>和<strong>聚类结构</strong>是两个影响用户表现的主要因素。聚类结构可以通过模块度（modularity）来进行度量，越高说明聚类越清晰。因为iSphere证明了在小图下，前面几种方法差别不大。并且在大规模图，低、高模块度的情况下，iSphere都能表现的更好，而HF则表现的明显更差。作者根据iShpere的方法生成哼了1024节点0.6模块度的图作为数据集。并且选取了3作为平均节点度数，这样使得任务不会太难。然后用stress majorization来产生最初布局。在这个数据集中，作者与计算了725个节点对，其中90%的最短路径小于5。</p>
 <p><strong>系统实现</strong>：系统界面支持选择机制来帮助用户探索，用户右击节点，高亮该节点和连接边。</p>
 <p><strong>参与者跟设施</strong>：40名，24男16女，22-29岁（平均24岁），实验放在桌面电脑上进行，有鼠标键盘，24寸显示器1920 1080分辨率，144hz刷新率（真有钱）。节点连接图白色背景，节点为一个黑点，边则是黑线，而窗口大小则是150mm 150mm。下图是初始布局和五种不同技术放大后的效果。</p>
-<p><img src="http://o6vut8vrh.bkt.clouddn.com/18-9-8/11209567.jpg" alt=""></p>
+<p><img src="/Users/jackie/Repository/blog/papers/source/_posts/assets/11209567.jpg" alt=""></p>
 <p><strong>过程</strong>：在一开始，为参与者介绍五种技术。然后会有两条练习来熟悉五种技术：跟正式测试一样，也是找到两个随机选择的节点之间的最短变。</p>
 <p>之后每个人要经过15条测试（每个技术3条）。15条测试以及5种技术都是随机的以防止偏见。每个trial都有60s时间限制。每个人大概会花15分钟。</p>
 <p><strong>假设</strong>：</p>
@@ -191,13 +191,13 @@
 </ol>
 <p><strong>分析</strong>：每个人物都记录了完成时间和错误（用户记录的最短路径长度与真实最短路径长度之间的误差），每个人每种技术进行了3次，故而可以计算平均时间和错误。</p>
 <p><strong>结果</strong>：根据图所示，在时间方面，Ours+GF会比其他所有技术都更快，这支持了假设1，但只是部分支持假设2，毕竟Ours+GF和P&amp;Z之间有大幅重叠。而在误差方面，有大规模的置信区间，也就说明了结果并不明确。尽管这样，Ours+GF的平均值还是最低的。</p>
-<p><img src="http://o6vut8vrh.bkt.clouddn.com/18-9-7/8710039.jpg" alt=""></p>
+<p><img src="/Users/jackie/Repository/blog/papers/source/_posts/assets/8710039.jpg" alt=""></p>
 <h4 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h4><p><strong>Hyperbolic vs. Pan&amp;Zoom</strong>：被试提到：“双曲线鱼眼会导致挤压跟变形，有些边甚至会有很大的曲率，而平移缩放则保持了一个稳定的布局以便进行路径探索，尽管丢失了一部分上下文”。</p>
 <p><strong>iSphere</strong>：虽然iSphere文章本身说明了该技术比其他的技术在路径探索任务上更好，但是本文却只显示了这个技术略微比HF要好，却比其他的技术要差。被试提到，“iShpere在放大的时候，容易丢失一些远离的节点”，因为iShpere只渲染了焦点区域内的节点。有一些被试则没有感知到iSpher带来的畸变，这让他们觉得iShpere的交互像是在旋转一个球体，就跟平移缩放一样。</p>
 <p><strong>Graphical fisheye</strong>：相比于HF和IS，GF用了直线边，因此更短时间就完成了任务，然而GF的畸变导致了整体结构的破坏，于是它的错误率是最高的。被试提到：“GF的交互不够直观，而且它的畸变也是相对无法理解”</p>
 <p><strong>Our fisheye</strong>：虽然文章的方法基于GF，然而却得到了最好的表现。被试提到：“这个结构相关的鱼眼结合了双曲线和缩放平移的优点，直线边则有助于进行路径探索，而且即便会比较小，并且它的交互会显得更快，因为点击一个节点会放大感兴趣全区域而不用进行缩放平移”。</p>
 <h3 id="案例研究"><a href="#案例研究" class="headerlink" title="案例研究"></a>案例研究</h3><h4 id="探索ego-network"><a href="#探索ego-network" class="headerlink" title="探索ego-network"></a>探索ego-network</h4><p>用了ego-facebook的数据集，4039个用户，88234条关系，已聚类为16个聚类。压力模型进行布局，引入了聚类不重叠的限制。但是边跟节点仍然非常密集，使得很难比较相互远离的节点。可以见到，光是利用传统的polyfocal的鱼眼，会产生很高的畸变，第四张图b。而本文的方法则可以避免这些问题，如图c，可以见到两个来自不同聚类的节点备选了出来，这两个节点都和本聚类有一些连接，也跟红色、粉色聚类紧密相关。图d则表明一些青色的异常节点跟红色聚类之间紧密连接。</p>
-<h4 id="美国主要城市的探索"><a href="#美国主要城市的探索" class="headerlink" title="美国主要城市的探索"></a>美国主要城市的探索</h4><p><img src="http://o6vut8vrh.bkt.clouddn.com/18-9-8/38861569.jpg" alt=""></p>
+<h4 id="美国主要城市的探索"><a href="#美国主要城市的探索" class="headerlink" title="美国主要城市的探索"></a>美国主要城市的探索</h4><p><img src="/Users/jackie/Repository/blog/papers/source/_posts/assets/image-20181116171419003.png" alt="image-20181116171419003"></p>
 <p>134个节点代表美国城市，338边则表达了城市之间是相邻的关系。图b利用了聚类透镜，放大了淡蓝色区域。于是节点之间的重叠降低，可以看清这些节点的label。</p>
 <p>而为了寻找华盛顿DC和堪萨斯之间的最短路径，路径透镜则能够放大最短路径周围的区域，良好的展示两个城市之间的关系。</p>
 <p>在上面两个案例研究中，关于结构限制、可读性限制以及时序一致性限制都已经包含在所有的case study里面了。而关于时序一致性可以看视频。</p>
