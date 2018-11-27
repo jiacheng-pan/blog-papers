@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>dyngraph2vec, Capturing Network Dynamics using Dynamic Graph Representation Learning | Jackie Anxis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="dyngraph2vec:Capturing Network Dynamics using Dynamic Graph Representation Learning 论文原文：dyngraph2vec: Capturing Network Dynamics using Dynamic GraphRepresentation Learning 作者：Goyal, Palash, Sujit Rok">
+<meta name="keywords" content="动态图,图数据挖掘,图嵌入">
+<meta property="og:type" content="article">
+<meta property="og:title" content="dyngraph2vec, Capturing Network Dynamics using Dynamic Graph Representation Learning">
+<meta property="og:url" content="http://jackieanxis.github.io/2018/11/26/dyngraph2vec/index.html">
+<meta property="og:site_name" content="Jackie Anxis">
+<meta property="og:description" content="dyngraph2vec:Capturing Network Dynamics using Dynamic Graph Representation Learning 论文原文：dyngraph2vec: Capturing Network Dynamics using Dynamic GraphRepresentation Learning 作者：Goyal, Palash, Sujit Rok">
+<meta property="og:locale" content="Chinese">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/image-20181126170553492.png">
+<meta property="og:updated_time" content="2018-11-27T03:05:00.844Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="dyngraph2vec, Capturing Network Dynamics using Dynamic Graph Representation Learning">
+<meta name="twitter:description" content="dyngraph2vec:Capturing Network Dynamics using Dynamic Graph Representation Learning 论文原文：dyngraph2vec: Capturing Network Dynamics using Dynamic GraphRepresentation Learning 作者：Goyal, Palash, Sujit Rok">
+<meta name="twitter:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/image-20181126170553492.png">
+  
+  
+    <link rel="icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
+  
+  <link rel="stylesheet" href="/blog-papers/css/typing.css">
+  <link rel="stylesheet" href="/blog-papers/css/donate.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+</head>
+
+  
+    
+      <body>
+    
+  
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container" class="container">
+        <article id="post-dyngraph2vec" class="article article-type-post" itemscope itemprop="blogPost">
+  <header id="header" class="header">
+    <div class="mobile-nav">
+      <h1 class="nickname">Jackie Anxis</h1>
+      <a id="menu">
+        &#9776; Menu
+      </a>
+    </div>
+    
+        <nav id="main-nav" class="main-nav nav-left">
+    
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io">Home</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/blog-frontend">FrontEnd</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/blog-cs229">MLcs229</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/blog-papers">PaperReading</a>
+    
+      <a class="main-nav-link" href="https://github.com/JackieAnxis">Github</a>
+    
+      <a class="main-nav-link" href="http://jackieanxis.github.io/blog-others">Others</a>
+    
+      <a class="main-nav-link" href="/blog-papers/about">About</a>
+    
+  </nav>
+</header>
+
+  <hr/>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      dyngraph2vec, Capturing Network Dynamics using Dynamic Graph Representation Learning
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry typo" itemprop="articleBody">
+      
+        <h1 id="dyngraph2vec-Capturing-Network-Dynamics-using-Dynamic-Graph-Representation-Learning"><a href="#dyngraph2vec-Capturing-Network-Dynamics-using-Dynamic-Graph-Representation-Learning" class="headerlink" title="dyngraph2vec:Capturing Network Dynamics using Dynamic Graph Representation Learning"></a>dyngraph2vec:Capturing Network Dynamics using Dynamic Graph Representation Learning</h1><ul>
+<li>论文原文：dyngraph2vec: Capturing Network Dynamics using Dynamic Graph<br>Representation Learning</li>
+<li>作者：Goyal, Palash, Sujit Rokka Chhetri, and Arquimedes Canedo</li>
+<li>发表刊物/会议： arXiv</li>
+</ul>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="问题陈述"><a href="#问题陈述" class="headerlink" title="问题陈述"></a>问题陈述</h3><ul>
+<li>图：$G(V, E)$</li>
+<li>动态图：$\mathcal{G}={G_1,…,G_T}$</li>
+<li>目标：将一个节点，通过学习一个映射方法：$f_t=\lbrace V_1,…,V_t,E_1,…,E_t\rbrace \rarr \Bbb{R}^d$转换为一组低维向量：$y_{v_1},…,y_{v_t}$，其中$y_{v_i}=f_i(V_1,…,V_i,E_1,…,Ei)$，是一个d维的向量，捕获了$1-i$时刻的图动态变换。</li>
+</ul>
+<h4 id="dyngraph2vec"><a href="#dyngraph2vec" class="headerlink" title="dyngraph2vec"></a>dyngraph2vec</h4><p>dyngraph2vec是一个深度学习模型，输入前面几个时间片段的图，即可输出下一个时刻的图。</p>
+<p>模型通过优化下面这个损失函数，来学习时刻$t$的图嵌入（network embedding，即其向量表达）。<br>$$<br>\begin{aligned}<br>L_{t+1} &amp;= \parallel (\hat{A_{t+l+1}}-A_{t+l+1})\odot \mathcal{B} \parallel^2_F \\<br>&amp;= \parallel (f(A_t,…,A_{t+l}) - A_{t+l+1}) \odot \mathcal{B}\parallel ^2_F<br>\end{aligned}<br>$$<br>其中，A表示图的邻接矩阵，$f$函数用来计算$\hat{A}$，也就是对$t+l+1$时刻的图的邻接矩阵的估计。</p>
+<p>$\mathcal{B}$是惩罚项，$\mathcal{B}_{ij}=\beta, for (i,j) \in E_{t+l+1}, else 1$。</p>
+<p>$\odot​$表示一种矩阵的布尔运算，具体定义可以在这个<a href="https://www.math.fsu.edu/~pkirby/mad2104/SlideShow/s5_4.pdf" target="_blank" rel="external">pdf</a>里面找一下（<a href="https://www.math.fsu.edu/~pkirby/mad2104/SlideShow/s5_4.pdf），不再详述。" target="_blank" rel="external">https://www.math.fsu.edu/~pkirby/mad2104/SlideShow/s5_4.pdf），不再详述。</a></p>
+<p>文章使用的深度学习模型有如下三种：$dyngraph2vecAE, dyngraph2vecRNN, dyngraph2vecAERNN$。</p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/image-20181126170553492.png" alt="image-20181126170553492"></p>
+<p>我们可以看到，这三种方法都分成两个步骤，Deep encoders的目的，是输入动态的邻接矩阵，为每个节点生成低维向量；Deep decoders则可以根据低维向量，来生成下一时刻的预测图。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <ul class="article-meta">
+        <li>
+          <span class="label">Published Date:</span>
+          <a href="/blog-papers/2018/11/26/dyngraph2vec/" class="article-date">
+  <time datetime="2018-11-26T02:13:00.000Z" itemprop="datePublished">2018-11-26</time>
+</a>
+
+        </li>
+        
+          <li>
+            <span class="label">Category:</span>
+            
+  <div class="article-category">
+    <a class="article-category-link" href="/blog-papers/categories/图数据挖掘/">图数据挖掘</a>
+  </div>
+
+
+          </li>
+        
+        
+          <li>
+            <span class="label">Tag:</span>
+            
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog-papers/tags/动态图/">动态图</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog-papers/tags/图嵌入/">图嵌入</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog-papers/tags/图数据挖掘/">图数据挖掘</a></li></ul>
+
+
+          </li>
+        
+        <hr/>
+      </ul>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav" class="article-nav">
+  
+    <span id="article-nav-newer" class="article-nav-link-wrap newer"></span>
+  
+  
+    <a href="/blog-papers/2018/11/16/The State of the Art in Visualizing Dynamic Graphs 2014/" id="article-nav-older" class="article-nav-link-wrap older">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">The State of the Art in Visualizing Dynamic Graphs</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+
+
+
+      </div>
+      
+    <footer id="footer" class="post-footer footer">
+      
+      <hr/>
+      <div id="footerContent" class="footer-content">
+        <p>nothing</p>
+
+
+      </div>
+    </footer>
+
+      
+
+
+
+
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog-papers/fancybox/jquery.fancybox.css">
+  <script src="/blog-papers/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog-papers/js/typing.js"></script>
+<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+
+
+
+
+
+
+
+    </div>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>
