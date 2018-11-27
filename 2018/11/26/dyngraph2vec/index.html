@@ -14,7 +14,7 @@
 <meta property="og:description" content="dyngraph2vec:Capturing Network Dynamics using Dynamic Graph Representation Learning 论文原文：dyngraph2vec: Capturing Network Dynamics using Dynamic GraphRepresentation Learning 作者：Goyal, Palash, Sujit Rok">
 <meta property="og:locale" content="Chinese">
 <meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/image-20181126170553492.png">
-<meta property="og:updated_time" content="2018-11-27T03:05:00.844Z">
+<meta property="og:updated_time" content="2018-11-27T03:07:11.103Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="dyngraph2vec, Capturing Network Dynamics using Dynamic Graph Representation Learning">
 <meta name="twitter:description" content="dyngraph2vec:Capturing Network Dynamics using Dynamic Graph Representation Learning 论文原文：dyngraph2vec: Capturing Network Dynamics using Dynamic GraphRepresentation Learning 作者：Goyal, Palash, Sujit Rok">
@@ -87,7 +87,7 @@
 <h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="问题陈述"><a href="#问题陈述" class="headerlink" title="问题陈述"></a>问题陈述</h3><ul>
 <li>图：$G(V, E)$</li>
 <li>动态图：$\mathcal{G}={G_1,…,G_T}$</li>
-<li>目标：将一个节点，通过学习一个映射方法：$f_t=\lbrace V_1,…,V_t,E_1,…,E_t\rbrace \rarr \Bbb{R}^d$转换为一组低维向量：$y_{v_1},…,y_{v_t}$，其中$y_{v_i}=f_i(V_1,…,V_i,E_1,…,Ei)$，是一个d维的向量，捕获了$1-i$时刻的图动态变换。</li>
+<li>目标：将一个节点，通过学习一个映射方法：$f_t=\lbrace V_1,…,V_t,E_1,…,E_t\rbrace \to \Bbb{R}^d$转换为一组低维向量：$y_{v_1},…,y_{v_t}$，其中$y_{v_i}=f_i(V_1,…,V_i,E_1,…,Ei)$，是一个d维的向量，捕获了$1-i$时刻的图动态变换。</li>
 </ul>
 <h4 id="dyngraph2vec"><a href="#dyngraph2vec" class="headerlink" title="dyngraph2vec"></a>dyngraph2vec</h4><p>dyngraph2vec是一个深度学习模型，输入前面几个时间片段的图，即可输出下一个时刻的图。</p>
 <p>模型通过优化下面这个损失函数，来学习时刻$t$的图嵌入（network embedding，即其向量表达）。<br>$$<br>\begin{aligned}<br>L_{t+1} &amp;= \parallel (\hat{A_{t+l+1}}-A_{t+l+1})\odot \mathcal{B} \parallel^2_F \\<br>&amp;= \parallel (f(A_t,…,A_{t+l}) - A_{t+l+1}) \odot \mathcal{B}\parallel ^2_F<br>\end{aligned}<br>$$<br>其中，A表示图的邻接矩阵，$f$函数用来计算$\hat{A}$，也就是对$t+l+1$时刻的图的邻接矩阵的估计。</p>
