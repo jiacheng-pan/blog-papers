@@ -13,23 +13,23 @@
 <meta property="og:site_name" content="Jackie Anxis">
 <meta property="og:description" content="论文原标题：What Would a Graph Look Like in This Layout? A Machine Learning Approach to Large Graph Visualization  为了为图数据挑选一个合适的布局，论文提出了一种机器学习方法，基于用graph kernel计算的图拓扑相似度。这种方法可以显示图结构在不同的布局方法下的外观，并且可以估计这些图在布">
 <meta property="og:locale" content="Chinese">
-<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/2018-06-26-015231.gif">
-<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/2018-06-25-085552.png">
-<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/17-9-1/21892478.jpg">
-<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/17-9-3/37262850.jpg">
-<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/17-9-3/78771086.jpg">
-<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/17-8-31/39145853.jpg">
-<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/17-8-31/55830450.jpg">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/2018-06-26-015231.gif">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/2018-06-25-085552.png">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/17-9-1/21892478.jpg">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/17-9-3/37262850.jpg">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/17-9-3/78771086.jpg">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/17-8-31/39145853.jpg">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/17-8-31/55830450.jpg">
 <meta property="og:image" content="http://jackieanxis.github.io/Users/jackie/Repository/blog/papers/source/_posts/assets/3869351.jpg">
-<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/17-9-3/42643278.jpg">
-<meta property="og:updated_time" content="2018-11-16T09:15:04.501Z">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/17-9-3/42643278.jpg">
+<meta property="og:updated_time" content="2018-11-30T03:02:51.219Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="A Machine Learning Approach to Large Graph Visualization">
 <meta name="twitter:description" content="论文原标题：What Would a Graph Look Like in This Layout? A Machine Learning Approach to Large Graph Visualization  为了为图数据挑选一个合适的布局，论文提出了一种机器学习方法，基于用graph kernel计算的图拓扑相似度。这种方法可以显示图结构在不同的布局方法下的外观，并且可以估计这些图在布">
-<meta name="twitter:image" content="http://o6vut8vrh.bkt.clouddn.com/2018-06-26-015231.gif">
+<meta name="twitter:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/2018-06-26-015231.gif">
   
   
-    <link rel="icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
+    <link rel="icon" href="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/avatar.png">
   
   <link rel="stylesheet" href="/blog-papers/css/typing.css">
   <link rel="stylesheet" href="/blog-papers/css/donate.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -111,7 +111,7 @@
 <h2 id="二、背景"><a href="#二、背景" class="headerlink" title="二、背景"></a>二、背景</h2><p>给定图数据$G$，如何得到某种图布局？</p>
 <p>如果已经有一个数据集${G_1, G_2, \ldots, G_N}$，其中包含了大量的图数据和对应的图布局结果。</p>
 <p>假如可以从中找到一份图数据$G_k$，它的拓扑结构跟$G$最相似，那我们就可以用它的图布局来当做$G$的结果。</p>
-<p><img src="http://o6vut8vrh.bkt.clouddn.com/2018-06-26-015231.gif" alt="6月-26-2018 09-51-54"></p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/2018-06-26-015231.gif" alt="6月-26-2018 09-51-54"></p>
 <p>那么问题来了，如何度量两份图数据之间的拓扑相似度？</p>
 <h3 id="拓扑相似度度量"><a href="#拓扑相似度度量" class="headerlink" title="拓扑相似度度量"></a>拓扑相似度度量</h3><p>也叫做：<em>graph matching, graph comparison, network alignment</em>。</p>
 <ul>
@@ -130,9 +130,9 @@
 <p><em>indeced</em>: Given a graph $G$, a graph $G’ = (V’,E’)$ is a subgraph of $G$ if $V’\subseteq V$ and $E’ \subseteq E$. A subgraph $G’ = (V’,E’)$ is called an <em>induced</em>(or <em>vertex-induced</em>) subgraph of $G$ if $E’ = {(v_i,v_j)|(v_i,v_j) \in E \text{ and }v_i, v_j \in V’}$, that is, all edges in $E$, between two vertices $v_i,v_j \in V’$, are also present in $E’​$. </p>
 </blockquote>
 <p>下图是一个导出子图的示例：</p>
-<p><img src="http://o6vut8vrh.bkt.clouddn.com/2018-06-25-085552.png" alt="image-20180625165552358"></p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/2018-06-25-085552.png" alt="image-20180625165552358"></p>
 <p>下图列举了所有3节点、4节点、5节点的graphlets：</p>
-<p><img src="http://o6vut8vrh.bkt.clouddn.com/17-9-1/21892478.jpg" alt=""></p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/17-9-1/21892478.jpg" alt=""></p>
 <p>$\phi$：如何对输入$x$，生成其高维特征空间$\cal H$的特征向量$\phi(x)$，以便进行内积，生成graph kernel？这里，$x$也就是图$G$。<br>通过计数图中相互独立的图元的个数，统计它们的频率分布，将图元的频率分布向量，得到图的特征向量。</p>
 <h2 id="三、方法"><a href="#三、方法" class="headerlink" title="三、方法"></a>三、方法</h2><h3 id="设计graphlet-kernel的框架"><a href="#设计graphlet-kernel的框架" class="headerlink" title="设计graphlet kernel的框架"></a>设计graphlet kernel的框架</h3><p>一个graphlet kernel的设计，需要以下步骤：</p>
 <ol>
@@ -173,7 +173,7 @@
 <li>选出$k$个最相似图</li>
 </ol>
 <h6 id="图元频率分布的四个例子"><a href="#图元频率分布的四个例子" class="headerlink" title="图元频率分布的四个例子"></a>图元频率分布的四个例子</h6><p>下图中，x轴表示了图元的种类，y轴表示了图元的频率。图a和c的图元频率分布相似，且节点数量也相近，我们可以认为它们两者是拓扑相似图；但是，虽然图b和d的图元频率分布相似，但是因为节点数量相差过大，它们事实上不应该算作相似图。</p>
-<p><img src="http://o6vut8vrh.bkt.clouddn.com/17-9-3/37262850.jpg" alt=""></p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/17-9-3/37262850.jpg" alt=""></p>
 <h3 id="预测图的美学指标（EAM）"><a href="#预测图的美学指标（EAM）" class="headerlink" title="预测图的美学指标（EAM）"></a>预测图的美学指标（EAM）</h3><p>文章把这个方法称为<strong>EAM</strong>(Estimating Aesthetic Metrics)</p>
 <p>美学指标是用来评判一幅图布局的良好状况的一系列指标，既然计算一个图的实际布局结果非常耗时，我们可以训练一个回归模型，用于预测某个新的输入图的美学指标，而不用实际计算布局结果，训练步骤一共分三步：</p>
 <ol>
@@ -247,7 +247,7 @@
 </li>
 </ul>
 <h4 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h4><h5 id="估算精度方面"><a href="#估算精度方面" class="headerlink" title="估算精度方面"></a>估算精度方面</h5><h6 id="部分精度评估结果"><a href="#部分精度评估结果" class="headerlink" title="部分精度评估结果"></a>部分精度评估结果</h6><p>上图展示了四个不同的kernel（RW-LOG-LAPLACIAN, RW-LOG-RBF, RV-LIN-COS, DGK）在八种不同的布局方法（$sfdp, FM^3, FR, KK, Spectral, HDE, Treemap, Gosper$）的四种不同美学指标（$m_c, m_a, m_l, m_s$）的两种不同估算精度度量（$RMES, R^2$）的结果。加粗部分是最佳结果。</p>
-<p><img src="http://o6vut8vrh.bkt.clouddn.com/17-9-3/78771086.jpg" alt=""></p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/17-9-3/78771086.jpg" alt=""></p>
 <ul>
 <li>从上图可以看到，除了在$FM^3$布局下的$m_c$指标以外，RW-LOG-LAPLACIAN kernel的表现都是最佳。而RW-LOG-RBF kernel则在$FM^3$布局下的$m_c$指标表现最佳。DGK排名为第十二名，说明框架产生的kernel大部分都优于这个对照组，也就回答了第三个问题。</li>
 <li>总体而言，RW采样方法得到的结果精确度要高于RV采样方法，LOG变换比LIN变化的精度更高，用LAPLACIAN的核也比其他两者精度更高。</li>
@@ -261,7 +261,7 @@
 <li>RV采样计算速度最慢，每幅图平均6.81秒（标准差为7.04）。</li>
 </ul>
 <h6 id="计算时间和图规模之间的关系"><a href="#计算时间和图规模之间的关系" class="headerlink" title="计算时间和图规模之间的关系"></a>计算时间和图规模之间的关系</h6><p>下图显示了拥有最高精度的RW-LOG-LAPLACIAN kernel，实际计算和估算八种布局结果以及四种美学指标的时间。左图展示了八种布局的<strong>平均实际布局时间以及估算时间（y）</strong>和图<strong>节点数量(x)</strong>之间的关系，右图则展现了不同美学指标的<strong>平均计算时间以及估算时间(y)</strong>与图<strong>节点数量（x）</strong>之间的关系。随着图的规模变大，实际布局计算时间以及美学指标的计算时间和估算时间之间也就拉开了距离。</p>
-<p><img src="http://o6vut8vrh.bkt.clouddn.com/17-8-31/39145853.jpg" alt=""></p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/17-8-31/39145853.jpg" alt=""></p>
 <h4 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h4><ul>
 <li>RW采样方法比RV采样方法精度高，因为RW只采样连通图元，故而我们推测，连通图元对展现图的结构信息更重要，故而估算结果的精度也更高。</li>
 <li>事实上，在用RV采样的过程中，每个图采样10000个图元，发现只有1.913%是连通图元，而有35.77%的图没有采样到连通图元，即便它们这些图本身都是连通的，这就使得这些图本身就很难用于比较。</li>
@@ -275,7 +275,7 @@
 <p>为了避免偏见，实验并没有定义什么叫做“相似”，并且也没有告诉用户，这些图都是用同一种布局方法进行布局的。</p>
 <p>实验采用了九个图数据，八种布局方法进行组合，一共是72个任务。</p>
 <h6 id="用户调研中的其中一个任务示例"><a href="#用户调研中的其中一个任务示例" class="headerlink" title="用户调研中的其中一个任务示例"></a>用户调研中的其中一个任务示例</h6><p>每个任务中，参与者都会面对一个目标图（Target）和九个选项（Choices），他们需要从这些选项中，挑选出和目标最像的三个图，并按照相似度进行排序。a, b, c三个图的中心节点被展示在右边。</p>
-<p><img src="http://o6vut8vrh.bkt.clouddn.com/17-8-31/55830450.jpg" alt=""></p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/17-8-31/55830450.jpg" alt=""></p>
 <h5 id="图的选取"><a href="#图的选取" class="headerlink" title="图的选取"></a>图的选取</h5><ul>
 <li>目标图（Target）：一共选取了9个目标图，选择过程如下：<ol>
 <li>将已有的8000+图，利用谱聚类（spectral clustering）的方法分成9类</li>
@@ -314,7 +314,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="五、讨论"><a href="#五、讨论" class="headerlink" title="五、讨论"></a>五、讨论</h2><p><img src="http://o6vut8vrh.bkt.clouddn.com/17-9-3/42643278.jpg" alt=""></p>
+<h2 id="五、讨论"><a href="#五、讨论" class="headerlink" title="五、讨论"></a>五、讨论</h2><p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/17-9-3/42643278.jpg" alt=""></p>
 <p>上图是8263幅图用RW-LOG-LAPLACIAN kernel计算得到的相似度的一个投影，这一对对的图是9对拓扑结构最相似但却非同构的图。</p>
 <p>这篇论文，为我们进行大图可视化提供了一个新的思路，为了应对大图中高的计算代价，可以通过机器学习的方法，用预计算的代价来代替实时计算。这样就甚至能把大图的某些计算效率提高到实时的级别。</p>
 
@@ -331,7 +331,7 @@
         </li>
         
           <li>
-            <span class="label">Category:</span>
+            <span class="label">Categoría:</span>
             
   <div class="article-category">
     <a class="article-category-link" href="/blog-papers/categories/可视化/">可视化</a>
@@ -358,7 +358,7 @@
 <nav id="article-nav" class="article-nav">
   
     <a href="/blog-papers/2017/10/03/A Survey on Graph Visualization/" id="article-nav-newer" class="article-nav-link-wrap newer">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">Nuevo</strong>
       <div class="article-nav-title">
         
           A Survey on Graph Visualization

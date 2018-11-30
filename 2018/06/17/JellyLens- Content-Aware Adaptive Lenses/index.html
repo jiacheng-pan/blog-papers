@@ -13,17 +13,17 @@
 <meta property="og:site_name" content="Jackie Anxis">
 <meta property="og:description" content="论文原文：JellyLens- Content-Aware Adaptive Lenses 作者：Cyprien Pindat, Emmanuel Pietriga, Olivier Chapuis, Claude Puech 发表刊物/会议：2012 TVCG   作者提出了JellyLens，自适应的鱼眼透镜，根据内容来调整透镜形状，提高了焦点区域内容的可见性，又保留了较大部分的上下文区域。">
 <meta property="og:locale" content="Chinese">
-<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-6-18/18705982.jpg">
-<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-6-18/72742188.jpg">
-<meta property="og:image" content="http://o6vut8vrh.bkt.clouddn.com/18-6-18/33950652.jpg">
-<meta property="og:updated_time" content="2018-06-18T16:42:15.000Z">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/18-6-18/18705982.jpg">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/18-6-18/72742188.jpg">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/18-6-18/33950652.jpg">
+<meta property="og:updated_time" content="2018-11-30T03:02:51.217Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JellyLens, Content-Aware Adaptive Lenses">
 <meta name="twitter:description" content="论文原文：JellyLens- Content-Aware Adaptive Lenses 作者：Cyprien Pindat, Emmanuel Pietriga, Olivier Chapuis, Claude Puech 发表刊物/会议：2012 TVCG   作者提出了JellyLens，自适应的鱼眼透镜，根据内容来调整透镜形状，提高了焦点区域内容的可见性，又保留了较大部分的上下文区域。">
-<meta name="twitter:image" content="http://o6vut8vrh.bkt.clouddn.com/18-6-18/18705982.jpg">
+<meta name="twitter:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/18-6-18/18705982.jpg">
   
   
-    <link rel="icon" href="http://o6vut8vrh.bkt.clouddn.com/avatar.png">
+    <link rel="icon" href="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/avatar.png">
   
   <link rel="stylesheet" href="/blog-papers/css/typing.css">
   <link rel="stylesheet" href="/blog-papers/css/donate.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -86,7 +86,7 @@
 <li>作者：Cyprien Pindat, Emmanuel Pietriga, Olivier Chapuis, Claude Puech</li>
 <li>发表刊物/会议：2012 TVCG</li>
 </ul>
-<p><img src="http://o6vut8vrh.bkt.clouddn.com/18-6-18/18705982.jpg" alt=""></p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/18-6-18/18705982.jpg" alt=""></p>
 <p>作者提出了JellyLens，自适应的鱼眼透镜，根据内容来调整透镜形状，提高了焦点区域内容的可见性，又保留了较大部分的上下文区域。并进行了一个user study来证明其有效性。</p>
 <h2 id="整体思路："><a href="#整体思路：" class="headerlink" title="整体思路："></a>整体思路：</h2><ol>
 <li>引出透镜，表达透镜的益处，然后说明现有透镜的缺点，总结本技术优势和本文贡献点</li>
@@ -114,7 +114,7 @@
 <p>后者则是用来放大一整块填充区域。</p>
 <h3 id="PathLens"><a href="#PathLens" class="headerlink" title="PathLens"></a>PathLens</h3><p>在该种透镜下，透镜形状主要受两个因素的影响：离鼠标的距离和离最近的对象的距离（指的是可以被放大的那些对象，比如地图中的高速公路等）。</p>
 <p>文中用一个隐式函数来导出：当$f({\bf x}) = lens({\bf x - c}) + data({\bf x})=s$时，就是边界。大概效果如下：</p>
-<p><img src="http://o6vut8vrh.bkt.clouddn.com/18-6-18/72742188.jpg" alt=""></p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/18-6-18/72742188.jpg" alt=""></p>
 <h3 id="AreaLens"><a href="#AreaLens" class="headerlink" title="AreaLens"></a>AreaLens</h3><p>相比于前者只考虑最近的对象，AreaLens考虑了所有感兴趣的对象，更适合用来密集区域的块状填充对象。</p>
 <p>所有落在兴趣区域的对象都会有影响，而外面的则不影响。</p>
 <p>提出了四个设计需求：</p>
@@ -133,7 +133,7 @@
 <li><strong>dispersion mapping</strong>：1. 先对移动对象进行位移，位移向量会考虑所有方法对象，并进行加权；2. 缩小这些对象，保证不重叠</li>
 <li><strong>magnification mapping</strong>：离鼠标越近的放大对象则被放的越大</li>
 </ul>
-<p><img src="http://o6vut8vrh.bkt.clouddn.com/18-6-18/33950652.jpg" alt=""></p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/18-6-18/33950652.jpg" alt=""></p>
 <h2 id="EVALUATION"><a href="#EVALUATION" class="headerlink" title="EVALUATION"></a>EVALUATION</h2><p>目标是证明相对固定透镜所拥有的潜在的优点（potential benefits）和缺点（pitfalls）</p>
 <p>比较了AreaLens和普通鱼眼（圆形，高斯核）</p>
 <p>任务是找寻视觉元素</p>
@@ -154,7 +154,7 @@
         </li>
         
           <li>
-            <span class="label">Category:</span>
+            <span class="label">Categoría:</span>
             
   <div class="article-category">
     <a class="article-category-link" href="/blog-papers/categories/可视化/">可视化</a>
@@ -181,7 +181,7 @@
 <nav id="article-nav" class="article-nav">
   
     <a href="/blog-papers/2018/06/24/Wavelet-based Visual Analysis of Dynamic Networks/" id="article-nav-newer" class="article-nav-link-wrap newer">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">Nuevo</strong>
       <div class="article-nav-title">
         
           Wavelet-based Visual Analysis of Dynamic Networks
@@ -191,7 +191,7 @@
   
   
     <a href="/blog-papers/2018/06/09/SchemeLens, A Content-Aware Vector-Based Fisheye Technique for Navigating Large Systems Diagrams/" id="article-nav-older" class="article-nav-link-wrap older">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Viejo</strong>
       <div class="article-nav-title">SchemeLens, A Content-Aware Vector-Based Fisheye Technique for Navigating Large Systems Diagrams</div>
     </a>
   
