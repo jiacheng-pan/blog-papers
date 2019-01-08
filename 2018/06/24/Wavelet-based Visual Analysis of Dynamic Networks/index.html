@@ -6,10 +6,10 @@
   <title>Wavelet-based Visual Analysis of Dynamic Networks | Jackie Anxis</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="论文原文：Wavelet-based Visual Analysis of Dynamic Networks 作者：Alcebiades Dal Col, Paola Valdivia, Fabiano Petronetto, Fabio Dias, Claudio T. Silva, Senior Member 发表刊物/会议：2017 TVCG ps: 语法错误这么多的文章不知道是怎么发出来">
-<meta name="keywords" content="可视化,动态图,图可视化">
+<meta name="keywords" content="可视化,图可视化,动态图">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Wavelet-based Visual Analysis of Dynamic Networks">
-<meta property="og:url" content="http://jackieanxis.github.io/2018/06/24/Wavelet-based Visual Analysis of Dynamic Networks/index.html">
+<meta property="og:url" content="https://blog-papers.github.io/2018/06/24/Wavelet-based Visual Analysis of Dynamic Networks/index.html">
 <meta property="og:site_name" content="Jackie Anxis">
 <meta property="og:description" content="论文原文：Wavelet-based Visual Analysis of Dynamic Networks 作者：Alcebiades Dal Col, Paola Valdivia, Fabiano Petronetto, Fabio Dias, Claudio T. Silva, Senior Member 发表刊物/会议：2017 TVCG ps: 语法错误这么多的文章不知道是怎么发出来">
 <meta property="og:locale" content="Chinese">
@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/2018-06-24-145102.png">
 <meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/2018-06-24-161348.png">
 <meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/2018-06-24-161409.png">
-<meta property="og:updated_time" content="2018-11-30T03:02:51.220Z">
+<meta property="og:updated_time" content="2019-01-07T01:46:38.054Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Wavelet-based Visual Analysis of Dynamic Networks">
 <meta name="twitter:description" content="论文原文：Wavelet-based Visual Analysis of Dynamic Networks 作者：Alcebiades Dal Col, Paola Valdivia, Fabiano Petronetto, Fabio Dias, Claudio T. Silva, Senior Member 发表刊物/会议：2017 TVCG ps: 语法错误这么多的文章不知道是怎么发出来">
@@ -50,17 +50,17 @@
         <nav id="main-nav" class="main-nav nav-left">
     
     
-      <a class="main-nav-link" href="http://jackieanxis.github.io">Home</a>
+      <a class="main-nav-link" href="https://jiacheng-pan.github.io/">Home</a>
     
-      <a class="main-nav-link" href="http://jackieanxis.github.io/blog-frontend">FrontEnd</a>
+      <a class="main-nav-link" href="https://jiacheng-pan.github.io/blog-frontend/">FrontEnd</a>
     
-      <a class="main-nav-link" href="http://jackieanxis.github.io/blog-cs229">MLcs229</a>
+      <a class="main-nav-link" href="https://jiacheng-pan.github.io/blog-cs229/">MLcs229</a>
     
-      <a class="main-nav-link" href="http://jackieanxis.github.io/blog-papers">PaperReading</a>
+      <a class="main-nav-link" href="https://jiacheng-pan.github.io/blog-papers/">PaperReading</a>
     
       <a class="main-nav-link" href="https://github.com/JackieAnxis">Github</a>
     
-      <a class="main-nav-link" href="http://jackieanxis.github.io/blog-others">Others</a>
+      <a class="main-nav-link" href="https://jiacheng-pan.github.io/blog-others/">Others</a>
     
       <a class="main-nav-link" href="/blog-papers/about">About</a>
     
@@ -123,8 +123,7 @@
 <li>usage scenario</li>
 </ol>
 <p>这篇文章是上一篇做静态图的文章的引申。</p>
-<h2 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h2><p>动态图可视化+图小波</p>
-<h2 id="谱图理论"><a href="#谱图理论" class="headerlink" title="谱图理论"></a>谱图理论</h2><p>这一部分，可以见我的另一篇博客，我将这部分做了单独的阐释：<a href="https://jackieanxis.github.io/blog-others/2018/06/19/%E5%9B%BE%E7%9A%84%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/">图的小波变换</a></p>
+<h2 id="谱图理论"><a href="#谱图理论" class="headerlink" title="谱图理论"></a>谱图理论</h2><p>这一部分，可以见我的另一篇博客，我将这部分做了单独的阐释：<a href="https://jackieanxis.github.io/blog-others/2018/06/19/%E5%9B%BE%E7%9A%84%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/" target="_blank" rel="external">图的小波变换</a></p>
 <h2 id="图小波对动态图进行可视分析"><a href="#图小波对动态图进行可视分析" class="headerlink" title="图小波对动态图进行可视分析"></a>图小波对动态图进行可视分析</h2><p>主要涉及两个问题：</p>
 <ol>
 <li>如何定义节点的信号</li>
@@ -137,7 +136,7 @@
 <p>比如：</p>
 <ul>
 <li>在对纽约市的出租车的场景分析中，节点表示了一个区域，而节点的信号则对应这个区域的出租车接客数量，网络中的边则是两个区域之间的乘客上下，边权重则是接送的乘客数量。</li>
-<li>而在另一个场景分析中，作者将人转换成节点，接电信号则是一段时间内这个人的人际交往数量，也就是该节点的度数。</li>
+<li>而在另一个场景分析中，作者将人转换成节点，节点信号则是一段时间内这个人的人际交往数量，也就是该节点的度数。</li>
 </ul>
 <p>总而言之，如果自己定义信号，用图小波变换进行可视分析则是对节点的某个特征在拓扑空间和时间上的分布进行的分析。如果没有定义，那么就是对这个节点的拓扑信息进行了分析。</p>
 <p>还可以控制那些不同时间片段的图之间的连接边的权重，用来控制分析过程中时间的影响。</p>
@@ -168,7 +167,6 @@
 <p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/2018-06-24-161409.png" alt="image-20180625001408755"></p>
 <h4 id="Node-Ranking"><a href="#Node-Ranking" class="headerlink" title="Node Ranking"></a>Node Ranking</h4><p>对节点与该时间片段的相关性来排序。被标记为红色或者橙色的节点，才会认为这种节点和当前时间片会相关。</p>
 <h4 id="Node-Time-Series"><a href="#Node-Time-Series" class="headerlink" title="Node Time Series"></a>Node Time Series</h4><p>展示了某个特定节点随着时间的变化。</p>
-<h2 id="USAGE-SCENARIOS"><a href="#USAGE-SCENARIOS" class="headerlink" title="USAGE SCENARIOS"></a>USAGE SCENARIOS</h2><p>这里就不再详细展开，但长达三页，感兴趣的话可以查看原文。</p>
 
       
     </div>
@@ -183,7 +181,7 @@
         </li>
         
           <li>
-            <span class="label">Categoría:</span>
+            <span class="label">Category:</span>
             
   <div class="article-category">
     <a class="article-category-link" href="/blog-papers/categories/可视化/">可视化</a>
@@ -210,7 +208,7 @@
 <nav id="article-nav" class="article-nav">
   
     <a href="/blog-papers/2018/06/26/HiPiler, Visual Exploration of Large Genome Interaction Matrices with Interactive Small Multiples/" id="article-nav-newer" class="article-nav-link-wrap newer">
-      <strong class="article-nav-caption">Nuevo</strong>
+      <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
           HiPiler Visual Exploration of Large Genome Interaction Matrices with Interactive Small Multiples
@@ -220,7 +218,7 @@
   
   
     <a href="/blog-papers/2018/06/17/JellyLens- Content-Aware Adaptive Lenses/" id="article-nav-older" class="article-nav-link-wrap older">
-      <strong class="article-nav-caption">Viejo</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">JellyLens, Content-Aware Adaptive Lenses</div>
     </a>
   
