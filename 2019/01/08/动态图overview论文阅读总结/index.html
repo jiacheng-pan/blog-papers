@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>动态图overview论文阅读总结 | Jackie Anxis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="NetFork: Mapping Time to Space in Network Visualization Proceedings of the International Working Conference on Advanced Visual Interfaces. ACM 2016  Requirements：  Overview of dynamic activity. 动态活动的概">
+<meta name="keywords" content="可视化,图可视化,动态图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动态图overview论文阅读总结">
+<meta property="og:url" content="https://blog-papers.github.io/2019/01/08/动态图overview论文阅读总结/index.html">
+<meta property="og:site_name" content="Jackie Anxis">
+<meta property="og:description" content="NetFork: Mapping Time to Space in Network Visualization Proceedings of the International Working Conference on Advanced Visual Interfaces. ACM 2016  Requirements：  Overview of dynamic activity. 动态活动的概">
+<meta property="og:locale" content="Chinese">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190109101702184.png">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190109104128274.png">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190109104342835.png">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190109105607389.png">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190109110448825.png">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190109141500847.png">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190109142010096.png">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190110160848832.png">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190111165723729.png">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190111203134834.png">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190111204346817.png">
+<meta property="og:updated_time" content="2019-01-13T12:09:31.367Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="动态图overview论文阅读总结">
+<meta name="twitter:description" content="NetFork: Mapping Time to Space in Network Visualization Proceedings of the International Working Conference on Advanced Visual Interfaces. ACM 2016  Requirements：  Overview of dynamic activity. 动态活动的概">
+<meta name="twitter:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190109101702184.png">
+  
+  
+    <link rel="icon" href="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/avatar.png">
+  
+  <link rel="stylesheet" href="/blog-papers/css/typing.css">
+  <link rel="stylesheet" href="/blog-papers/css/donate.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+</head>
+
+  
+    
+      <body>
+    
+  
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container" class="container">
+        <article id="post-动态图overview论文阅读总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <header id="header" class="header">
+    <div class="mobile-nav">
+      <h1 class="nickname">Jiacheng Pan</h1>
+      <a id="menu">
+        &#9776; Menu
+      </a>
+    </div>
+    
+        <nav id="main-nav" class="main-nav nav-left">
+    
+    
+      <a class="main-nav-link" href="https://jiacheng-pan.github.io/">Home</a>
+    
+      <a class="main-nav-link" href="https://jiacheng-pan.github.io/blog-frontend/">FrontEnd</a>
+    
+      <a class="main-nav-link" href="https://jiacheng-pan.github.io/blog-cs229/">MLcs229</a>
+    
+      <a class="main-nav-link" href="https://jiacheng-pan.github.io/blog-papers/">PaperReading</a>
+    
+      <a class="main-nav-link" href="https://github.com/JackieAnxis">Github</a>
+    
+      <a class="main-nav-link" href="https://jiacheng-pan.github.io/blog-others/">Others</a>
+    
+      <a class="main-nav-link" href="/blog-papers/about">About</a>
+    
+  </nav>
+</header>
+
+  <hr/>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      动态图overview论文阅读总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry typo" itemprop="articleBody">
+      
+        <h3 id="NetFork-Mapping-Time-to-Space-in-Network-Visualization"><a href="#NetFork-Mapping-Time-to-Space-in-Network-Visualization" class="headerlink" title="NetFork: Mapping Time to Space in Network Visualization"></a>NetFork: Mapping Time to Space in Network Visualization</h3><ul>
+<li>Proceedings of the International Working Conference on Advanced Visual Interfaces. ACM 2016</li>
+</ul>
+<p>Requirements：</p>
+<ol>
+<li>Overview of dynamic activity. 动态活动的概览</li>
+<li>Change-cause analysis. 分析变化发生原因</li>
+<li>Identification of impacted sources. 分辨出有影响的源</li>
+<li>Detailed analysis of the temporal evolution of a source-destination path. 对路径的时序演化进行细化分析</li>
+</ol>
+<p>其他不是很有参考价值。</p>
+<h3 id="Visualizing-a-Sequence-of-a-Thousand-Graphs-or-Even-More"><a href="#Visualizing-a-Sequence-of-a-Thousand-Graphs-or-Even-More" class="headerlink" title="Visualizing a Sequence of a Thousand Graphs (or Even More)"></a>Visualizing a Sequence of a Thousand Graphs (or Even More)</h3><ul>
+<li>EuroVis 2017</li>
+</ul>
+<p>文章解决了具有超过1000个时间片段的动态图的展示问题。</p>
+<h4 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h4><ol>
+<li><p>每一个时间步的独立编码：</p>
+<p>转换成二部表示，左边的有向图可以被编码成右图的形式，然后利用抛雪球算法（splatting）来减少边相交；</p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190109101702184.png" alt="image-20190109101702184"></p>
+</li>
+<li><p>不同时间步的叠加：</p>
+<p>将不同的时间片叠加在一起，但保留一个像素的偏移，最终产生最右边的结果</p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190109104128274.png" alt="image-20190109104128274"></p>
+</li>
+<li><p>低通滤波：</p>
+<p>当简单进行叠加时，可能产生下图（a）的结果，边之间有较多的交错；为了使得结果更加平滑，可以使用低通滤波器。不断使用箱型滤波器（box filter）后，就会产生下面（b）（box filter十次迭代）（c）（box filter二十次迭代）的结果，边之间的相交更少了，细节变得不可见的同时，一些较大规模的结构也更容易被看到。<img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190109104342835.png" alt="image-20190109104342835"></p>
+</li>
+<li><p>每一个时间步的宽度调节</p>
+<p>每一个时间步的宽度较小时，就会变成一条直线；但太大时，屏幕空间要求就会加大，能展示的时间步数量就会下降。</p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190109105607389.png" alt="image-20190109105607389"></p>
+</li>
+<li><p>等高线：</p>
+<p>假如等高线之后，就能更好的描述可见结构的形状。</p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190109110448825.png" alt="image-20190109110448825"></p>
+</li>
+</ol>
+<h4 id="交互"><a href="#交互" class="headerlink" title="交互"></a>交互</h4><ol>
+<li>过滤：多种过滤机制来过滤节点、时间等</li>
+<li>聚合和聚类：对接点进行聚合、聚类等</li>
+<li>细节：corsshair function来追踪垂直和水平的位置；</li>
+</ol>
+<h4 id="Patterns"><a href="#Patterns" class="headerlink" title="Patterns"></a>Patterns</h4><ol>
+<li>一般的Pattern</li>
+<li>边Pattern</li>
+<li>动态Pattern<ul>
+<li>repeating patterns</li>
+<li>trend patterns</li>
+<li>contertrend patterns（逆向的）</li>
+<li>temporal shifts</li>
+<li>oscillating/alternating patterns</li>
+<li>outlier/anomaly patterns</li>
+</ul>
+</li>
+</ol>
+<h3 id="Let-It-Flow-a-Static-Method-for-Exploring-Dynamic-Graphs"><a href="#Let-It-Flow-a-Static-Method-for-Exploring-Dynamic-Graphs" class="headerlink" title="Let It Flow: a Static Method for Exploring Dynamic Graphs"></a>Let It Flow: a Static Method for Exploring Dynamic Graphs</h3><ul>
+<li>Visualization Symposium (PacificVis) 2014</li>
+</ul>
+<p>用于总结动态图中的结构特征的标准有：degree, betweenness, closeness, cluster coefficient</p>
+<ol>
+<li><p>根据节点的结构特征（degree, betweenness, closeness, cluster coefficient等）为每个时间步的节点排序，多个时间步最终组成一个矩阵（图中的节点颜色表示了节点的类别信息）：</p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190109141500847.png" alt="image-20190109141500847"></p>
+</li>
+<li><p>根据节点排序的上升下降来为每个时刻的每个节点生成向量：</p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190109142010096.png" alt="image-20190109142010096"></p>
+</li>
+<li><p>利用Line Integral Convolution（LIC）将向量渲染成一系列连续的流图（下图a至b）</p>
+</li>
+<li><p>将相似颜色、相似方向的向量进行合并以加强主要的趋势（下图c）</p>
+</li>
+<li><p>alpha blending（下图d）</p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190110160848832.png" alt="image-20190110160848832"></p>
+</li>
+</ol>
+<h3 id="Exploring-Evolution-of-Dynamic-Networks-via-Diachronic-Node-Embeddings"><a href="#Exploring-Evolution-of-Dynamic-Networks-via-Diachronic-Node-Embeddings" class="headerlink" title="Exploring Evolution of Dynamic Networks via Diachronic Node Embeddings"></a>Exploring Evolution of Dynamic Networks via Diachronic Node Embeddings</h3><ul>
+<li>2018TVCG</li>
+</ul>
+<p>五个设计目标：</p>
+<p>G1. The evolution analysis of the network as a whole. 网络整体的演变分析</p>
+<p>G2. The evolution analysis of dynamic nodes. 动态节点的演变分析</p>
+<p>G3. The temporal analysis of temporal communities. 动态社团的时序分析</p>
+<p>G4. The structural analysis of stable communities. 稳定社团的结构分析</p>
+<p>G5. Relate the analysis to the original networks. 将分析关联至原始网络（可以用来验证）</p>
+<p>方法：</p>
+<ol>
+<li>对每一时间步的每一个节点都做了高维空间嵌入（为了保证每一帧的嵌入结果尺度一致，作者做了一个缩放Embedding Alignment）。</li>
+<li>利用PCA将至一维，颜色可以用来编码：时间、节点年龄、节点分类、演变值等等</li>
+<li>这个方法的好处在于，图嵌入方法将至一维后仍然能够很好地将社团聚集在一起</li>
+</ol>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190111165723729.png" alt="image-20190111165723729"></p>
+<h3 id="Reducing-Snapshots-to-Points"><a href="#Reducing-Snapshots-to-Points" class="headerlink" title="Reducing Snapshots to Points"></a>Reducing Snapshots to Points</h3><p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190111203134834.png" alt="image-20190111203134834"></p>
+<ol>
+<li>Discretization：将事件离散化为多个动态网络</li>
+<li>Vectorization &amp; Normalization：将$|V|\times|V|$的邻接矩阵表达转换为行向量$1 \times |V|^2$，N个帧就会形成$N \times |V|^2$的矩阵，每一行表达一帧，每一列则是一条边随着时间的变化。当然，除了邻接矩阵，其他矩阵也可使用。对这些高维空间的向量进行归一化，比如：Binarization，Min-Max，Z-score等。</li>
+<li>Dimensionality Reduction：先使用了PCA，但是也可以使用MDS和t-SNE（这两者在欧几里得距离度量下表现较好）。kolmogorov-smirnov test和Degree Distribution Quantification and Comparison可以用于提供两个网络之间的结构比较（距离计算）</li>
+</ol>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190111204346817.png" alt="image-20190111204346817"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <ul class="article-meta">
+        <li>
+          <span class="label">Published Date:</span>
+          <a href="/blog-papers/2019/01/08/动态图overview论文阅读总结/" class="article-date">
+  <time datetime="2019-01-08T08:22:00.000Z" itemprop="datePublished">2019-01-08</time>
+</a>
+
+        </li>
+        
+          <li>
+            <span class="label">Category:</span>
+            
+  <div class="article-category">
+    <a class="article-category-link" href="/blog-papers/categories/可视化/">可视化</a>
+  </div>
+
+
+          </li>
+        
+        
+          <li>
+            <span class="label">Tag:</span>
+            
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog-papers/tags/动态图/">动态图</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog-papers/tags/可视化/">可视化</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog-papers/tags/图可视化/">图可视化</a></li></ul>
+
+
+          </li>
+        
+        <hr/>
+      </ul>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav" class="article-nav">
+  
+    <span id="article-nav-newer" class="article-nav-link-wrap newer"></span>
+  
+  
+    <a href="/blog-papers/2018/11/26/dyngraph2vec/" id="article-nav-older" class="article-nav-link-wrap older">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">dyngraph2vec, Capturing Network Dynamics using Dynamic Graph Representation Learning</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+
+
+
+      </div>
+      
+    <footer id="footer" class="post-footer footer">
+      
+      <hr/>
+      <div id="footerContent" class="footer-content">
+        <p>nothing</p>
+
+
+      </div>
+    </footer>
+
+      
+
+
+
+
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog-papers/fancybox/jquery.fancybox.css">
+  <script src="/blog-papers/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog-papers/js/typing.js"></script>
+<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+
+
+
+
+
+
+
+    </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  </body>
+</html>
