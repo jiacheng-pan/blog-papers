@@ -16,7 +16,6 @@
 <meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190109101702184.png">
 <meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190109104128274.png">
 <meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190109104342835.png">
-<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190109105607389.png">
 <meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190109110448825.png">
 <meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190109141500847.png">
 <meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190109142010096.png">
@@ -24,7 +23,7 @@
 <meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190111165723729.png">
 <meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190111203134834.png">
 <meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190111204346817.png">
-<meta property="og:updated_time" content="2019-01-13T12:09:31.367Z">
+<meta property="og:updated_time" content="2019-01-14T07:29:32.321Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="动态图overview论文阅读总结">
 <meta name="twitter:description" content="NetFork: Mapping Time to Space in Network Visualization Proceedings of the International Working Conference on Advanced Visual Interfaces. ACM 2016  Requirements：  Overview of dynamic activity. 动态活动的概">
@@ -118,7 +117,7 @@
 </li>
 <li><p>每一个时间步的宽度调节</p>
 <p>每一个时间步的宽度较小时，就会变成一条直线；但太大时，屏幕空间要求就会加大，能展示的时间步数量就会下降。</p>
-<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-01-13/image-20190109105607389.png" alt="image-20190109105607389"></p>
+<p>​    </p>
 </li>
 <li><p>等高线：</p>
 <p>假如等高线之后，就能更好的描述可见结构的形状。</p>
@@ -173,7 +172,7 @@
 <p>G5. Relate the analysis to the original networks. 将分析关联至原始网络（可以用来验证）</p>
 <p>方法：</p>
 <ol>
-<li>对每一时间步的每一个节点都做了高维空间嵌入（为了保证每一帧的嵌入结果尺度一致，作者做了一个缩放Embedding Alignment）。</li>
+<li>对每一时间步的每一个节点都做了高维空间嵌入（为了保证每一帧的嵌入结果尺度一致，作者做了一个缩放Embedding Alignment）</li>
 <li>利用PCA将至一维，颜色可以用来编码：时间、节点年龄、节点分类、演变值等等</li>
 <li>这个方法的好处在于，图嵌入方法将至一维后仍然能够很好地将社团聚集在一起</li>
 </ol>
@@ -281,7 +280,22 @@
 
 
 
-    </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+    </div>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -299,5 +313,5 @@
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-  </body>
+</body>
 </html>
