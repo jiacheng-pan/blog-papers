@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>Exploring Evolution of Dynamic Networks via Diachronic Node Embeddings | Jackie Anxis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="论文原文：Exploring Evolution of Dynamic Networks via Diachronic Node Embeddings 作者：Jin Xu, Yubo Tao, Yuyu Yan, and Hai Lin 发表刊物/会议：2018 TVCG  文章提出了一种利用graph embedding的方法来探索动态图的方法。 一般而言，传统的动态图可视化方法可以分成三大类">
+<meta name="keywords" content="可视化,图可视化,动态图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Exploring Evolution of Dynamic Networks via Diachronic Node Embeddings">
+<meta property="og:url" content="https://blog-papers.github.io/2018/06/24/Exploring Evolution of Dynamic Networks via Diachronic Node Embeddings/index.html">
+<meta property="og:site_name" content="Jackie Anxis">
+<meta property="og:description" content="论文原文：Exploring Evolution of Dynamic Networks via Diachronic Node Embeddings 作者：Jin Xu, Yubo Tao, Yuyu Yan, and Hai Lin 发表刊物/会议：2018 TVCG  文章提出了一种利用graph embedding的方法来探索动态图的方法。 一般而言，传统的动态图可视化方法可以分成三大类">
+<meta property="og:locale" content="Chinese">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-04-19/image-20190419093928524.png">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-04-19/image-20190419094742711.png">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-04-19/image-20190419095824934.png">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-04-19/image-20190419102118181.png">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-04-19/image-20190419124832137.png">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-04-19/image-20190419150937094.png">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-04-19/image-20190419151704779.png">
+<meta property="og:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-04-19/image-20190419152305401.png">
+<meta property="og:updated_time" content="2019-04-19T07:28:15.437Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Exploring Evolution of Dynamic Networks via Diachronic Node Embeddings">
+<meta name="twitter:description" content="论文原文：Exploring Evolution of Dynamic Networks via Diachronic Node Embeddings 作者：Jin Xu, Yubo Tao, Yuyu Yan, and Hai Lin 发表刊物/会议：2018 TVCG  文章提出了一种利用graph embedding的方法来探索动态图的方法。 一般而言，传统的动态图可视化方法可以分成三大类">
+<meta name="twitter:image" content="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-04-19/image-20190419093928524.png">
+  
+  
+    <link rel="icon" href="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/avatar.png">
+  
+  <link rel="stylesheet" href="/blog-papers/css/typing.css">
+  <link rel="stylesheet" href="/blog-papers/css/donate.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+</head>
+
+  
+    
+      <body>
+    
+  
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container" class="container">
+        <article id="post-Exploring Evolution of Dynamic Networks via Diachronic Node Embeddings" class="article article-type-post" itemscope itemprop="blogPost">
+  <header id="header" class="header">
+    <div class="mobile-nav">
+      <h1 class="nickname">Jiacheng Pan</h1>
+      <a id="menu">
+        &#9776; Menu
+      </a>
+    </div>
+    
+        <nav id="main-nav" class="main-nav nav-left">
+    
+    
+      <a class="main-nav-link" href="https://jiacheng-pan.github.io/">Home</a>
+    
+      <a class="main-nav-link" href="https://jiacheng-pan.github.io/blog-frontend/">FrontEnd</a>
+    
+      <a class="main-nav-link" href="https://jiacheng-pan.github.io/wiki/">Wiki</a>
+    
+      <a class="main-nav-link" href="https://jiacheng-pan.github.io/blog-papers/">PaperReading</a>
+    
+      <a class="main-nav-link" href="https://github.com/JackieAnxis">Github</a>
+    
+      <a class="main-nav-link" href="https://jiacheng-pan.github.io/blog-others/">Others</a>
+    
+  </nav>
+</header>
+
+  <hr/>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Exploring Evolution of Dynamic Networks via Diachronic Node Embeddings
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry typo" itemprop="articleBody">
+      
+        <ul>
+<li>论文原文：Exploring Evolution of Dynamic Networks via Diachronic Node Embeddings</li>
+<li>作者：Jin Xu, Yubo Tao, Yuyu Yan, and Hai Lin</li>
+<li>发表刊物/会议：2018 TVCG</li>
+</ul>
+<p>文章提出了一种利用graph embedding的方法来探索动态图的方法。</p>
+<p>一般而言，传统的动态图可视化方法可以分成三大类，基于动画的方法（animation），基于时间轴的方法（timeline），以及其他方法（如投影 projection）。基于动画的方法，往往会高亮相邻两帧之间的变化，但是当时间比较长的时候无法追踪变化；基于时间轴的方法，则将所有内容一起显示在同个视图中，但空间是个问题；基于投影的方法，把每一帧当做一个点，用投影的方法投影在一个视图中，但是很难展现图的结构的信息；</p>
+<p>文章提出了一种同时展示结构属性和动态属性的可视分析方法。具体步骤如下：</p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-04-19/image-20190419093928524.png" alt="image-20190419093928524"></p>
+<p>A生成动态图，B为动态图每一帧的每个节点生成embedding向量，C将这些embedding向量对齐到同一向量空间中，DEF利用embedding向量可以做的数据挖掘（节点分类，节点聚类，动态轨迹聚类），G可视交互分析；</p>
+<p>文章的主要贡献有：</p>
+<ol>
+<li>提出了一种新的节点embedding的方法</li>
+<li>提出了两种基于节点embedding的动态图聚类方法</li>
+<li>一个可视分析交互系统</li>
+</ol>
+<h3 id="动态图的构建"><a href="#动态图的构建" class="headerlink" title="动态图的构建"></a>动态图的构建</h3><p>首先，将动态图按照$\Delta t$的时间间隔，划分成多个时间片段，然后将$[t_i-\omega/2, t_i+\omega/2)$作为$t_i$时刻对应的动态图。</p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-04-19/image-20190419094742711.png" alt="image-20190419094742711"></p>
+<h3 id="节点embedding向量的生成"><a href="#节点embedding向量的生成" class="headerlink" title="节点embedding向量的生成"></a>节点embedding向量的生成</h3><p>文章利用了skip-gram模型为单帧图的每一个节点生成embedding向量；</p>
+<p>skip-gram模型可以理解为，当你输入一系列句子（sentences），以及包含这些句子中的词的语料库（corpus），skip-gram模型会为你预测语料库中的单词出现在某个指定的单词（word）附近的概率；这个过程中，会有一个重要的产物，叫做词向量，利用两个词向量的内积，我们就可以看到两个词在句子中共同出现的概率有多高；</p>
+<p>skip-gram模型的目标函数，可以看做在最大化，同个句子中的相邻词汇的词向量的内积。</p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-04-19/image-20190419095824934.png" alt="image-20190419095824934"></p>
+<p>文章同样利用了skip-gram模型，做了如下修改：</p>
+<p>用节点（node）替代词（word），用路径（path）替代句子（sentence），用节点集合（nodes set）代替语料库（corpus），于是也可以产生节点向量。</p>
+<p>值得注意的有：</p>
+<ol>
+<li><p>path的生成，靠的是random walk，假如图是一个有权图（weighted），那么random walk也需要依赖边权重。并且，为了提高效率，文章使用了负采样。</p>
+</li>
+<li><p>skip-gram模型的目标函数的修改。这里不仅仅要使得同一路径上的节点出现概率高，还要使得不相邻的节点共同出现的概率低：</p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-04-19/image-20190419102118181.png" alt="image-20190419102118181"></p>
+</li>
+<li><p>将上一帧产生的embedding向量，传入下一帧的skip-gram模型中，用以保持两帧之间的连续性：</p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-04-19/image-20190419124832137.png" alt="image-20190419124832137"></p>
+</li>
+</ol>
+<h3 id="embedding向量对齐"><a href="#embedding向量对齐" class="headerlink" title="embedding向量对齐"></a>embedding向量对齐</h3><p>为了使得所有的embedding向量能够对齐到同一个向量空间中，方便比较和计算。所以这一步要对embedding向量进行正交变换，使得下面这个矩阵范数最小（也即差异最小）：<br>$$<br>\left|M_{i} \Omega-M_{b}\right|_{F}<br>$$<br>其中$M_i$表示第$i$帧的向量构成的矩阵（$n \times d$）；$\Omega$指的是正交变换矩阵；$M_b$指的是基准矩阵，也就是所有embedding向量都要对齐到这个基准矩阵上来；$\left|*\right|_{F}$则是Frobenius矩阵范数。</p>
+<p>关于$M_b$的选取，有三种不同的方法：</p>
+<ol>
+<li>对齐到节点数最多的一帧（适合于变化较小的动态图）</li>
+<li>对齐到前一帧（因为两帧之间的变化不大，所以误差会较小，但是不断对齐的过程中，误差就会累计）</li>
+<li>将所有帧分成好几段，每一段都对齐到其中的某一帧（解决了上面的问题）</li>
+</ol>
+<h3 id="节点分类和聚类"><a href="#节点分类和聚类" class="headerlink" title="节点分类和聚类"></a>节点分类和聚类</h3><ol>
+<li><p>节点的分类：</p>
+<p>根据前后两帧之间节点embedding的变化，可以判断这个节点是dynamic（动态）还是stable（稳定）。</p>
+<p>当前后两帧的节点之间的欧氏距离（文中叫做evolution value）,大于阈值$\theta$时，则认为其为dynamic；</p>
+</li>
+<li><p>节点聚类：</p>
+<p>可以用于揭示某一段时间内，稳定的社团结构。文章提出了稳定的概念，也就是大部分节点在这段时间内维持一个stable的状态。那么，在一段稳定时间内，将同一节点不同时间的所有向量求均值，就作为这段时间内该节点的向量。然后利用这些节点进行k-means聚类，即可得到不同的聚类（社团）。</p>
+</li>
+<li><p>趋势聚类：</p>
+<p>如何对节点随时间变化的趋势进行聚类。两个节点随时间演化产生的两条轨迹，可以利用如下方法判断距离：</p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-04-19/image-20190419150937094.png" alt="image-20190419150937094"></p>
+<p>同一时刻，两个节点的向量求欧氏距离；所有时刻的所有欧氏距离的平均值，作为两条轨迹的距离。</p>
+<p>利用knn graph，就可以对这些轨迹进行聚类。</p>
+</li>
+</ol>
+<h3 id="系统界面"><a href="#系统界面" class="headerlink" title="系统界面"></a>系统界面</h3><p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-04-19/image-20190419151704779.png" alt="image-20190419151704779"></p>
+<p>文章提出五个分析目标：</p>
+<ol>
+<li>整体网络的演化分析</li>
+<li>动态节点的演化分析</li>
+<li>动态社团的时序分析</li>
+<li>稳定社团的结构分析</li>
+<li>将分析与网络的整体进行关联</li>
+</ol>
+<p>分析系统的视图与这五个目标对应：</p>
+<h4 id="控制面板（A）"><a href="#控制面板（A）" class="headerlink" title="控制面板（A）"></a>控制面板（A）</h4><h4 id="统计视图（B）"><a href="#统计视图（B）" class="headerlink" title="统计视图（B）"></a>统计视图（B）</h4><p>对应目标1</p>
+<p>横轴表示时间，纵轴表示网络的平均演变值（evolution value），用以刻画网络的整体趋势；其中的统计直方图分别用红、绿、紫分别表示动态节点数量，新出现节点数量和消失的节点数量。</p>
+<h4 id="节点视图（D）"><a href="#节点视图（D）" class="headerlink" title="节点视图（D）"></a>节点视图（D）</h4><p>对应目标2</p>
+<p>横轴表示时间，纵轴则表示节点的演变值从低到高。只展示动态的节点，并且用黄到红的颜色映射来表示节点的演变值。</p>
+<h4 id="趋势视图（C）"><a href="#趋势视图（C）" class="headerlink" title="趋势视图（C）"></a>趋势视图（C）</h4><p>对应目标3</p>
+<p>横轴：时间；纵轴：利用PCA，将节点向量投影至1维，并用线连起来。可以看到很多不同的社团演化，其中比较特殊的有如下：</p>
+<p><img src="http://jackie-image.oss-cn-hangzhou.aliyuncs.com/19-04-19/image-20190419152305401.png" alt="image-20190419152305401"></p>
+<h4 id="结构视图（E）"><a href="#结构视图（E）" class="headerlink" title="结构视图（E）"></a>结构视图（E）</h4><p>对应目标4</p>
+<p>用PCA按照节点向量，投影至二维。</p>
+<p>灰色表示稳定的节点，并且用大小来表示稳定的持续时间；动态节点则用了粉色-绿色的颜色映射来展示演变值。凸包围盒则用以概括不同的社团。</p>
+<h4 id="snapshot视图（F）"><a href="#snapshot视图（F）" class="headerlink" title="snapshot视图（F）"></a>snapshot视图（F）</h4><p>对应目标5</p>
+<p>将以往探索过的结构记录在最右方。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <ul class="article-meta">
+        <li>
+          <span class="label">Published Date:</span>
+          <a href="/blog-papers/2018/06/24/Exploring Evolution of Dynamic Networks via Diachronic Node Embeddings/" class="article-date">
+  <time datetime="2018-06-24T13:19:00.000Z" itemprop="datePublished">2018-06-24</time>
+</a>
+
+        </li>
+        
+          <li>
+            <span class="label">Category:</span>
+            
+  <div class="article-category">
+    <a class="article-category-link" href="/blog-papers/categories/可视化/">可视化</a>
+  </div>
+
+
+          </li>
+        
+        
+          <li>
+            <span class="label">Tag:</span>
+            
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog-papers/tags/动态图/">动态图</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog-papers/tags/可视化/">可视化</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog-papers/tags/图可视化/">图可视化</a></li></ul>
+
+
+          </li>
+        
+        <hr/>
+      </ul>
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav" class="article-nav">
+  
+    <a href="/blog-papers/2018/06/26/HiPiler, Visual Exploration of Large Genome Interaction Matrices with Interactive Small Multiples/" id="article-nav-newer" class="article-nav-link-wrap newer">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          HiPiler Visual Exploration of Large Genome Interaction Matrices with Interactive Small Multiples
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog-papers/2018/06/24/Wavelet-based Visual Analysis of Dynamic Networks/" id="article-nav-older" class="article-nav-link-wrap older">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Wavelet-based Visual Analysis of Dynamic Networks</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+
+
+
+      </div>
+      
+    <footer id="footer" class="post-footer footer">
+      
+      <hr/>
+      <div id="footerContent" class="footer-content">
+        <p>nothing</p>
+
+
+      </div>
+    </footer>
+
+      
+
+
+
+
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog-papers/fancybox/jquery.fancybox.css">
+  <script src="/blog-papers/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog-papers/js/typing.js"></script>
+<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+
+
+
+
+
+
+
+    </div>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>
